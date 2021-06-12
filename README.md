@@ -16,7 +16,8 @@ Fruit Ninja GL è un clone di Fruit Ninja sviluppato in OpenGL dalla" Space Mamb
   <img src="./relazione/images/ch10/a2.png" height="200"/>
   <img src="./relazione/images/ch10/a1.jpg" height="200"/> <br>
   <img src="./relazione/images/ch10/a3.jpg" height="200"/>
-  <img src="./relazione/images/ch10/a4.jpg" height="200"/>
+  <img src="./relazione/images/ch10/a4.jpg" height="200"/> <br>
+  Some game screens.
 </p>
 
 The player will have 1:30 minutes to slice as many points as possible by making combos and blitzes to maximize the final score. To complete the whole there are the original music and effects of the game trying to replicate the graphics in detail.
@@ -42,7 +43,7 @@ The rendering of the various objects is carried out using the various buffers (V
 ###  State Engine
 The game engine is based on the Game State 'Stack', another very popular architectural pattern for managing the various possible game states (Loading, playng, pause, game over, ...).
 
-##  Descrizione Architetturale
+## Project structure
 Architecturally FruitNinjaGL is structured in five _macro-modules_ each of which is responsible for managing a part of the application.
 - `core/` classes aimed at managing low-level OpenGL and non-OpenGL details.
 - `ecs/` implementation of ECS with components, systems and related entity management classes.
