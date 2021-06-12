@@ -1,0 +1,13 @@
+namespace fn {
+/** @mainpage FruitNinja GL
+
+* *Un clone del famoso gioco sviluppato in OpenGL.*
+
+Documentazione di FruitNinjaGL gioco sviluppato per il progetto di
+Computer Graphics: Animation and Simulation
+
+@image html doc/pages/image.png
+
+*/
+}
+

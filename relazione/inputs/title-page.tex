@@ -1,0 +1,67 @@
+% ------------------------------------------------------------------------ %
+%	Title                                                                  %
+% ------------------------------------------------------------------------ %
+
+\thispagestyle{empty}
+\pagenumbering{gobble}
+\clearpage
+
+\begingroup
+\clearpage% Manually insert \clearpage
+\let\clearpage\relax% Remove \clearpage functionality
+\vspace*{-3.5cm}% Insert needed vertical retraction
+{
+	\begin{minipage}[t]{0.75\linewidth}
+		\large {\textsc{universita degli studi di napoli ``Parthenope''}}\\
+		{\textsc{facoltà di scienze e tecnologie}}\\
+		{\normalsize\textsc{corso di laurea in informatica applicata}}\\
+		{\normalsize\textsc{machine learning e big data}}\\
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.2\linewidth}
+		\centering
+		\vskip 2.0cm
+		\includegraphics[width=\textwidth]{images/title/logo-parthenope}
+	\end{minipage}
+}
+\endgroup
+
+{	
+
+	\vskip 3.5cm
+	\begin{tikzpicture}[overlay,remember picture]
+	\node[inner sep=0pt] (A) at (8,0.2) {\includegraphics[width=0.6\textwidth]{images/title/logo}};
+	\end{tikzpicture}	
+	\vspace{2.3cm}
+	
+	\begin{center}
+		\Huge  
+		\textbf{Fruit Ninja GL}\\ Clone OpenGL del famoso gioco mobile
+	\end{center}
+	\Large \centerline {\textsc{relazione progetto computer grahics: animation and simulation}}
+	\vspace{4.0cm}
+
+	\Large
+	\begin{minipage}[t]{7cm}
+		\Large
+		\textsc{docente}\\
+		\textit{Prof.}
+		Maurizio \textsc{de nino}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{5cm}
+		\Large
+		\hfill \textsc{studente}
+		
+		\hfill Giuseppe Pio \emph{Cianci}
+		
+		\hfill 0120000178
+	\end{minipage}
+	
+	
+	\vfill
+	\vskip 2.0 cm \large \centerline {Anno Accademico 2018-2019}
+}
+\newpage
+\clearpage
+\frontmatter % turns off chapter numbering and uses roman numerals for page numbers;

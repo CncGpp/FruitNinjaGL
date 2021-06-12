@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespaceassets" kind="namespace" language="C++">
+    <compoundname>assets</compoundname>
+    <innernamespace refid="namespaceassets_1_1dir">assets::dir</innernamespace>
+    <innernamespace refid="namespaceassets_1_1res">assets::res</innernamespace>
+    <briefdescription>
+<para>Raccolta di percorsi e variabili relative agli asset. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/assets/assets.hpp" line="11" column="1"/>
+  </compounddef>
+</doxygen>

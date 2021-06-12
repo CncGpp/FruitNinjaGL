@@ -1,0 +1,13 @@
+#version 330
+ 
+uniform int r;
+uniform int g;
+uniform int b;
+uniform int a;
+ 
+out vec4 outputF;
+ 
+void main()
+{
+    outputF = vec4(r/255.0, g/255.0, b/255.0, a/255.0);
+}

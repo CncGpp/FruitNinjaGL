@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespaceassets_1_1dir" kind="namespace" language="C++">
+    <compoundname>assets::dir</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceassets_1_1dir_1a3a41eb2b18f22108b33c1f0808d7b824" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::dir::models</definition>
+        <argsstring></argsstring>
+        <name>models</name>
+        <initializer>= &quot;res/models&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="15" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1dir_1ad8e47cf027d23b46bc216810362cd9b5" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::dir::shaders</definition>
+        <argsstring></argsstring>
+        <name>shaders</name>
+        <initializer>= &quot;res/shaders&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="16" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1dir_1a5bce5a34a7d1805d5f6d0994c598c7c6" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::dir::textures</definition>
+        <argsstring></argsstring>
+        <name>textures</name>
+        <initializer>= &quot;res/textures&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="17" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1dir_1ab74fd67f42f131f9e97972caf059c91b" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::dir::sprites</definition>
+        <argsstring></argsstring>
+        <name>sprites</name>
+        <initializer>= &quot;res/<ref refid="namespaceassets_1_1dir_1a5bce5a34a7d1805d5f6d0994c598c7c6" kindref="member">textures</ref>/sprites&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="18" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1dir_1a98fee041d9ebaa1417418ec0633a9b1e" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::dir::sounds</definition>
+        <argsstring></argsstring>
+        <name>sounds</name>
+        <initializer>= &quot;res/sounds&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="19" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1dir_1a249cd0c4cb06d87483517f4981d46157" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::dir::musics</definition>
+        <argsstring></argsstring>
+        <name>musics</name>
+        <initializer>= &quot;res/musics&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="20" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Directory di base alle varie risorse e asset di gioco. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/assets/assets.hpp" line="14" column="1"/>
+  </compounddef>
+</doxygen>

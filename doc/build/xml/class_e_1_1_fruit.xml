@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_e_1_1_fruit" kind="class" language="C++" prot="public">
+    <compoundname>E::Fruit</compoundname>
+    <basecompoundref refid="classfn_1_1_entity" prot="public" virt="non-virtual">fn::Entity</basecompoundref>
+    <includes refid="_fruit_8hpp" local="no">fn/ecs/entities/Fruit.hpp</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_e_1_1_fruit_1adead6d86c2d73a567906251114d500fa" prot="private" static="yes" mutable="no">
+        <type>const auto</type>
+        <definition>const auto E::Fruit::S_DEFAULT_VERTEX_SHADER</definition>
+        <argsstring></argsstring>
+        <name>S_DEFAULT_VERTEX_SHADER</name>
+        <initializer>= <ref refid="namespaceassets_1_1dir_1ad8e47cf027d23b46bc216810362cd9b5" kindref="member">assets::dir::shaders</ref> / &quot;fruits&quot; / &quot;default.vglsl&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="51" column="26" bodyfile="fn/ecs/entities/Fruit.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_e_1_1_fruit_1ac47985e7c883b9333b62712a5cfc711e" prot="private" static="yes" mutable="no">
+        <type>const auto</type>
+        <definition>const auto E::Fruit::S_DEFAULT_FRAGMENT_SHADER</definition>
+        <argsstring></argsstring>
+        <name>S_DEFAULT_FRAGMENT_SHADER</name>
+        <initializer>= <ref refid="namespaceassets_1_1dir_1ad8e47cf027d23b46bc216810362cd9b5" kindref="member">assets::dir::shaders</ref> / &quot;fruits&quot; / &quot;default.fglsl&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="52" column="26" bodyfile="fn/ecs/entities/Fruit.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_e_1_1_fruit_1a83c0ba5032b54ed5cfffa9db7cac56fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_e_1_1_fruit" kindref="compound">Fruit</ref></type>
+        <definition>Fruit E::Fruit::make</definition>
+        <argsstring>(fn::Database &amp;db, const Fruits &amp;fruit, const Fruits::Model model_kind=Fruits::Model::whole)</argsstring>
+        <name>make</name>
+        <param>
+          <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_fruits" kindref="compound">Fruits</ref> &amp;</type>
+          <declname>fruit</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_fruits_1a04b243038ae99bd3bd49e6c6bc4db077" kindref="member">Fruits::Model</ref></type>
+          <declname>model_kind</declname>
+          <defval><ref refid="class_fruits_1a04b243038ae99bd3bd49e6c6bc4db077a356c9ee60e9da05301adc3bd96f6b383" kindref="member">Fruits::Model::whole</ref></defval>
+        </param>
+        <briefdescription>
+<para>Costruisce una nuova entità con componenti fruit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>db</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>database necessario alla creazione dell&apos;entità. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fruit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tipologia del frutto da costruite. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>model_kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tipo di modello del frutto da costruire. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Una entity con le componenti necessarie. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="31" column="15" bodyfile="fn/ecs/entities/Fruit.cpp" bodystart="7" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_e_1_1_fruit_1afa5c38ade234817a022b03691ccaf9e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void E::Fruit::split</definition>
+        <argsstring>(fn::Database &amp;db, const fn::Eid eid)</argsstring>
+        <name>split</name>
+        <param>
+          <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacefn_1a6b50c9f0e2b5922bc2348ed71840a29d" kindref="member">fn::Eid</ref></type>
+          <declname>eid</declname>
+        </param>
+        <briefdescription>
+<para>Effettua lo split di un frutto in due entità. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Divide un frutto con model_kind::whole nelle due sue parti, creando due entità a partire da quella attuale che viene poi distrutta.</para>
+<para>Le due perti generate avranno due nuovi vettori velocità e rotazione calcolati a partire dal frutto originario.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>db</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Database da utilizzare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>eid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>identificativo dell&apos;entità frutto da splittare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="45" column="14" bodyfile="fn/ecs/entities/Fruit.cpp" bodystart="24" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_e_1_1_fruit_1a2ea386570871c6fec21a24758017b7f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>E::Fruit::Fruit</definition>
+        <argsstring>()=delete</argsstring>
+        <name>Fruit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_e_1_1_fruit_1ac3318fb8068740211156689aad3ed765" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>E::Fruit::Fruit</definition>
+        <argsstring>(const fn::Eid eid, fn::Database *db)</argsstring>
+        <name>Fruit</name>
+        <param>
+          <type>const <ref refid="namespacefn_1a6b50c9f0e2b5922bc2348ed71840a29d" kindref="member">fn::Eid</ref></type>
+          <declname>eid</declname>
+        </param>
+        <param>
+          <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> *</type>
+          <declname>db</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="49" column="1" bodyfile="fn/ecs/entities/Fruit.hpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_e_1_1_fruit_1a7c3180bd5cbc09e2fabac99f4a0b35c4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>E::Fruit::Fruit</definition>
+        <argsstring>(const fn::Entity &amp;e)</argsstring>
+        <name>Fruit</name>
+        <param>
+          <type>const <ref refid="classfn_1_1_entity" kindref="compound">fn::Entity</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/entities/Fruit.hpp" line="50" column="1" bodyfile="fn/ecs/entities/Fruit.hpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Frutto come entità. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe <ref refid="class_e_1_1_fruit" kindref="compound">Fruit</ref> specializza il concetto di Entity consentendo per composizione di creare una entità di tipo Frutto aggiungendo gli opportuni componenti.</para>
+<para>Le componenti richieste sono: <ref refid="struct_c_1_1_position" kindref="compound">C::Position</ref>, <ref refid="struct_c_1_1_movement" kindref="compound">C::Movement</ref>, <ref refid="struct_c_1_1_fruit" kindref="compound">C::Fruit</ref>, <ref refid="struct_c_1_1_render" kindref="compound">C::Render</ref> e <ref refid="struct_c_1_1_a_a_b_b" kindref="compound">C::AABB</ref>.</para>
+<para>Si tratta dunque di un builder che permette la costruzione di una entità con le giuste componenti tali da essere considerata un Frutto. Oltre a ciò la classe similmente ad <ref refid="classfn_1_1_entity" kindref="compound">fn::Entity</ref> può essere usata come wrapper di un entità e mette a disposizione alcuni metodi per la gestione dei frutti (es lo split di un frutto). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>fn::Entity</label>
+        <link refid="classfn_1_1_entity"/>
+      </node>
+      <node id="1">
+        <label>E::Fruit</label>
+        <link refid="class_e_1_1_fruit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="4">
+        <label>fn::Database</label>
+        <link refid="classfn_1_1_database"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>eid_pool</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_components</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>std::unordered_map&lt; Cid, std::shared_ptr&lt; fn::IComponentArray &gt; &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::stack&lt; Eid &gt;</label>
+      </node>
+      <node id="2">
+        <label>fn::Entity</label>
+        <link refid="classfn_1_1_entity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_signature</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>fn::IComponentArray</label>
+        <link refid="classfn_1_1_i_component_array"/>
+      </node>
+      <node id="3">
+        <label>std::bitset&lt; fn::ecs::MAX_COMPONENT_COUNT &gt;</label>
+      </node>
+      <node id="7">
+        <label>std::shared_ptr&lt; fn::IComponentArray &gt;</label>
+        <childnode refid="8" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>E::Fruit</label>
+        <link refid="class_e_1_1_fruit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/entities/Fruit.hpp" line="20" column="1" bodyfile="fn/ecs/entities/Fruit.hpp" bodystart="21" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classfn_1_1_entity_1a9dd9020c1b56db4f54873018e4ef7ac7" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>eid</name></member>
+      <member refid="classfn_1_1_entity_1a8cea8ea1f18f48b79b4bf4994ee24e58" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>Entity</name></member>
+      <member refid="class_e_1_1_fruit_1a2ea386570871c6fec21a24758017b7f9" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>Fruit</name></member>
+      <member refid="class_e_1_1_fruit_1ac3318fb8068740211156689aad3ed765" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>Fruit</name></member>
+      <member refid="class_e_1_1_fruit_1a7c3180bd5cbc09e2fabac99f4a0b35c4" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>Fruit</name></member>
+      <member refid="classfn_1_1_entity_1af308132753f33f578c8b346aa012b79f" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>get</name></member>
+      <member refid="classfn_1_1_entity_1aedcb873e3b26ef7a11e21ce6114f4f74" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>get</name></member>
+      <member refid="classfn_1_1_entity_1a16425e56baf20d382da7006d7a7e768c" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>has</name></member>
+      <member refid="classfn_1_1_entity_1aa0f6356c61baca8303221befa284af0d" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>has</name></member>
+      <member refid="classfn_1_1_entity_1a98c286a0aca9c212dd19345b35c3ca9d" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>m_database</name></member>
+      <member refid="classfn_1_1_entity_1a1ed22f751ebd48f4088ff9a332c84a9d" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>m_eid</name></member>
+      <member refid="classfn_1_1_entity_1a8687a338f0c977a15e1e5be14e1c4ef6" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>m_signature</name></member>
+      <member refid="classfn_1_1_entity_1a149c5e41f9756b31aacd49880b23aa8c" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>m_update_signature</name></member>
+      <member refid="class_e_1_1_fruit_1a83c0ba5032b54ed5cfffa9db7cac56fd" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>make</name></member>
+      <member refid="classfn_1_1_entity_1aa6263c5c2cdbb5ec2fa42bb79dc43c3f" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>remove</name></member>
+      <member refid="class_e_1_1_fruit_1ac47985e7c883b9333b62712a5cfc711e" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>S_DEFAULT_FRAGMENT_SHADER</name></member>
+      <member refid="class_e_1_1_fruit_1adead6d86c2d73a567906251114d500fa" prot="private" virt="non-virtual"><scope>E::Fruit</scope><name>S_DEFAULT_VERTEX_SHADER</name></member>
+      <member refid="classfn_1_1_entity_1aea0a1fb622b8bbe058c422ce96096b37" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>set</name></member>
+      <member refid="classfn_1_1_entity_1a708533cecd8049e25927ab9aa6da7b2e" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>set</name></member>
+      <member refid="classfn_1_1_entity_1a4fa6abedc976719bf72ee162cdebe3c9" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>signature</name></member>
+      <member refid="class_e_1_1_fruit_1afa5c38ade234817a022b03691ccaf9e0" prot="public" virt="non-virtual"><scope>E::Fruit</scope><name>split</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

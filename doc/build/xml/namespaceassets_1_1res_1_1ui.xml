@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespaceassets_1_1res_1_1ui" kind="namespace" language="C++">
+    <compoundname>assets::res::ui</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1ui_1a16005d7ede88ba765774d9da095cf91b" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::ui::score_icon</definition>
+        <argsstring></argsstring>
+        <name>score_icon</name>
+        <initializer>= <ref refid="namespaceassets_1_1dir_1ab74fd67f42f131f9e97972caf059c91b" kindref="member">assets::dir::sprites</ref> / &quot;half_watermelon.png&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="48" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1ui_1a3184c95bd9a20e2610799024acf4ecd9" prot="public" static="no" mutable="no">
+        <type>struct assets::res::ui::@0</type>
+        <definition>struct assets::res::ui::@0 assets::res::ui::alphanum</definition>
+        <argsstring></argsstring>
+        <name>alphanum</name>
+        <briefdescription>
+<para><ref refid="class_texture" kindref="compound">Texture</ref> da associare ai vari caratteri dello spritefont. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Piuttosto che creare un array coin i possibili caratteri è stata utilizzata una struct con operator[] custom che compone il path alla texture dal codice ASCII del richiesto. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="59" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_texture" kindref="compound">Texture</ref> e risorse dedicate alle ui e alla gui. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/assets/assets.hpp" line="47" column="1"/>
+  </compounddef>
+</doxygen>

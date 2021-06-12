@@ -1,0 +1,127 @@
+% --------------------------------------------------------------------------- %
+%	Creazione dei BOX                                                         %
+% --------------------------------------------------------------------------- %
+% usa l'opzione [frametitle=To Do] per dargi un titolo
+
+% __ ESEMPIO __
+\theoremstyle{kaoexample}
+\declaretheorem[
+	style=kaoexample,
+	name=Esempio,
+	refname={esempio,esempi},
+	Refname={Esempio,Esempi},
+	numberwithin=section,
+	mdframed={
+		style=mdfkao,
+		backgroundcolor=exampleColor!20!white,
+		frametitlebackgroundcolor=exampleColor!20!white,
+	},
+]{exampleBox}
+
+% __ OSSERVA __
+\theoremstyle{kaoexample}
+\declaretheorem[
+style=kaoexample,
+name=Osserva,
+refname={osservazione,osservazioni},
+Refname={Osservazione,Osservazioni},
+numberwithin=section,
+mdframed={
+	style=mdfkao,
+	backgroundcolor=observeColor!20!white,
+	frametitlebackgroundcolor=observeColor!20!white,
+},
+]{observeBox}
+
+
+% __ IDEA __
+\theoremstyle{kaoexample}
+\declaretheorem[
+style=kaoexample,
+name=Idea,
+refname={idea,idee},
+Refname={Idea,Idee},
+numberwithin=section,
+mdframed={
+	style=mdfkao,
+	backgroundcolor=ideaColor!20!white,
+	frametitlebackgroundcolor=ideaColor!20!white,
+},
+]{ideaBox}
+
+% __ REMEMBER __
+\theoremstyle{kaoexample}
+\declaretheorem[
+style=kaoexample,
+name=Ricorda,
+refname={ricorda,ricorda},
+Refname={Ricorda,Ricorda},
+numberwithin=section,
+mdframed={
+	style=mdfkao,
+	backgroundcolor=rememberColor!20!white,
+	frametitlebackgroundcolor=rememberColor!20!white,
+},
+]{rememberBox}
+
+% __ WARNING __
+\theoremstyle{kaoexample}
+\declaretheorem[
+style=kaoexample,
+name=Attenzione,
+refname={attenzione,attenzione},
+Refname={Attenzione,Attenzione},
+numberwithin=section,
+mdframed={
+	style=mdfkao,
+	backgroundcolor=warningColor!20!white,
+	frametitlebackgroundcolor=warningColor!20!white,
+},
+]{warningBox}
+
+% __ IMPORTANT __
+\theoremstyle{kaoexample}
+\declaretheorem[
+style=kaoexample,
+name=Importante,
+refname={importante,importante},
+Refname={Importante,Importante},
+numberwithin=section,
+mdframed={
+	style=mdfkao,
+	backgroundcolor=importantColor!45!white,
+	frametitlebackgroundcolor=importantColor!45!white,
+},
+]{importantBox}
+
+% __ EMPTYBOX __
+\newmdenv[
+	style=kaoboxstyle,
+	skipabove=\topskip,
+	skipbelow=.5\topskip,
+	backgroundcolor=black!5!white,
+	frametitlebackgroundcolor=black!5!white,
+]{emptyBox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespaceassets_1_1res_1_1sound" kind="namespace" language="C++">
+    <compoundname>assets::res::sound</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1sound_1a8b70c8143163a7df0a1996784e72df53" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::sound::game_start</definition>
+        <argsstring></argsstring>
+        <name>game_start</name>
+        <initializer>= <ref refid="namespaceassets_1_1dir_1a98fee041d9ebaa1417418ec0633a9b1e" kindref="member">assets::dir::sounds</ref> / &quot;Game-start.ogg&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="130" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1sound_1a5db087beffaf78e69da3060b87034b2e" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::sound::game_end</definition>
+        <argsstring></argsstring>
+        <name>game_end</name>
+        <initializer>= <ref refid="namespaceassets_1_1dir_1a98fee041d9ebaa1417418ec0633a9b1e" kindref="member">assets::dir::sounds</ref> / &quot;Game-over.ogg&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="131" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1sound_1a63a20b08132e72acd2bb5efc293bfde2" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::sound::impact[]</definition>
+        <argsstring>[]</argsstring>
+        <name>impact</name>
+        <initializer>= {
+				<ref refid="namespaceassets_1_1dir_1a98fee041d9ebaa1417418ec0633a9b1e" kindref="member">assets::dir::sounds</ref> / &quot;Impact-Orange.ogg&quot;,
+				assets::dir::sounds / &quot;Impact-Pineapple.ogg&quot;,
+				assets::dir::sounds / &quot;Impact-Plum.ogg&quot;,
+				assets::dir::sounds / &quot;Impact-Watermelon.ogg&quot;,
+			}</initializer>
+        <briefdescription>
+<para>Suoni utilizzabili per l&apos;impatto con i frutti. </para>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-block m-warning" /></para>
+<para><simplesect kind="par"><title></title><para>Il suono è preso casualmente fra quelli disponibili. Non sono implementati suoni specifici per frutto. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="141" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1sound_1a637a9c428f5f509e21e5404086fd554b" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::sound::combo[]</definition>
+        <argsstring>[]</argsstring>
+        <name>combo</name>
+        <initializer>= {
+				<ref refid="namespaceassets_1_1dir_1a98fee041d9ebaa1417418ec0633a9b1e" kindref="member">assets::dir::sounds</ref> / &quot;combo-1.ogg&quot;,
+				assets::dir::sounds / &quot;combo-2.ogg&quot;,
+				assets::dir::sounds / &quot;combo-3.ogg&quot;,
+				assets::dir::sounds / &quot;combo-4.ogg&quot;,
+				assets::dir::sounds / &quot;combo-5.ogg&quot;,
+				assets::dir::sounds / &quot;combo-6.ogg&quot;,
+				assets::dir::sounds / &quot;combo-7.ogg&quot;,
+				assets::dir::sounds / &quot;combo-8.ogg&quot;,
+			}</initializer>
+        <briefdescription>
+<para>Suoni utilizzabili per le combo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="149" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1sound_1aa2a751731a712c8e2af8d701b5a07305" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::sound::blitz[]</definition>
+        <argsstring>[]</argsstring>
+        <name>blitz</name>
+        <initializer>= {
+				<ref refid="namespaceassets_1_1dir_1a98fee041d9ebaa1417418ec0633a9b1e" kindref="member">assets::dir::sounds</ref> / &quot;combo-blitz-1.ogg&quot;,
+				assets::dir::sounds / &quot;combo-blitz-2.ogg&quot;,
+				assets::dir::sounds / &quot;combo-blitz-3.ogg&quot;,
+				assets::dir::sounds / &quot;combo-blitz-4.ogg&quot;,
+				assets::dir::sounds / &quot;combo-blitz-5.ogg&quot;,
+				assets::dir::sounds / &quot;combo-blitz-6.ogg&quot;,
+			}</initializer>
+        <briefdescription>
+<para>Suoni utilizzabili per i blitz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="161" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Suoni di gioco. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/assets/assets.hpp" line="129" column="1"/>
+  </compounddef>
+</doxygen>

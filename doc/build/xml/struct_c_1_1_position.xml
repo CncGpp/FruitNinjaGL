@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="struct_c_1_1_position" kind="struct" language="C++" prot="public">
+    <compoundname>C::Position</compoundname>
+    <basecompoundref refid="classfn_1_1_component" prot="public" virt="non-virtual">fn::Component&lt; Position &gt;</basecompoundref>
+    <includes refid="components_8hpp" local="no">fn/ecs/components/components.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_c_1_1_position_1a1b26501ace449c713623ad6faf8c507f" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 C::Position::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="14" column="19" bodyfile="fn/ecs/components/components.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_1_1_position_1a20a2457c41adf8d207a695cfb5493145" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 C::Position::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="15" column="19" bodyfile="fn/ecs/components/components.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_c_1_1_position_1ae190817fd56eb24735dabdf21a0d74a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 C::Position::position3</definition>
+        <argsstring>() const</argsstring>
+        <name>position3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="17" column="27" bodyfile="fn/ecs/components/components.hpp" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1ac12f9b993cc9399587b2a6beda461176" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 C::Position::rotation3</definition>
+        <argsstring>() const</argsstring>
+        <name>rotation3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="18" column="27" bodyfile="fn/ecs/components/components.hpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1ad1d8ce86a00c37bd7f82e3cb3b5f97ea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>glm::vec2</type>
+        <definition>glm::vec2 C::Position::position2</definition>
+        <argsstring>() const</argsstring>
+        <name>position2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="19" column="27" bodyfile="fn/ecs/components/components.hpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1a12c3602c2a11780456b94b93c8e3f140" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>glm::vec2</type>
+        <definition>glm::vec2 C::Position::rotation2</definition>
+        <argsstring>() const</argsstring>
+        <name>rotation2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="20" column="27" bodyfile="fn/ecs/components/components.hpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1a3e5c409c65be65f3366ff3141afb6432" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>glm::mat4</type>
+        <definition>glm::mat4 C::Position::model_matrix</definition>
+        <argsstring>() const</argsstring>
+        <name>model_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="22" column="20" bodyfile="fn/ecs/components/components.cpp" bodystart="3" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1a0643f4f3654ddd95348192e3845880ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void C::Position::traslate</definition>
+        <argsstring>(const glm::vec2 &amp;vect)</argsstring>
+        <name>traslate</name>
+        <param>
+          <type>const glm::vec2 &amp;</type>
+          <declname>vect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="24" column="14" bodyfile="fn/ecs/components/components.hpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1adf05bc0ca8b67c2365f0247e4d0e9216" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void C::Position::traslate</definition>
+        <argsstring>(const glm::vec3 &amp;vect)</argsstring>
+        <name>traslate</name>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>vect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="25" column="14" bodyfile="fn/ecs/components/components.hpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1afcf67250f90cb33f65cd2d64679659c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void C::Position::rotate</definition>
+        <argsstring>(const glm::vec2 &amp;vect)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>const glm::vec2 &amp;</type>
+          <declname>vect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="26" column="14" bodyfile="fn/ecs/components/components.hpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_c_1_1_position_1adcb3cf94fab00e480acc54a2367ea661" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void C::Position::rotate</definition>
+        <argsstring>(const glm::vec3 &amp;vect)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>vect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="27" column="14" bodyfile="fn/ecs/components/components.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>fn::Component&lt; Position &gt;</label>
+        <link refid="classfn_1_1_component"/>
+      </node>
+      <node id="1">
+        <label>C::Position</label>
+        <link refid="struct_c_1_1_position"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="2">
+        <label>fn::Component&lt; Position &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1">
+        <label>C::Position</label>
+        <link refid="struct_c_1_1_position"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::string</label>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/components/components.hpp" line="13" column="5" bodyfile="fn/ecs/components/components.hpp" bodystart="13" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classfn_1_1_component_1a2b3b96e6fbcb23b0b42d4c399607335f" prot="public" virt="non-virtual"><scope>C::Position</scope><name>cid</name></member>
+      <member refid="classfn_1_1_component_1a08fb191bc9b248ff37f66daabf0f1961" prot="public" virt="non-virtual"><scope>C::Position</scope><name>ctypename</name></member>
+      <member refid="classfn_1_1_component_1a26d35537b95e260e2cf397d22422373f" prot="public" virt="non-virtual"><scope>C::Position</scope><name>info</name></member>
+      <member refid="struct_c_1_1_position_1a3e5c409c65be65f3366ff3141afb6432" prot="public" virt="non-virtual"><scope>C::Position</scope><name>model_matrix</name></member>
+      <member refid="struct_c_1_1_position_1a1b26501ace449c713623ad6faf8c507f" prot="public" virt="non-virtual"><scope>C::Position</scope><name>position</name></member>
+      <member refid="struct_c_1_1_position_1ad1d8ce86a00c37bd7f82e3cb3b5f97ea" prot="public" virt="non-virtual"><scope>C::Position</scope><name>position2</name></member>
+      <member refid="struct_c_1_1_position_1ae190817fd56eb24735dabdf21a0d74a3" prot="public" virt="non-virtual"><scope>C::Position</scope><name>position3</name></member>
+      <member refid="struct_c_1_1_position_1afcf67250f90cb33f65cd2d64679659c8" prot="public" virt="non-virtual"><scope>C::Position</scope><name>rotate</name></member>
+      <member refid="struct_c_1_1_position_1adcb3cf94fab00e480acc54a2367ea661" prot="public" virt="non-virtual"><scope>C::Position</scope><name>rotate</name></member>
+      <member refid="struct_c_1_1_position_1a20a2457c41adf8d207a695cfb5493145" prot="public" virt="non-virtual"><scope>C::Position</scope><name>rotation</name></member>
+      <member refid="struct_c_1_1_position_1a12c3602c2a11780456b94b93c8e3f140" prot="public" virt="non-virtual"><scope>C::Position</scope><name>rotation2</name></member>
+      <member refid="struct_c_1_1_position_1ac12f9b993cc9399587b2a6beda461176" prot="public" virt="non-virtual"><scope>C::Position</scope><name>rotation3</name></member>
+      <member refid="struct_c_1_1_position_1a0643f4f3654ddd95348192e3845880ef" prot="public" virt="non-virtual"><scope>C::Position</scope><name>traslate</name></member>
+      <member refid="struct_c_1_1_position_1adf05bc0ca8b67c2365f0247e4d0e9216" prot="public" virt="non-virtual"><scope>C::Position</scope><name>traslate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

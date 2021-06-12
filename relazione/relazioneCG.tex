@@ -1,0 +1,160 @@
+%!TeX program = xelatex
+
+%
+% Ogni volta che aggiungi font esegui:  D:\Program Files\MiKTeX 2.9\miktex\bin\x64> miktex-fc-cache -f
+% Per aggiornare la cache (e metti anche xelatex.exe run as administrator)
+%
+% ============================================================================ %
+%	PACKAGES E CONFIGURAZIONE BASE DOCUMENTO                                   %
+% ============================================================================ %
+\documentclass[
+fontsize=11pt, % Base font size
+twoside=true, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
+%chapterprefix=true, % Uncomment to use the word "Chapter" before chapter numbers everywhere they appear
+%chapterentrydots=true, % Uncomment to output dots from the chapter name to the page number in the table of contents
+numbers=noenddot, % Comment to output dots after chapter numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
+%draft=true, % If uncommented, rulers will be added in the header and footer
+%overfullrule=true, % If uncommented, overly long lines will be marked by a black box; useful for correcting spacing problems
+]{kao/kaobook}
+
+
+% ============================================================================ %
+% 								   METADATA                                    %
+% ============================================================================ %
+\def\VERSION{0.2} %VERSIONE DEL DOCUMENTO 
+
+% ============================================================================ %
+%                        PACKAGE BASE UTILIZZATI                               %
+% ============================================================================ %
+% Package di configurazione/stile/proprietà
+\usepackage[english, italian]{babel}	      % Lingua principale del documento.
+\usepackage[italian=quotes]{csquotes}	      % Italian quotes (virgolette)
+
+% Package di utility/funzionalità
+\usepackage{import}					          % Per importare tex esternamente
+
+% Package di testing e debugging
+\usepackage{blindtext}
+%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
+%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+
+% Load the bibliography package
+\usepackage[backend=bibtex]{biblatex} 
+\usepackage{kao/styles/kaobiblio}
+\addbibresource{relazioneCG.bib} % Bibliography file
+
+% Load mathematical packages for theorems and related environments.
+\usepackage{kao/styles/mdftheorems}
+
+% ============================================================================ %
+%                                   INPUTS                                     %
+% ============================================================================ %
+\input{inputs/used-packages.tex}			%Input dei package PRINCIPALI usati
+\input{inputs/personalization.tex}			%Input dele personalizzazioni
+\input{inputs/new-commands.tex}			    %Input dei nuovi comandi definiti
+\input{inputs/environments.tex}			    %Definizione di nuovi environment
+\input{inputs/syntax.tex}			        %Definizione di nuovi environment per sintassi codice
+\input{inputs/syntax-cpp.tex}			    %Definizione di nuovi environment per sintassi codice
+
+\graphicspath{{images/}{./}} % Paths in which to look for images
+\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+
+
+
+
+\begin{document}
+\title[Titolo]{Titolo}
+\author[Giuseppe Cianci]{Giuseppe Cianci Pio}
+\date{12/03/2020}	
+	
+\frontmatter % Denotes the start of the pre-document content, uses roman numerals
+
+%----------------------------------------------------------------------------------------
+%	OUTPUT TITLE PAGE AND PREVIOUS
+%----------------------------------------------------------------------------------------
+
+% Note that \maketitle outputs the pages before here
+
+% If twoside=false, \uppertitleback and \lowertitleback are not printed
+% To overcome this issue, we set twoside=semi just before printing the title pages, and set it back to false just after the title pages
+\KOMAoptions{twoside=semi}
+\input{inputs/title-page.tex}			    % Pagina di copertina
+%\maketitle                                  % Titlepage
+\KOMAoptions{twoside=false}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
+%----------------------------------------------------------------------------------------
+
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
+%\setstretch{1} % Uncomment to modify line spacing in the ToC
+%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+\setlength{\textheight}{23cm} % Manually adjust the height of the ToC pages
+
+% Turn on compatibility mode for the etoc package
+\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+\etocstandardlines % "toc lines as if etoc was not loaded
+
+\tableofcontents % Output the table of contents
+
+%\listoffigures % Output the list of figures
+
+% Comment both of the following lines to have the LOF and the LOT on different pages
+\let\cleardoublepage\bigskip
+\let\clearpage\bigskip
+
+%\listoftables % Output the list of tables
+
+\endgroup
+\setcounter{tocdepth}{1}
+
+%----------------------------------------------------------------------------------------
+%	MAIN BODY
+%----------------------------------------------------------------------------------------
+
+%\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\mainmatter
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+
+%\pagelayout{wide} % No margins
+%\addpart{Class Options, Commands and Environments}
+%\pagelayout{margin} % Restore margins
+%
+
+%\input{chapters/ch00.tex}
+\input{chapters/ch10.tex}
+\input{chapters/ch20.tex}
+%\input{chapters/ch30.tex}
+
+
+%----------------------------------------------------------------------------------------
+
+\backmatter % Denotes the end of the main document content
+\setchapterstyle{plain} % Output plain chapters from this point onwards
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
+
+\defbibnote{bibnote}{Qui di seguito i riferimenti in ordine di citazione.\par\bigskip} % Prepend this text to the bibliography
+\printbibliography[heading=bibintoc, title=Bibliografia, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="struct_c_1_1_fruit" kind="struct" language="C++" prot="public">
+    <compoundname>C::Fruit</compoundname>
+    <basecompoundref refid="classfn_1_1_component" prot="public" virt="non-virtual">fn::Component&lt; Fruit &gt;</basecompoundref>
+    <includes refid="components_8hpp" local="no">fn/ecs/components/components.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_c_1_1_fruit_1af9d9670688b6c25699a024b3cf30f21c" prot="public" static="no" mutable="no">
+        <type><ref refid="class_fruits" kindref="compound">Fruits</ref></type>
+        <definition>Fruits C::Fruit::fruit</definition>
+        <argsstring></argsstring>
+        <name>fruit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="60" column="16" bodyfile="fn/ecs/components/components.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_1_1_fruit_1a0f3f3c54ab5e3d3548a98bac4533e4e8" prot="public" static="no" mutable="no">
+        <type><ref refid="class_fruits_1a04b243038ae99bd3bd49e6c6bc4db077" kindref="member">Fruits::Model</ref></type>
+        <definition>Fruits::Model C::Fruit::model_kind</definition>
+        <argsstring></argsstring>
+        <name>model_kind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="61" column="23" bodyfile="fn/ecs/components/components.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>C::Fruit</label>
+        <link refid="struct_c_1_1_fruit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fn::Component&lt; Fruit &gt;</label>
+        <link refid="classfn_1_1_component"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="5">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1">
+        <label>C::Fruit</label>
+        <link refid="struct_c_1_1_fruit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>fruit</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Fruits</label>
+        <link refid="class_fruits"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>half_back_filename</edgelabel>
+          <edgelabel>half_front_filename</edgelabel>
+          <edgelabel>name</edgelabel>
+          <edgelabel>whole_filename</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>apple_red</edgelabel>
+          <edgelabel>banana</edgelabel>
+          <edgelabel>coconut</edgelabel>
+          <edgelabel>honeydew_melon</edgelabel>
+          <edgelabel>kiwi</edgelabel>
+          <edgelabel>lemon</edgelabel>
+          <edgelabel>lime</edgelabel>
+          <edgelabel>orange</edgelabel>
+          <edgelabel>pear</edgelabel>
+          <edgelabel>pepper_green</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fn::Component&lt; Fruit &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::string</label>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/components/components.hpp" line="59" column="5" bodyfile="fn/ecs/components/components.hpp" bodystart="59" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classfn_1_1_component_1a2b3b96e6fbcb23b0b42d4c399607335f" prot="public" virt="non-virtual"><scope>C::Fruit</scope><name>cid</name></member>
+      <member refid="classfn_1_1_component_1a08fb191bc9b248ff37f66daabf0f1961" prot="public" virt="non-virtual"><scope>C::Fruit</scope><name>ctypename</name></member>
+      <member refid="struct_c_1_1_fruit_1af9d9670688b6c25699a024b3cf30f21c" prot="public" virt="non-virtual"><scope>C::Fruit</scope><name>fruit</name></member>
+      <member refid="classfn_1_1_component_1a26d35537b95e260e2cf397d22422373f" prot="public" virt="non-virtual"><scope>C::Fruit</scope><name>info</name></member>
+      <member refid="struct_c_1_1_fruit_1a0f3f3c54ab5e3d3548a98bac4533e4e8" prot="public" virt="non-virtual"><scope>C::Fruit</scope><name>model_kind</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

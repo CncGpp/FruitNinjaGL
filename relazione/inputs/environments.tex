@@ -1,0 +1,160 @@
+% ============================================================================ %
+%                      DEFINIZIONE DEI NUOVI AMBIENTI                          %
+% ============================================================================ %
+\input{inputs/boxes.tex}			        %Definizione di nuovi box
+
+
+% --------------------------------------------------------------------------- %
+%	Environments: Ambienti compatti				                              %
+% --------------------------------------------------------------------------- %
+% Liste compatte ma con spazi prima e dopo
+\newenvironment{itemize*}%
+{\begin{itemize}[itemsep=0pt,parsep=0pt]}%
+	{\end{itemize}}
+\newenvironment{enumerate*}%
+{\begin{enumerate}[itemsep=0pt,parsep=0pt]}%
+	{\end{enumerate}}
+
+% Liste compatte senza spazi prima e dopo
+\newenvironment{compactitemize} {\begin{itemize}[noitemsep,topsep=-5pt,parsep=0pt,partopsep=-6pt]} {\end{itemize}}
+\newenvironment{compactenumerate} {\begin{enumerate}[noitemsep,topsep=-5pt,parsep=0pt,partopsep=-6pt]} {\end{enumerate}}
+
+% Center compatto
+\newenvironment{compactcenter}[1][4pt]{%
+	\setlength\topsep{#1}%
+	\setlength\parskip{#1}%
+	\par\centering}{\par\noindent\ignorespacesafterend}
+
+% Equazioni compatte con numerazione
+\newenvironment{compactequation}[1][4pt]{
+	\begingroup%
+	\setlength{\abovedisplayskip}{#1}%
+	\setlength{\belowdisplayskip}{#1}%
+	\begin{equation}}%
+{\end{equation}\endgroup\noindent\ignorespacesafterend}%
+% Equazioni compatte senza numerazione
+\newenvironment{compactequation*}[1][4pt]{
+	\begingroup%
+	\setlength{\abovedisplayskip}{#1}%
+	\setlength{\belowdisplayskip}{#1}%
+	\begin{equation*}}%
+{\end{equation*}\endgroup\noindent\ignorespacesafterend}%
+
+
+% --------------------------------------------------------------------------- %
+%	Environments: ambienti extra				                              %
+% --------------------------------------------------------------------------- %
+\newenvironment{chap-intro}{\begin{center}\begin{minipage}{.85\linewidth}} {\end{minipage}\end{center}}
+
+% --------------------------------------------------------------------------- %
+%	Environments: testo evidenziato                                           %
+% --------------------------------------------------------------------------- %
+% Da https://tex.stackexchange.com/questions/24036/fixing-a-code-to-highlight-formulas-and-text-on-several-lines
+% usage \highlight{<colore_bg> default yellow, <<opzioni tikz aggiuntive e opzionali>>}
+\usepackage{soul}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\makeatletter
+\newcommand{\defhighlighter}[3][]{%
+	\tikzset{every highlighter/.style={color=#2, fill opacity=#3, #1}}%
+}
+
+\defhighlighter{yellow}{.5}
+
+\newcommand{\highlight@DoHighlight}{
+	\fill[
+	outer sep = -15pt, inner sep = 0pt, 
+	every highlighter, this highlighter 
+	](
+	$(begin highlight)+(0,8pt)$) rectangle ($(end highlight)+(0,-3pt)$
+	);
+}
+
+\newcommand{\highlight@BeginHighlight}{
+	\coordinate (begin highlight) at (0,0) ;
+}
+
+\newcommand{\highlight@EndHighlight}{
+	\coordinate (end highlight) at (0,0) ;
+}
+
+\newdimen\highlight@previous
+\newdimen\highlight@current
+
+\DeclareRobustCommand*\highlight[1][]{%
+	\tikzset{this highlighter/.style={#1}}%
+	\SOUL@setup
+	%
+	\def\SOUL@preamble{%
+		\begin{tikzpicture}[overlay, remember picture]
+		\highlight@BeginHighlight
+		\highlight@EndHighlight
+		\end{tikzpicture}%
+	}%
+	%
+	\def\SOUL@postamble{%
+		\begin{tikzpicture}[overlay, remember picture]
+		\highlight@EndHighlight
+		\highlight@DoHighlight
+		\end{tikzpicture}%
+	}%
+	%
+	\def\SOUL@everyhyphen{%
+		\discretionary{%
+			\SOUL@setkern\SOUL@hyphkern
+			\SOUL@sethyphenchar
+			\tikz[overlay, remember picture] \highlight@EndHighlight ;%
+		}{}{%
+			\SOUL@setkern\SOUL@charkern
+		}%
+	}%
+	%
+	\def\SOUL@everyexhyphen##1{%
+		\SOUL@setkern\SOUL@hyphkern
+		\hbox{##1}%
+		\discretionary{%
+			\tikz[overlay, remember picture] \highlight@EndHighlight ;%
+		}{}{%
+			\SOUL@setkern\SOUL@charkern
+		}%
+	}%
+	%
+	\def\SOUL@everysyllable{%
+		\begin{tikzpicture}[overlay, remember picture]
+		\path let \p0 = (begin highlight), \p1 = (0,0) in \pgfextra
+		\global\highlight@previous=\y0
+		\global\highlight@current =\y1
+		\endpgfextra (0,0) ;
+		\ifdim\highlight@current < \highlight@previous
+		\highlight@DoHighlight
+		\highlight@BeginHighlight
+		\fi
+		\end{tikzpicture}%
+		\the\SOUL@syllable
+		\tikz[overlay, remember picture] \highlight@EndHighlight ;%
+	}%
+	\SOUL@
+}
+\makeatother
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

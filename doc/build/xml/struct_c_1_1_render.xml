@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="struct_c_1_1_render" kind="struct" language="C++" prot="public">
+    <compoundname>C::Render</compoundname>
+    <basecompoundref refid="classfn_1_1_component" prot="public" virt="non-virtual">fn::Component&lt; Render &gt;</basecompoundref>
+    <includes refid="components_8hpp" local="no">fn/ecs/components/components.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_c_1_1_render_1a93cc1b36df4e7a7a4cc14607d2bc2f80" prot="public" static="no" mutable="no">
+        <type><ref refid="_shader_8hpp_1a28c917b60764e5aefe22cc93a1686bb5" kindref="member">ShaderSP</ref></type>
+        <definition>ShaderSP C::Render::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="54" column="18" bodyfile="fn/ecs/components/components.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_1_1_render_1aca619e095a780c90c6a242f5498a0984" prot="public" static="no" mutable="no">
+        <type><ref refid="_asset_manager_8hpp_1aa322aa8f05313a6720d41301b70f2c5f" kindref="member">ModelSP</ref></type>
+        <definition>ModelSP C::Render::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="55" column="17" bodyfile="fn/ecs/components/components.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>fn::Component&lt; Render &gt;</label>
+        <link refid="classfn_1_1_component"/>
+      </node>
+      <node id="1">
+        <label>C::Render</label>
+        <link refid="struct_c_1_1_render"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="12">
+        <label>T</label>
+      </node>
+      <node id="11">
+        <label>std::shared_ptr&lt; T &gt;</label>
+        <childnode refid="12" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fn::Component&lt; Render &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Shader</label>
+        <link refid="class_shader"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_fShaderSrc</edgelabel>
+          <edgelabel>m_vShaderSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="8">
+        <label>std::shared_ptr&lt; Model &gt;</label>
+        <childnode refid="9" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>std::vector&lt; MeshSP &gt;</label>
+        <childnode refid="11" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C::Render</label>
+        <link refid="struct_c_1_1_render"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>shader</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>model</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Model</label>
+        <link refid="class_model"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>m_meshes</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::string</label>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>std::shared_ptr&lt; Shader &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/components/components.hpp" line="53" column="5" bodyfile="fn/ecs/components/components.hpp" bodystart="53" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classfn_1_1_component_1a2b3b96e6fbcb23b0b42d4c399607335f" prot="public" virt="non-virtual"><scope>C::Render</scope><name>cid</name></member>
+      <member refid="classfn_1_1_component_1a08fb191bc9b248ff37f66daabf0f1961" prot="public" virt="non-virtual"><scope>C::Render</scope><name>ctypename</name></member>
+      <member refid="classfn_1_1_component_1a26d35537b95e260e2cf397d22422373f" prot="public" virt="non-virtual"><scope>C::Render</scope><name>info</name></member>
+      <member refid="struct_c_1_1_render_1aca619e095a780c90c6a242f5498a0984" prot="public" virt="non-virtual"><scope>C::Render</scope><name>model</name></member>
+      <member refid="struct_c_1_1_render_1a93cc1b36df4e7a7a4cc14607d2bc2f80" prot="public" virt="non-virtual"><scope>C::Render</scope><name>shader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

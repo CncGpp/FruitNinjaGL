@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespaceassets_1_1res_1_1music" kind="namespace" language="C++">
+    <compoundname>assets::res::music</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceassets_1_1res_1_1music_1afb359d8c49b31ce9156564e5f2e10465" prot="public" static="yes" mutable="no">
+        <type>const fs::path</type>
+        <definition>const fs::path assets::res::music::soundtrack</definition>
+        <argsstring></argsstring>
+        <name>soundtrack</name>
+        <initializer>= <ref refid="namespaceassets_1_1dir_1a249cd0c4cb06d87483517f4981d46157" kindref="member">assets::dir::musics</ref> / &quot;music-original.ogg&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="123" column="30" bodyfile="fn/core/assets/assets.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Musica di sottofondo. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/assets/assets.hpp" line="122" column="1"/>
+  </compounddef>
+</doxygen>

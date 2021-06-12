@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_mouse" kind="class" language="C++" prot="public">
+    <compoundname>Mouse</compoundname>
+    <includes refid="_mouse_8hpp" local="no">fn/core/input/Mouse.hpp</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_mouse_1a20ca9c18f34a2e2c0c24441b7a089036" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_mouse" kindref="compound">Mouse</ref></type>
+        <definition>Mouse Mouse::m_mouse</definition>
+        <argsstring></argsstring>
+        <name>m_mouse</name>
+        <initializer>= <ref refid="class_mouse" kindref="compound">Mouse</ref>{}</initializer>
+        <briefdescription>
+<para>istanza del singleton </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="46" column="14" bodyfile="fn/core/input/Mouse.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_mouse_1a539e17b6643368b6c6a2a5506ce53a98" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classfn_1_1_engine" kindref="compound">fn::Engine</ref> *</type>
+        <definition>const fn::Engine* Mouse::m_engine</definition>
+        <argsstring></argsstring>
+        <name>m_engine</name>
+        <briefdescription>
+<para>puntatore all&apos;engine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="50" column="18" bodyfile="fn/core/input/Mouse.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a7d0a4d1924f2300858e4fd61ca81d073" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t Mouse::m_max_buffer_size</definition>
+        <argsstring></argsstring>
+        <name>m_max_buffer_size</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+<para>dimensione massima della deque </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="51" column="14" bodyfile="fn/core/input/Mouse.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a9aeaacd93e956cb80187f12595ef0f84" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; glm::vec2 &gt;</type>
+        <definition>std::deque&lt;glm::vec2&gt; Mouse::m_positions</definition>
+        <argsstring></argsstring>
+        <name>m_positions</name>
+        <briefdescription>
+<para>struttura dati contenente le ultime posizioni </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="52" column="12" bodyfile="fn/core/input/Mouse.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_mouse_1a258abc6ce1325ad7bad622b65512aa47" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse::init</definition>
+        <argsstring>(const fn::Engine *engine)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const <ref refid="classfn_1_1_engine" kindref="compound">fn::Engine</ref> *</type>
+          <declname>engine</declname>
+        </param>
+        <briefdescription>
+<para>Funzione di inizializzazione del Signleton. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="22" column="1" bodyfile="fn/core/input/Mouse.cpp" bodystart="5" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a46e3d66c810589f6775bf50ac8c4d99d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::deque&lt; glm::vec2 &gt; &amp;</type>
+        <definition>static const std::deque&lt;glm::vec2&gt;&amp; Mouse::positions</definition>
+        <argsstring>()</argsstring>
+        <name>positions</name>
+        <briefdescription>
+<para>Restituisce un reference alla deque delle posizioni. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="24" column="26" bodyfile="fn/core/input/Mouse.hpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a4d7c54f3572221d6203ae89b76f41e94" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t Mouse::buffer_size</definition>
+        <argsstring>()</argsstring>
+        <name>buffer_size</name>
+        <briefdescription>
+<para>Restituisce la dimensione massima delle posizioni nella deque. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="26" column="16" bodyfile="fn/core/input/Mouse.hpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a148a44d104380e77e781743db18f1fe9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Mouse::buttonLeftPressed</definition>
+        <argsstring>()</argsstring>
+        <name>buttonLeftPressed</name>
+        <briefdescription>
+<para>Restituisce true se il pulsante sinistro del mouse è premuto. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="29" column="14" bodyfile="fn/core/input/Mouse.hpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a3fc1bf7c7566d1fe58b1570d25ac5b4d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Mouse::buttonRightPressed</definition>
+        <argsstring>()</argsstring>
+        <name>buttonRightPressed</name>
+        <briefdescription>
+<para>Restituisce true se il pulsante destro del mouse è premuto. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="31" column="14" bodyfile="fn/core/input/Mouse.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a28e14dcc734fb4d2a798f76dda3923de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse::pop_back</definition>
+        <argsstring>(const size_t count=1)</argsstring>
+        <name>pop_back</name>
+        <param>
+          <type>const size_t</type>
+          <declname>count</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+<para>Rimuove gli ultimi elementi dalla deque. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>numero di valori da rimuovere, default 1 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="37" column="13" bodyfile="fn/core/input/Mouse.cpp" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1af2e4c6ebb7d92c34446b61c0616f96b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse::update</definition>
+        <argsstring>(core::seconds delta_t)</argsstring>
+        <name>update</name>
+        <param>
+          <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+          <declname>delta_t</declname>
+        </param>
+        <briefdescription>
+<para>Aggiorna lo stato interno della classe, rimuovendo eventuali posizioni dal fondo della deque. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delta_t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>trascorso dall&apos;ultimo aggiornamento. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="43" column="13" bodyfile="fn/core/input/Mouse.cpp" bodystart="20" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_mouse_1afa8f8c9b34837cf41eba561e365b97b8" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse::cursor_position_callback</definition>
+        <argsstring>(GLFWwindow *window, double xpos, double ypos)</argsstring>
+        <name>cursor_position_callback</name>
+        <param>
+          <type>GLFWwindow *</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>xpos</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ypos</declname>
+        </param>
+        <briefdescription>
+<para>callback glfw per le posizioni del mouse </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="47" column="13" bodyfile="fn/core/input/Mouse.cpp" bodystart="32" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1ad13102fdf96881f3a060d7fe2c85ced9" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_mouse_8hpp_1aa91f46f0fcdf7975411ebb878fd2a05d" kindref="member">action</ref></type>
+        <definition>action Mouse::getAction</definition>
+        <argsstring>(scancode button)</argsstring>
+        <name>getAction</name>
+        <param>
+          <type><ref refid="_mouse_8hpp_1ae031e03db4f71f789d95462a9a49fef3" kindref="member">scancode</ref></type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/input/Mouse.hpp" line="48" column="15" bodyfile="fn/core/input/Mouse.cpp" bodystart="44" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Classe singleton che gestisce gli input del mouse. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Definisce un&apos;interfaccia unificata per:<itemizedlist>
+<listitem><para>Stabilire se uno dei pulsanti (left o right) del mouse è premuto</para>
+</listitem><listitem><para>Memorizza gli swipe le ultime posizioni del cursore quando il buttonLeft`è premuto.</para>
+</listitem></itemizedlist>
+</para>
+<para>Le posizioni sono memorizzati in una deque che viene svuotata con il passare del tempo. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="6">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="2">
+        <label>std::deque&lt; glm::vec2 &gt;</label>
+      </node>
+      <node id="1">
+        <label>Mouse</label>
+        <link refid="class_mouse"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>m_mouse</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_positions</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_engine</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>fn::Engine</label>
+        <link refid="classfn_1_1_engine"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_states</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::stack&lt; std::unique_ptr&lt; State &gt; &gt;</label>
+        <childnode refid="5" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::unique_ptr&lt; State &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/core/input/Mouse.hpp" line="18" column="1" bodyfile="fn/core/input/Mouse.hpp" bodystart="18" bodyend="53"/>
+    <listofallmembers>
+      <member refid="class_mouse_1a4d7c54f3572221d6203ae89b76f41e94" prot="public" virt="non-virtual"><scope>Mouse</scope><name>buffer_size</name></member>
+      <member refid="class_mouse_1a148a44d104380e77e781743db18f1fe9" prot="public" virt="non-virtual"><scope>Mouse</scope><name>buttonLeftPressed</name></member>
+      <member refid="class_mouse_1a3fc1bf7c7566d1fe58b1570d25ac5b4d" prot="public" virt="non-virtual"><scope>Mouse</scope><name>buttonRightPressed</name></member>
+      <member refid="class_mouse_1afa8f8c9b34837cf41eba561e365b97b8" prot="private" virt="non-virtual"><scope>Mouse</scope><name>cursor_position_callback</name></member>
+      <member refid="class_mouse_1ad13102fdf96881f3a060d7fe2c85ced9" prot="private" virt="non-virtual"><scope>Mouse</scope><name>getAction</name></member>
+      <member refid="class_mouse_1a258abc6ce1325ad7bad622b65512aa47" prot="public" virt="non-virtual"><scope>Mouse</scope><name>init</name></member>
+      <member refid="class_mouse_1a539e17b6643368b6c6a2a5506ce53a98" prot="private" virt="non-virtual"><scope>Mouse</scope><name>m_engine</name></member>
+      <member refid="class_mouse_1a7d0a4d1924f2300858e4fd61ca81d073" prot="private" virt="non-virtual"><scope>Mouse</scope><name>m_max_buffer_size</name></member>
+      <member refid="class_mouse_1a20ca9c18f34a2e2c0c24441b7a089036" prot="private" virt="non-virtual"><scope>Mouse</scope><name>m_mouse</name></member>
+      <member refid="class_mouse_1a9aeaacd93e956cb80187f12595ef0f84" prot="private" virt="non-virtual"><scope>Mouse</scope><name>m_positions</name></member>
+      <member refid="class_mouse_1a28e14dcc734fb4d2a798f76dda3923de" prot="public" virt="non-virtual"><scope>Mouse</scope><name>pop_back</name></member>
+      <member refid="class_mouse_1a46e3d66c810589f6775bf50ac8c4d99d" prot="public" virt="non-virtual"><scope>Mouse</scope><name>positions</name></member>
+      <member refid="class_mouse_1af2e4c6ebb7d92c34446b61c0616f96b6" prot="public" virt="non-virtual"><scope>Mouse</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

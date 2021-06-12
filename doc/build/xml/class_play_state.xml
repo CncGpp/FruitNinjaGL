@@ -1,0 +1,705 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_play_state" kind="class" language="C++" prot="public">
+    <compoundname>PlayState</compoundname>
+    <basecompoundref refid="class_state" prot="public" virt="non-virtual">State</basecompoundref>
+    <includes refid="_play_state_8hpp" local="no">fn/engine/states/PlayState.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_play_state_1a0f630a25e08ad0e98e35b9072f7f7044" prot="protected" static="no" mutable="no">
+        <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref></type>
+        <definition>fn::Database PlayState::m_database</definition>
+        <argsstring></argsstring>
+        <name>m_database</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Database delle entità per l&apos;ECS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="41" column="14" bodyfile="fn/engine/states/PlayState.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a9d5401d2c5d5aef4a3fa994771c61662" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_1_1_physics" kindref="compound">S::Physics</ref></type>
+        <definition>S::Physics PlayState::m_physics_system</definition>
+        <argsstring></argsstring>
+        <name>m_physics_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="43" column="12" bodyfile="fn/engine/states/PlayState.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a1a9a461fed94da7861e89668f31ec7b7" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_1_1_wave" kindref="compound">S::Wave</ref></type>
+        <definition>S::Wave PlayState::m_wave_system</definition>
+        <argsstring></argsstring>
+        <name>m_wave_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="44" column="9" bodyfile="fn/engine/states/PlayState.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a63c99bb4fd5ecf37d136954d89110049" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_1_1_combo" kindref="compound">S::Combo</ref></type>
+        <definition>S::Combo PlayState::m_combo_system</definition>
+        <argsstring></argsstring>
+        <name>m_combo_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="45" column="10" bodyfile="fn/engine/states/PlayState.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a3bf7c3ca644782d51704db2fe36e4a46" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_1_1_collision" kindref="compound">S::Collision</ref></type>
+        <definition>S::Collision PlayState::m_collison_system</definition>
+        <argsstring></argsstring>
+        <name>m_collison_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="46" column="14" bodyfile="fn/engine/states/PlayState.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1ac56b4156ef8683601438344675f74b72" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_1_1_render" kindref="compound">S::Render</ref></type>
+        <definition>S::Render PlayState::m_render_system</definition>
+        <argsstring></argsstring>
+        <name>m_render_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="47" column="11" bodyfile="fn/engine/states/PlayState.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1ae1fbda71673206927f2bf7af2deea51f" prot="protected" static="no" mutable="no">
+        <type>std::queue&lt; <ref refid="class_event" kindref="compound">Event</ref> * &gt;</type>
+        <definition>std::queue&lt;Event*&gt; PlayState::m_event_system</definition>
+        <argsstring></argsstring>
+        <name>m_event_system</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Coda degli eventi pending da gestire. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="49" column="12" bodyfile="fn/engine/states/PlayState.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a4e9e7ae087f2b550c2df37a2c143de6f" prot="protected" static="no" mutable="no">
+        <type><ref refid="_sprite_8hpp_1a8e69bf3c9c9bf7bfb79c2d34468fefee" kindref="member">SpriteSP</ref></type>
+        <definition>SpriteSP PlayState::m_background</definition>
+        <argsstring></argsstring>
+        <name>m_background</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="51" column="10" bodyfile="fn/engine/states/PlayState.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a22fbc605f485497d62158f9f551b9809" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_hud" kindref="compound">Hud</ref></type>
+        <definition>Hud PlayState::m_hud</definition>
+        <argsstring></argsstring>
+        <name>m_hud</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="52" column="5" bodyfile="fn/engine/states/PlayState.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1a796c0da60210b3317f9327e82c45b367" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_picker" kindref="compound">Picker</ref></type>
+        <definition>Picker PlayState::m_picker</definition>
+        <argsstring></argsstring>
+        <name>m_picker</name>
+        <briefdescription>
+<para><ref refid="class_picker" kindref="compound">Picker</ref> per l&apos;input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="54" column="8" bodyfile="fn/engine/states/PlayState.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1ad2a034ca6bd22f52ae5b3a33843523cf" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_blade" kindref="compound">Blade</ref></type>
+        <definition>Blade PlayState::m_blade</definition>
+        <argsstring></argsstring>
+        <name>m_blade</name>
+        <briefdescription>
+<para><ref refid="class_blade" kindref="compound">Blade</ref> da visualizzare. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="55" column="7" bodyfile="fn/engine/states/PlayState.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_play_state_1a1e572533ca6d23b0361873e0d3b6d550" prot="private" static="no" mutable="no">
+        <type><ref refid="classfn_1_1_camera" kindref="compound">fn::Camera</ref></type>
+        <definition>fn::Camera PlayState::m_camera</definition>
+        <argsstring></argsstring>
+        <name>m_camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="58" column="12" bodyfile="fn/engine/states/PlayState.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1ab4eb0df67ce8d5231f6a3a3acf508845" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int PlayState::m_score</definition>
+        <argsstring></argsstring>
+        <name>m_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="60" column="14" bodyfile="fn/engine/states/PlayState.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_state_1ad6365a44726f0504db8f250cad015320" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+        <definition>core::seconds PlayState::m_timer</definition>
+        <argsstring></argsstring>
+        <name>m_timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="61" column="15" bodyfile="fn/engine/states/PlayState.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_play_state_1a4d5a25203cf9f78f64143328097fa8c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlayState::PlayState</definition>
+        <argsstring>()</argsstring>
+        <name>PlayState</name>
+        <briefdescription>
+<para>Costruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="29" column="1" bodyfile="fn/engine/states/PlayState.cpp" bodystart="10" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_state_1ab35f0e24f114dcdeeab9910310f528d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void PlayState::handleInputs</definition>
+        <argsstring>() override</argsstring>
+        <name>handleInputs</name>
+        <reimplements refid="class_state_1a717e0cfb379a99e0253a4103c2a6fcb5">handleInputs</reimplements>
+        <briefdescription>
+<para>Gestisce gli input (mouse e tastiera) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="31" column="14" bodyfile="fn/engine/states/PlayState.cpp" bodystart="35" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_state_1a4468bfbbe42d9b2c446ea7f80959b83f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void PlayState::handleEvents</definition>
+        <argsstring>() override</argsstring>
+        <name>handleEvents</name>
+        <reimplements refid="class_state_1af27178ac6c539146c9fb3bc91a54d5f4">handleEvents</reimplements>
+        <briefdescription>
+<para>Gestisce gli eventi di gioco. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="32" column="14" bodyfile="fn/engine/states/PlayState.cpp" bodystart="57" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_state_1ac167090ab1cf8858dbfa47e845233089" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void PlayState::notifyEvent</definition>
+        <argsstring>(Event *e) override</argsstring>
+        <name>notifyEvent</name>
+        <reimplements refid="class_state_1a9d5076a005d3eff9664c4d1cacb58315">notifyEvent</reimplements>
+        <param>
+          <type><ref refid="class_event" kindref="compound">Event</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Notifica lo stato di un nuovo evento. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="33" column="14" bodyfile="fn/engine/states/PlayState.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_state_1a168e4333ee6dd97cae5a84036e588707" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void PlayState::update</definition>
+        <argsstring>(core::seconds delta_t) override</argsstring>
+        <name>update</name>
+        <reimplements refid="class_state_1a22594bc8f61e5d6adfd99edd0d571018">update</reimplements>
+        <param>
+          <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+          <declname>delta_t</declname>
+        </param>
+        <briefdescription>
+<para>Aggiorna lo stato interno. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="35" column="14" bodyfile="fn/engine/states/PlayState.cpp" bodystart="90" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_state_1a744a712917e702bb8c7e1792d4752a81" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void PlayState::render</definition>
+        <argsstring>() override</argsstring>
+        <name>render</name>
+        <reimplements refid="class_state_1ac8348cae48576a819c56349ef1b3a6f7">render</reimplements>
+        <briefdescription>
+<para>Renderizza lo stato attuale. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="36" column="14" bodyfile="fn/engine/states/PlayState.cpp" bodystart="111" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_state_1a89bef75445d6f85d0ad93dc6fdfcd7d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+        <definition>fn::Database &amp; PlayState::database</definition>
+        <argsstring>()</argsstring>
+        <name>database</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/PlayState.hpp" line="38" column="14" bodyfile="fn/engine/states/PlayState.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stato di gioco. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>È lo stato principale del gioco, che ne gestisce tutte le logiche ed il funzionamento. Ha il compito di inizializzare il database per l&apos;ECS nonchè i fari sistemi che gestiscono le entità. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PlayState</label>
+        <link refid="class_play_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="13">
+        <label>std::shared_ptr&lt; Texture &gt;</label>
+        <childnode refid="14" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>PlayState</label>
+        <link refid="class_play_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_camera</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_hud</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_background</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>m_blade</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>m_collison_system</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_combo_system</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>m_event_system</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_picker</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_render_system</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_physics_system</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_wave_system</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>S::System</label>
+        <link refid="class_s_1_1_system"/>
+      </node>
+      <node id="9">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="18">
+        <label>S::Collision</label>
+        <link refid="class_s_1_1_collision"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>std::queue&lt; S::Wave::Spawn &gt;</label>
+        <childnode refid="33" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>fn::Camera</label>
+        <link refid="classfn_1_1_camera"/>
+      </node>
+      <node id="15">
+        <label>std::unordered_map&lt; GLint, GLint &gt;</label>
+      </node>
+      <node id="20">
+        <label>fn::Database</label>
+        <link refid="classfn_1_1_database"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>eid_pool</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>m_components</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>std::shared_ptr&lt; Sprite &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>S::Combo</label>
+        <link refid="class_s_1_1_combo"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_arrowSprite1</edgelabel>
+          <edgelabel>m_arrowSprite2</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_state</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Event</label>
+        <link refid="class_event"/>
+      </node>
+      <node id="22">
+        <label>std::unordered_map&lt; Cid, std::shared_ptr&lt; fn::IComponentArray &gt; &gt;</label>
+        <childnode refid="23" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="38">
+        <label>fn::Component&lt; Position &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>std::stack&lt; Eid &gt;</label>
+      </node>
+      <node id="30">
+        <label>S::Physics</label>
+        <link refid="class_s_1_1_physics"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Hud</label>
+        <link refid="class_hud"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_score_icon</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Shader</label>
+        <link refid="class_shader"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>m_fShaderSrc</edgelabel>
+          <edgelabel>m_vShaderSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>fn::IComponentArray</label>
+        <link refid="classfn_1_1_i_component_array"/>
+      </node>
+      <node id="2">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="5">
+        <label>GUI</label>
+        <link refid="class_g_u_i"/>
+      </node>
+      <node id="28">
+        <label>Picker</label>
+        <link refid="class_picker"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>shader</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="12">
+        <label>Blade</label>
+        <link refid="class_blade"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>blade_texture</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>S::Wave</label>
+        <link refid="class_s_1_1_wave"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_sheduled_waves</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Texture</label>
+        <link refid="class_texture"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>m_parameteri</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>std::shared_ptr&lt; fn::IComponentArray &gt;</label>
+        <childnode refid="24" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="34">
+        <label>C::Fruit</label>
+        <link refid="struct_c_1_1_fruit"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>fruit</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>Fruits</label>
+        <link refid="class_fruits"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>half_back_filename</edgelabel>
+          <edgelabel>half_front_filename</edgelabel>
+          <edgelabel>name</edgelabel>
+          <edgelabel>whole_filename</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>apple_red</edgelabel>
+          <edgelabel>banana</edgelabel>
+          <edgelabel>coconut</edgelabel>
+          <edgelabel>honeydew_melon</edgelabel>
+          <edgelabel>kiwi</edgelabel>
+          <edgelabel>lemon</edgelabel>
+          <edgelabel>lime</edgelabel>
+          <edgelabel>orange</edgelabel>
+          <edgelabel>pear</edgelabel>
+          <edgelabel>pepper_green</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="39">
+        <label>C::Movement</label>
+        <link refid="struct_c_1_1_movement"/>
+        <childnode refid="40" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>std::queue&lt; Event * &gt;</label>
+        <childnode refid="27" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>S::Wave::Spawn</label>
+        <link refid="struct_s_1_1_wave_1_1_spawn"/>
+        <childnode refid="34" relation="usage">
+          <edgelabel>fruit</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>movement</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C::Sprite</label>
+        <link refid="struct_c_1_1_sprite"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>sprite</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>S::Render</label>
+        <link refid="class_s_1_1_render"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="40">
+        <label>fn::Component&lt; Movement &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>C::Position</label>
+        <link refid="struct_c_1_1_position"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>fn::Component&lt; Sprite &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>fn::Component&lt; Fruit &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>std::string</label>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>std::shared_ptr&lt; Shader &gt;</label>
+        <childnode refid="17" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/engine/states/PlayState.hpp" line="25" column="1" bodyfile="fn/engine/states/PlayState.hpp" bodystart="26" bodyend="62"/>
+    <listofallmembers>
+      <member refid="class_play_state_1a89bef75445d6f85d0ad93dc6fdfcd7d5" prot="public" virt="non-virtual"><scope>PlayState</scope><name>database</name></member>
+      <member refid="class_play_state_1a4468bfbbe42d9b2c446ea7f80959b83f" prot="public" virt="virtual"><scope>PlayState</scope><name>handleEvents</name></member>
+      <member refid="class_play_state_1ab35f0e24f114dcdeeab9910310f528d7" prot="public" virt="virtual"><scope>PlayState</scope><name>handleInputs</name></member>
+      <member refid="class_play_state_1a4e9e7ae087f2b550c2df37a2c143de6f" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_background</name></member>
+      <member refid="class_play_state_1ad2a034ca6bd22f52ae5b3a33843523cf" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_blade</name></member>
+      <member refid="class_play_state_1a1e572533ca6d23b0361873e0d3b6d550" prot="private" virt="non-virtual"><scope>PlayState</scope><name>m_camera</name></member>
+      <member refid="class_play_state_1a3bf7c3ca644782d51704db2fe36e4a46" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_collison_system</name></member>
+      <member refid="class_play_state_1a63c99bb4fd5ecf37d136954d89110049" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_combo_system</name></member>
+      <member refid="class_play_state_1a0f630a25e08ad0e98e35b9072f7f7044" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_database</name></member>
+      <member refid="class_play_state_1ae1fbda71673206927f2bf7af2deea51f" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_event_system</name></member>
+      <member refid="class_play_state_1a22fbc605f485497d62158f9f551b9809" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_hud</name></member>
+      <member refid="class_play_state_1a9d5401d2c5d5aef4a3fa994771c61662" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_physics_system</name></member>
+      <member refid="class_play_state_1a796c0da60210b3317f9327e82c45b367" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_picker</name></member>
+      <member refid="class_play_state_1ac56b4156ef8683601438344675f74b72" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_render_system</name></member>
+      <member refid="class_play_state_1ab4eb0df67ce8d5231f6a3a3acf508845" prot="private" virt="non-virtual"><scope>PlayState</scope><name>m_score</name></member>
+      <member refid="class_play_state_1ad6365a44726f0504db8f250cad015320" prot="private" virt="non-virtual"><scope>PlayState</scope><name>m_timer</name></member>
+      <member refid="class_play_state_1a1a9a461fed94da7861e89668f31ec7b7" prot="protected" virt="non-virtual"><scope>PlayState</scope><name>m_wave_system</name></member>
+      <member refid="class_play_state_1ac167090ab1cf8858dbfa47e845233089" prot="public" virt="virtual"><scope>PlayState</scope><name>notifyEvent</name></member>
+      <member refid="class_state_1a621cba5c498dc4afeda15ff00a55e094" prot="public" virt="virtual"><scope>PlayState</scope><name>onResize</name></member>
+      <member refid="class_play_state_1a4d5a25203cf9f78f64143328097fa8c4" prot="public" virt="non-virtual"><scope>PlayState</scope><name>PlayState</name></member>
+      <member refid="class_play_state_1a744a712917e702bb8c7e1792d4752a81" prot="public" virt="virtual"><scope>PlayState</scope><name>render</name></member>
+      <member refid="class_state_1a95aa2ca390f05627acf00149efd568c7" prot="public" virt="non-virtual"><scope>PlayState</scope><name>State</name></member>
+      <member refid="class_play_state_1a168e4333ee6dd97cae5a84036e588707" prot="public" virt="virtual"><scope>PlayState</scope><name>update</name></member>
+      <member refid="class_state_1a783d52422b544bb226e13de8ecfd6ad6" prot="public" virt="virtual"><scope>PlayState</scope><name>~State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

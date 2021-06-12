@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="dir_05937089c727a3bc2fe5fcf1a2fa92cc" kind="dir">
+    <compoundname>fn/logic</compoundname>
+    <innerdir refid="dir_8191b391722683273b674d4c38d75c2c">fn/logic/blades</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/logic/"/>
+  </compounddef>
+</doxygen>

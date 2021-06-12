@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="todoc" kind="page">
+    <compoundname>todoc</compoundname>
+    <title>Documentation-related todo list</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Page <ref refid="animation" kindref="compound">Keyframe-based animation</ref>  </term></varlistentry>
+<listitem><para><anchor id="todoc_1_todoc000001"/> bottom-up description (interpolating values, keyframes, storing, at(), player, callbacks) </para>
+<para><anchor id="todoc_1_todoc000002"/> perf optimizations (shortest path, preprocessing..., extrapolation, ...), batchplayer </para>
+<para><anchor id="todoc_1_todoc000003"/> mention animation import</para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

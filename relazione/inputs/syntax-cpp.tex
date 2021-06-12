@@ -1,0 +1,112 @@
+% --------------------------------------------------------------------------- %
+%	Stile di base per il codice                 				              %
+% --------------------------------------------------------------------------- %
+\newcommand\cppstyle{\lstset{
+	columns = fullflexible,%
+	breakindent=.4\textwidth,
+	breaklines=true,%
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+	numbers = none,%
+%	
+%   -- CONFIGURAZIONI RELATIVE AL LINGUAGGIO
+	language = C++,%
+	showtabs=true,
+	tab=,
+	tabsize=4,
+%	
+%   -- CONFIGURAZIONI DI BASE
+	numberstyle = \ttfamily,%
+	commentstyle = \color{pgrey},%
+	basicstyle = \ttm,%
+	alsoletter={1234567890, :,\%},%
+	otherkeywords={\%, \}, \{, \&, \|},
+	alsoother={\#},
+	literate=*%
+		{:}{{\literatecolour:}}{1}%
+		{=}{{\literatecolour=}}{1}%
+		{-}{{\literatecolour-}}{1}%
+		{+}{{\literatecolour+}}{1}%
+		{*}{{\literatecolour*}}{1}%
+		{**}{{\literatecolour{**}}}2%
+		%{/}{{\literatecolour/}}{1}%
+		%{//}{{\literatecolour{//}}}2%
+		{!}{{\literatecolour!}}{1}%
+		%{(}{{\literatecolour(}}{1}%
+		%{)}{{\literatecolour)}}{1}%
+		%{[}{{\literatecolour[}}{1}%
+		%{]}{{\literatecolour]}}{1}%
+		%{<}{{\literatecolour<}}{1}%
+		%{>}{{\literatecolour>}}{1}%
+		{<<}{{\literatecolour{<<}}}{2}%
+        {>>}{{\literatecolour{>>}}}{2}%
+        {->}{{\literatecolour{->}}}{2}%
+        {>>>}{{\literatecolour{>>>}}}{3}%	
+        {<<<}{{\literatecolour{<<<}}}{3}%	
+        {<0>}{<{\color{ppurple}{0}>}}{3}%		
+        {<1>}{<{\color{ppurple}{1}>}}{3}%	
+        {<2>}{<{\color{ppurple}{2}>}}{3}%	
+        {<3>}{<{\color{ppurple}{3}>}}{3}%	
+	,%
+%
+%   -- CONFIGURAZIONE DI COLORE ED EVIDENZIAZIONE
+	backgroundcolor = \color{background},
+	linebackgroundcolor={\ifodd\value{lstnumber}%
+							\color{background!99.5!black}%
+						\else
+						   \color{background!98.5!black}%
+						 \fi},%
+	stringstyle=\color{deeporange},%
+%	
+	otherkeywords={constexpr},
+	deletekeywords={},%
+	keywordstyle=\ttb\color{pblue},%	
+%
+%   -- PRIMO SET DI KEYWORDS [PAROLE CHIAVE]
+	keywordstyle=\ttm\color{pblue},%
+    morekeywords = {uint, size_t, RandomAccessIterator, RadixAccess, vec3, mat4, uniform, out},
+    deletekeywords={},%
+%
+%   -- SECONDO SET DI KEYWORDS [builtin]
+	keywordstyle = [2]{\ttm\color{pgreen}},%
+	morekeywords = [2]{std, GL_CHECK, GL_TEXTURE_MIN_FILTER},%
+	deletekeywords=[2]{},%          
+%
+%   -- TERZO SET DI KEYWORDS [Underscores]
+	keywordstyle = [3]{\ttm\color{deepred}},%
+	morekeywords = [3]{layout},%
+	deletekeywords=[3]{},%
+%      	
+%   Custom highlighting specifiche 
+	emphstyle=\ttb\color{deepred},%    
+	emph={true, false, NULL, nullptr},% 
+	keywordstyle=[4]{\ttb\color{ppurple}},
+	morekeywords=[4]{GL_TEXTURE_2D, "GL_TEXTURE_WRAP_S", GL\_TEXTURE\_WRAP\_T, GL_TEXTURE_MIN_FILTER,GL_TEXTURE_MAG_FILTER, GL_MIRRIRED_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_NEAREST, GL_UNSIGNED_BYTE, GL_RGB, GL_RGBA, STBI_rgb_alpha%
+      }, %DeviceToHost, HostToDevice,
+%
+	frame=none,%                  
+	breaklines = true,%
+	showstringspaces=false,            % 
+	keepspaces=true,                   % keeps spaces in text, useful for keeping indentation of code
+	captionpos=b,													%caption sotto invece che sopra
+}}
+
+\newcommand\cppinlinestyle{\lstset{
+		basicstyle=\ttm%\linespread{1}\fontsize{11}{11}\ttfamily,
+}}
+
+%  CPP environment
+\lstnewenvironment{cpp}[1][]
+{
+\cppstyle
+\lstset{#1}
+}
+{}
+
+%  SQL for external files
+\newcommand\cppexternal[2][]{{
+\cppstyle
+\lstinputlisting[#1]{#2}}}
+
+%  SQL for inline
+\newcommand\cppinline[1]{{\cppstyle\cppinlinestyle\lstinline!#1!}}
+%

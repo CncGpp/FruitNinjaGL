@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="struct_c_1_1_particle" kind="struct" language="C++" prot="public">
+    <compoundname>C::Particle</compoundname>
+    <basecompoundref refid="classfn_1_1_component" prot="public" virt="non-virtual">fn::Component&lt; Particle &gt;</basecompoundref>
+    <includes refid="components_8hpp" local="no">fn/ecs/components/components.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_c_1_1_particle_1a52e72312a8b850ea0b45dacd03a5240b" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+        <definition>core::seconds C::Particle::lifetime</definition>
+        <argsstring></argsstring>
+        <name>lifetime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="71" column="23" bodyfile="fn/ecs/components/components.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_1_1_particle_1a6766085be30c60974f805a10138cb8d7" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+        <definition>core::seconds C::Particle::elapsed</definition>
+        <argsstring></argsstring>
+        <name>elapsed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="72" column="23" bodyfile="fn/ecs/components/components.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_1_1_particle_1ad8cf39eaf500affe479e0a556431bbc9" prot="public" static="no" mutable="no">
+        <type>std::function&lt; float(float)&gt;</type>
+        <definition>std::function&lt;float(float)&gt; C::Particle::interpolator</definition>
+        <argsstring></argsstring>
+        <name>interpolator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/components/components.hpp" line="73" column="23" bodyfile="fn/ecs/components/components.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>fn::Component&lt; Particle &gt;</label>
+        <link refid="classfn_1_1_component"/>
+      </node>
+      <node id="1">
+        <label>C::Particle</label>
+        <link refid="struct_c_1_1_particle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="2">
+        <label>fn::Component&lt; Particle &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1">
+        <label>C::Particle</label>
+        <link refid="struct_c_1_1_particle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::string</label>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/components/components.hpp" line="70" column="5" bodyfile="fn/ecs/components/components.hpp" bodystart="70" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classfn_1_1_component_1a2b3b96e6fbcb23b0b42d4c399607335f" prot="public" virt="non-virtual"><scope>C::Particle</scope><name>cid</name></member>
+      <member refid="classfn_1_1_component_1a08fb191bc9b248ff37f66daabf0f1961" prot="public" virt="non-virtual"><scope>C::Particle</scope><name>ctypename</name></member>
+      <member refid="struct_c_1_1_particle_1a6766085be30c60974f805a10138cb8d7" prot="public" virt="non-virtual"><scope>C::Particle</scope><name>elapsed</name></member>
+      <member refid="classfn_1_1_component_1a26d35537b95e260e2cf397d22422373f" prot="public" virt="non-virtual"><scope>C::Particle</scope><name>info</name></member>
+      <member refid="struct_c_1_1_particle_1ad8cf39eaf500affe479e0a556431bbc9" prot="public" virt="non-virtual"><scope>C::Particle</scope><name>interpolator</name></member>
+      <member refid="struct_c_1_1_particle_1a52e72312a8b850ea0b45dacd03a5240b" prot="public" virt="non-virtual"><scope>C::Particle</scope><name>lifetime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

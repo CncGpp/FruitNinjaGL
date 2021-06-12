@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_s_1_1_render" kind="class" language="C++" prot="public">
+    <compoundname>S::Render</compoundname>
+    <basecompoundref refid="class_s_1_1_system" prot="public" virt="non-virtual">S::System</basecompoundref>
+    <includes refid="_render_8hpp" local="no">fn/ecs/systems/Render.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_s_1_1_render_1ae01fa06f3a6c8669a2b96981ac217b61" prot="private" static="no" mutable="no">
+        <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+        <definition>fn::Database&amp; S::Render::m_database</definition>
+        <argsstring></argsstring>
+        <name>m_database</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Render.hpp" line="30" column="14" bodyfile="fn/ecs/systems/Render.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_1_1_render_1a10c51ada966ed22a1f1d4131dbd094b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>S::Render::Render</definition>
+        <argsstring>(fn::Database &amp;database)</argsstring>
+        <name>Render</name>
+        <param>
+          <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+          <declname>database</declname>
+        </param>
+        <briefdescription>
+<para>Costruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Render.hpp" line="16" column="1" bodyfile="fn/ecs/systems/Render.cpp" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_1_1_render_1ac4f514c6a67d4aec7cfbf16e5f7e44fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void S::Render::update</definition>
+        <argsstring>(core::seconds delta_t) override</argsstring>
+        <name>update</name>
+        <reimplements refid="class_s_1_1_system_1a4d2625627ed7fdd2c9af66bfcd5f4326">update</reimplements>
+        <param>
+          <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+          <declname>delta_t</declname>
+        </param>
+        <briefdescription>
+<para>Aggiorna lo stato interno del sistema. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delta_t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>intervallo di tempo gioco trascorso. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Render.hpp" line="17" column="14" bodyfile="fn/ecs/systems/Render.cpp" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_1_1_render_1abd2901f290b65a6e9712fe851d3527e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void S::Render::draw</definition>
+        <argsstring>(const fn::Camera &amp;camera)</argsstring>
+        <name>draw</name>
+        <param>
+          <type>const <ref refid="classfn_1_1_camera" kindref="compound">fn::Camera</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <briefdescription>
+<para>Disegna le entità.. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Disegna le entità in due fasi, prima quelle dotate di (<ref refid="struct_c_1_1_position" kindref="compound">C::Position</ref>, <ref refid="struct_c_1_1_render" kindref="compound">C::Render</ref>) e poi quelle con <ref refid="struct_c_1_1_sprite" kindref="compound">C::Sprite</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>camera</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Render.hpp" line="27" column="14" bodyfile="fn/ecs/systems/Render.cpp" bodystart="11" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Sistema che gestisce il disegno. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe <ref refid="class_s_1_1_render" kindref="compound">Render</ref> consente di gestire il disegno delle entità. I componenti coinvolti dal sistema sono: <ref refid="struct_c_1_1_position" kindref="compound">C::Position</ref>, <ref refid="struct_c_1_1_render" kindref="compound">C::Render</ref> per gli oggetti tridimensionali e <ref refid="struct_c_1_1_sprite" kindref="compound">C::Sprite</ref> per gli oggetti bidimensionali. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>S::System</label>
+        <link refid="class_s_1_1_system"/>
+      </node>
+      <node id="1">
+        <label>S::Render</label>
+        <link refid="class_s_1_1_render"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>S::System</label>
+        <link refid="class_s_1_1_system"/>
+      </node>
+      <node id="8">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="3">
+        <label>fn::Database</label>
+        <link refid="classfn_1_1_database"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>eid_pool</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_components</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::unordered_map&lt; Cid, std::shared_ptr&lt; fn::IComponentArray &gt; &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::stack&lt; Eid &gt;</label>
+      </node>
+      <node id="7">
+        <label>fn::IComponentArray</label>
+        <link refid="classfn_1_1_i_component_array"/>
+      </node>
+      <node id="6">
+        <label>std::shared_ptr&lt; fn::IComponentArray &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>S::Render</label>
+        <link refid="class_s_1_1_render"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/systems/Render.hpp" line="12" column="1" bodyfile="fn/ecs/systems/Render.hpp" bodystart="13" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_s_1_1_render_1abd2901f290b65a6e9712fe851d3527e0" prot="public" virt="virtual"><scope>S::Render</scope><name>draw</name></member>
+      <member refid="class_s_1_1_render_1ae01fa06f3a6c8669a2b96981ac217b61" prot="private" virt="non-virtual"><scope>S::Render</scope><name>m_database</name></member>
+      <member refid="class_s_1_1_render_1a10c51ada966ed22a1f1d4131dbd094b7" prot="public" virt="non-virtual"><scope>S::Render</scope><name>Render</name></member>
+      <member refid="class_s_1_1_render_1ac4f514c6a67d4aec7cfbf16e5f7e44fb" prot="public" virt="virtual"><scope>S::Render</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

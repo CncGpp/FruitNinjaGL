@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_s_1_1_collision" kind="class" language="C++" prot="public">
+    <compoundname>S::Collision</compoundname>
+    <basecompoundref refid="class_s_1_1_system" prot="public" virt="non-virtual">S::System</basecompoundref>
+    <includes refid="_collision_8hpp" local="no">fn/ecs/systems/Collision.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_s_1_1_collision_1a8978ee8251173350c2dd624da8b80acb" prot="private" static="no" mutable="no">
+        <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+        <definition>fn::Database&amp; S::Collision::m_database</definition>
+        <argsstring></argsstring>
+        <name>m_database</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Collision.hpp" line="49" column="14" bodyfile="fn/ecs/systems/Collision.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_1_1_collision_1a6528810c18ca3fa8a48d9203f04deef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>S::Collision::Collision</definition>
+        <argsstring>(fn::Database &amp;database)</argsstring>
+        <name>Collision</name>
+        <param>
+          <type><ref refid="classfn_1_1_database" kindref="compound">fn::Database</ref> &amp;</type>
+          <declname>database</declname>
+        </param>
+        <briefdescription>
+<para>Costruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>database</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>istanza del database su cui agire. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Collision.hpp" line="45" column="1" bodyfile="fn/ecs/systems/Collision.cpp" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_1_1_collision_1aff177eb647e4e3788cf207fccb9baa3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void S::Collision::update</definition>
+        <argsstring>(core::seconds delta_t) override</argsstring>
+        <name>update</name>
+        <reimplements refid="class_s_1_1_system_1a4d2625627ed7fdd2c9af66bfcd5f4326">update</reimplements>
+        <param>
+          <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+          <declname>delta_t</declname>
+        </param>
+        <briefdescription>
+<para>Aggiorna lo stato interno del sistema. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delta_t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>intervallo di tempo gioco trascorso. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Collision.hpp" line="46" column="14" bodyfile="fn/ecs/systems/Collision.cpp" bodystart="9" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_s_1_1_collision_1ac51afd39987f42c5b787126c193283af" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 S::Collision::calculate_relative_velocity</definition>
+        <argsstring>(float m1, float m2, glm::vec3 v1, glm::vec3 v2, glm::vec3 c1, glm::vec3 c2) const</argsstring>
+        <name>calculate_relative_velocity</name>
+        <param>
+          <type>float</type>
+          <declname>m1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>m2</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>v2</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>c1</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>c2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/systems/Collision.hpp" line="50" column="11" bodyfile="fn/ecs/systems/Collision.cpp" bodystart="62" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Sistema che gestisce le collisioni. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe <ref refid="class_s_1_1_collision" kindref="compound">Collision</ref> si occupa di cestire ciò che avviene quando due oggetti collidono. implementando sia la rilevazione che l&apos;azione alla collisione. I componenti coinvolti dal sistema sono: <ref refid="struct_c_1_1_position" kindref="compound">C::Position</ref>, <ref refid="struct_c_1_1_movement" kindref="compound">C::Movement</ref>, <ref refid="struct_c_1_1_a_a_b_b" kindref="compound">C::AABB</ref> e <ref refid="struct_c_1_1_fruit" kindref="compound">C::Fruit</ref>.</para>
+<para>Le collisioni sono calcolate soltanto per le entità dotate delle precedenti quattro componenti ristretta ulteriormente ai soli frutti interi. Infatti per scelta i frutti già tagliati sono intangibili.</para>
+<sect1 id="class_s_1_1_collision_1detection">
+<title>Rilevamento delle collisioni.</title>
+<para>Il rilevamento delle collisioni avviene utilizzando un approccio ibrido fra <ulink url="https://en.wikipedia.org/wiki/Minimum_bounding_box#Object-oriented_minimum_bounding_box">OOB</ulink> e la semplice sfera.<orderedlist>
+<listitem><para>Al momento del caricamento del modello, viene calcolata anche la <ulink url="https://en.wikipedia.org/wiki/Minimum_bounding_box#Axis-aligned_minimum_bounding_box">AABB</ulink> relativa alle sue coordinate model.</para>
+</listitem><listitem><para>Durante il check delle collisioni al AABB viene trasformata in OOB applicando le stesse trasformazioni di modellazione dell&apos;entità al box.</para>
+</listitem><listitem><para>A partire da questo nuovo box viene calcolato il raggio della sfera centrato nel centro tangente al suo lato più lungo. Il raggio individua una sfera che sarà utilizzata per la rilevazione.</para>
+</listitem></orderedlist>
+</para>
+<para>Si è scelto questo approccio perché semplice e si adatta bene con la quasi totalità dei frutti i quali sono piuttosto tondeggianti.</para>
+</sect1>
+<sect1 id="class_s_1_1_collision_1action">
+<title>Risposta alle collisioni.</title>
+<para>Quando due frutti collidono, la risposta alla collisione cerca di imitare gli urti elastici della fisica classica. In particolare, si tiene conto delle velocità iniziali e della massa dei frutti per calcolare le velocità relative a seguito dell&apos;impatto. La formula utilizzata è: <formula id="3">\[ {\begin{aligned}\mathbf {v} &apos;_{1}&amp;=\mathbf {v} _{1}-{\frac {2m_{2}}{m_{1}+m_{2}}}\ {\frac {\langle \mathbf {v} _{1}-\mathbf {v} _{2},\,\mathbf {x} _{1}-\mathbf {x} _{2}\rangle }{\|\mathbf {x} _{1}-\mathbf {x} _{2}\|^{2}}}\ (\mathbf {x} _{1}-\mathbf {x} _{2}),\\\mathbf {v} &apos;_{2}&amp;=\mathbf {v} _{2}-{\frac {2m_{1}}{m_{1}+m_{2}}}\ {\frac {\langle \mathbf {v} _{2}-\mathbf {v} _{1},\,\mathbf {x} _{2}-\mathbf {x} _{1}\rangle }{\|\mathbf {x} _{2}-\mathbf {x} _{1}\|^{2}}}\ (\mathbf {x} _{2}-\mathbf {x} _{1})\end{aligned}} \]</formula> Dove <formula id="4">$ \mathbf{x}_1 $</formula> e <formula id="5">$ \mathbf{x}_2 $</formula> sono i centri dei due oggetti al momento dell&apos;impatto, <formula id="6">$ \mathbf{v}_1 $</formula> e <formula id="7">$ \mathbf{v}_2 $</formula> le velocità dei frutti ed in fine <formula id="8">$ m_1 $</formula> e <formula id="9">$ m_2 $</formula> le loro masse. </para>
+</sect1>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>S::System</label>
+        <link refid="class_s_1_1_system"/>
+      </node>
+      <node id="1">
+        <label>S::Collision</label>
+        <link refid="class_s_1_1_collision"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>S::System</label>
+        <link refid="class_s_1_1_system"/>
+      </node>
+      <node id="8">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="1">
+        <label>S::Collision</label>
+        <link refid="class_s_1_1_collision"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>fn::Database</label>
+        <link refid="classfn_1_1_database"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>eid_pool</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_components</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::unordered_map&lt; Cid, std::shared_ptr&lt; fn::IComponentArray &gt; &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::stack&lt; Eid &gt;</label>
+      </node>
+      <node id="7">
+        <label>fn::IComponentArray</label>
+        <link refid="classfn_1_1_i_component_array"/>
+      </node>
+      <node id="6">
+        <label>std::shared_ptr&lt; fn::IComponentArray &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/systems/Collision.hpp" line="37" column="1" bodyfile="fn/ecs/systems/Collision.hpp" bodystart="38" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_s_1_1_collision_1ac51afd39987f42c5b787126c193283af" prot="private" virt="non-virtual"><scope>S::Collision</scope><name>calculate_relative_velocity</name></member>
+      <member refid="class_s_1_1_collision_1a6528810c18ca3fa8a48d9203f04deef0" prot="public" virt="non-virtual"><scope>S::Collision</scope><name>Collision</name></member>
+      <member refid="class_s_1_1_collision_1a8978ee8251173350c2dd624da8b80acb" prot="private" virt="non-virtual"><scope>S::Collision</scope><name>m_database</name></member>
+      <member refid="class_s_1_1_collision_1aff177eb647e4e3788cf207fccb9baa3d" prot="public" virt="virtual"><scope>S::Collision</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

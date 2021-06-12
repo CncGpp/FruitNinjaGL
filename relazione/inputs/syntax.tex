@@ -1,0 +1,232 @@
+\usepackage{fontspec}
+\newfontfamily{\ttm}[Scale=MatchLowercase]{Iosevka Term}
+\newfontfamily{\ttb}[Scale=MatchLowercase]{Iosevka Term}
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{deeporange}{RGB}{206,123,0}
+\definecolor{background}{HTML}{fafafa}
+
+\definecolor{pblue}{rgb}{0.12,0.12,0.9}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.41,0.40,0.43}
+\definecolor{ppurple}{rgb}{0.42,0.12,0.9}
+
+
+\colorlet{literatecolour}{magenta!90!black}
+\colorlet{promptcolour}{green!50!black}
+\newcommand*{\literatecolour}{\textcolor{literatecolour}}
+\newcommand*{\pseudocodeprompt}{\textcolor{promptcolour}{{>}{>}{>}}}
+
+\usepackage{listings} % Per i listing
+%\usepackage{lstlinebgrd} % ROTTO non è aggiornato
+%\usepackage[framemethod=tikz]{mdframed}
+
+% --------------------------------------------------------------------------- %
+%	lstlinebgrd non è aggiornato e causa problemi... questo fixa              %
+% --------------------------------------------------------------------------- %
+\makeatletter
+\let\old@lstKV@SwitchCases\lstKV@SwitchCases
+\def\lstKV@SwitchCases#1#2#3{}
+\makeatother
+\usepackage{lstlinebgrd}
+\makeatletter
+\let\lstKV@SwitchCases\old@lstKV@SwitchCases
+
+\lst@Key{numbers}{none}{%
+	\def\lst@PlaceNumber{\lst@linebgrd}%
+	\lstKV@SwitchCases{#1}%
+	{none:\\%
+		left:\def\lst@PlaceNumber{\llap{\normalfont
+				\lst@numberstyle{\thelstnumber}\kern\lst@numbersep}\lst@linebgrd}\\%
+		right:\def\lst@PlaceNumber{\rlap{\normalfont
+				\kern\linewidth \kern\lst@numbersep
+				\lst@numberstyle{\thelstnumber}}\lst@linebgrd}%
+	}{\PackageError{Listings}{Numbers #1 unknown}\@ehc}}
+\makeatother
+
+
+
+
+% --------------------------------------------------------------------------- %
+%	Stile di base per il codice                 				              %
+% --------------------------------------------------------------------------- %
+\newcommand\pseudocodestyle{\lstset{
+	columns = fullflexible,%
+	breakindent=.4\textwidth,
+	breaklines=true,%
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+	numbers = none,%
+%	
+%   -- CONFIGURAZIONI RELATIVE AL LINGUAGGIO
+	language = python,%
+	showtabs=true,
+	tab=,
+	tabsize=4,
+	morecomment=[s]{"""}{"""},
+%	
+%   -- CONFIGURAZIONI DI BASE
+	numberstyle = \ttfamily,%
+	commentstyle = \color{pgrey},%
+	basicstyle = \ttm,%
+	alsoletter={1234567890, :,\%},%
+	otherkeywords={\%, \}, \{, \&, \|},
+	alsoother={\#},
+	literate=*%
+		{:}{{\literatecolour:}}{1}%
+		{=}{{\literatecolour=}}{1}%
+		{-}{{\literatecolour-}}{1}%
+		{+}{{\literatecolour+}}{1}%
+		{*}{{\literatecolour*}}{1}%
+		{**}{{\literatecolour{**}}}2%
+		{/}{{\literatecolour/}}{1}%
+		{//}{{\literatecolour{//}}}2%
+		{!}{{\literatecolour!}}{1}%
+		%{(}{{\literatecolour(}}{1}%
+		%{)}{{\literatecolour)}}{1}%
+		%{[}{{\literatecolour[}}{1}%
+		%{]}{{\literatecolour]}}{1}%
+		{<}{{\literatecolour<}}{1}%
+		{>}{{\literatecolour>}}{1}%
+		{>>>}{\pseudocodeprompt}{3}%
+	,%
+%
+%   -- CONFIGURAZIONE DI COLORE ED EVIDENZIAZIONE
+	backgroundcolor = \color{background},
+	linebackgroundcolor={\ifodd
+						   \value{lstnumber}\color{background}%
+						\else
+						   \color{background!98!black}%
+						 \fi},%
+	stringstyle=\color{deeporange},%
+%	
+	otherkeywords={\%TYPE, COUNT},
+	deletekeywords={real, atan, abs, input},%
+	keywordstyle=\bfseries\ttb\color{pblue},%	
+%
+%   -- PRIMO SET DI KEYWORDS [PAROLE CHIAVE]
+	keywordstyle=\bfseries\ttm\color{pblue},%
+    morekeywords = {and,break,class,continue,def,yield,del,elif ,else,%
+    				except,exec,finally,for,from,global,if,import,in,%
+    				lambda,not,or,pass,print,raise,return,try,while,assert,with,function,end,do, foreach},
+    deletekeywords={},%
+%
+%   -- SECONDO SET DI KEYWORDS [builtin]
+	keywordstyle = [2]{\ttm\color{pgreen}},%
+	morekeywords = [2]{object,type,isinstance,copy,deepcopy,zip,enumerate,reversed,list,set,len,dict,%
+					   tuple,xrange,append,execfile,real,imag,reduce,str,repr},%
+	deletekeywords=[2]{input},%          
+%
+%   -- TERZO SET DI KEYWORDS [Underscores]
+	keywordstyle = [3]{\bfseries\ttm\color{deepred}},%
+	morekeywords = [3]{__init__,__add__,__mul__,__div__,__sub__,__call__,__getitem__,__setitem__,__eq__,%
+					   __ne__,__nonzero__,__rmul__,__radd__,__repr__,__str__,__get__,__truediv__,__pow__,%
+					   __name__,__future__,__all__},%
+	deletekeywords=[3]{},%
+%      	
+%   Custom highlighting specifiche 
+	emphstyle=\ttb\color{deepred},%    
+	emph={super,self},% 
+	emphstyle=[2]{\bfseries\ttb\color{black}},
+	emph={[2]True, False, None},
+%
+	frame=none,%
+	%xleftmargin=10pt,
+	%xrightmargin=10pt,                    
+	breaklines = true,%
+	showstringspaces=false,            % 
+	keepspaces=true,                   % keeps spaces in text, useful for keeping indentation of code
+	captionpos=b,													%caption sotto invece che sopra
+}}
+
+\newcommand\pseudocodeinlinestyle{\lstset{
+		basicstyle=\ttm%\linespread{1}\fontsize{11}{11}\ttfamily,
+}}
+
+%  SQL environment
+\lstnewenvironment{pseudocode}[1][]
+{
+\pseudocodestyle
+\lstset{#1}
+}
+{}
+
+%  SQL for external files
+\newcommand\pseudocodeexternal[2][]{{
+\pseudocodestyle
+\lstinputlisting[#1]{#2}}}
+
+%  SQL for inline
+\newcommand\pseudocodeinline[1]{{\pseudocodestyle\pseudocodeinlinestyle\lstinline!#1!}}
+
+\newcommand\paramstyle[1]{{\ttb\color{black}\bfseries{#1}}}%
+\lstdefinestyle{console}
+{
+	columns = fullflexible,%
+	breakindent=.355\textwidth,
+	breaklines=true,%
+	frame=none,%
+	basicstyle = \ttm,%
+	backgroundcolor = \color{background},
+	morekeywords = {},
+	otherkeywords= {OUTPUT\_DIR, IMAGE\_DIR, DATASET\_DIR, WEIGHTS\_FILE, ENCODING\_FILE, TOP\_K,
+	                BATCH\_SIZE, LEARNING\_RATE, WEIGHT\_DECAY, EVAL\_FREQUENCY, TRAINING\_EPOCHS, EVAL\_FILE,
+                    INCLUDE, SYSTEM\_OUTPUT, SPARSITY\_MIN, SPARSITY\_MAX},
+	keywordstyle=\ttb\color{deepred},%
+%
+	keywordstyle = [2]{\ttm\color{pgreen}},%
+	morekeywords = [2]{train, eval, predict, features, resnet\_34, resnet\_50, resnet\_101},% 
+	deletekeywords=[2]{features.},%   
+%
+	literate=*%
+	{:}{{:}}{1}%
+	{=}{{\literatecolour=}}{1}%
+	{-}{{-}}{1}%
+	{+}{{\literatecolour+}}{1}%
+	{*}{{\literatecolour*}}{1}%
+	{**}{{\literatecolour{**}}}2%
+	%{/}{{\literatecolour/}}{1}%
+	{//}{{\literatecolour{//}}}2%
+	{!}{{\literatecolour!}}{1}%
+	%{(}{{\literatecolour(}}{1}%
+	%{)}{{\literatecolour)}}{1}%
+	%{[}{{\literatecolour[}}{1}%
+	%{]}{{\literatecolour]}}{1}%
+	{<}{{\literatecolour<}}{1}%
+	{>}{{\literatecolour>}}{1}%
+	{>>>}{\pseudocodeprompt}{3}%
+	{--output\_dir}{\paramstyle{--output\_dir}}{12}%
+	{--command}{\paramstyle{--command}}{9}%
+	{--help}{\paramstyle{--help}}{6}%
+	{-h}{\paramstyle{-h}}{2}%
+	{--image\_dir}{\paramstyle{--image\_dir}}{11}%
+	{--dataset\_dir}{\paramstyle{--dataset\_dir}}{13}%
+	{--weights\_file}{\paramstyle{--weights\_file}}{14}%
+	{--encoding\_file}{\paramstyle{--encoding\_file}}{15}%
+	{--cnn\_type}{\paramstyle{--cnn\_type}}{10}%
+	{--batch\_size}{\paramstyle{--batch\_size}}{12}%
+	{--learning\_rate}{\paramstyle{--learning\_rate}}{15}%
+	{--weight\_decay}{\paramstyle{--weight\_decay}}{14}%
+	{--eval\_frequency}{\paramstyle{--eval\_frequency}}{16}%
+	{--training\_epochs}{\paramstyle{--training\_epochs}}{17}%
+	{--eval\_file}{\paramstyle{--eval\_file}}{11}%
+	{--top\_k}{\paramstyle{--top\_k}}{7}%
+	{features.}{{features.}}{9}%
+	{features,}{{features,}}{9}%
+	{train.}{{train.}}{6}%
+	{file,}{{\ttm\color{pgreen}file},}{5}%
+	{eval.}{{eval.}}{5}%
+	{model\}}{{\ttm\color{pgreen}model}\}}{6}%
+	{--format}{\paramstyle{--format}}{8}%
+	{--include}{\paramstyle{--include}}{9}%
+	{--system\_output}{\paramstyle{--system\_output}}{15}%
+	{--sparsity\_min}{\paramstyle{--sparsity\_min}}{14}%
+	{--sparsity\_max}{\paramstyle{--sparsity\_max}}{14}%
+	,% 
+}
+
+
+%

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="dir_3bc85c309121d07a74b65ce6839cbd61" kind="dir">
+    <compoundname>fn/core/assets</compoundname>
+    <innerfile refid="_asset_manager_8cpp">AssetManager.cpp</innerfile>
+    <innerfile refid="_asset_manager_8hpp">AssetManager.hpp</innerfile>
+    <innerfile refid="assets_8hpp">assets.hpp</innerfile>
+    <innerfile refid="_fruits_8cpp">Fruits.cpp</innerfile>
+    <innerfile refid="_fruits_8hpp">Fruits.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/assets/"/>
+  </compounddef>
+</doxygen>

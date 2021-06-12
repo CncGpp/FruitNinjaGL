@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_asset_manager" kind="class" language="C++" prot="public">
+    <compoundname>AssetManager</compoundname>
+    <includes refid="_asset_manager_8hpp" local="no">fn/core/assets/AssetManager.hpp</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asset_manager_1af67dbe356204a9dac38fef334de051f5" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, TextureSP &gt; AssetManager::s_textureCache</definition>
+        <argsstring></argsstring>
+        <name>s_textureCache</name>
+        <briefdescription>
+<para>cache per le texture. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="97" column="27" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asset_manager_1a03849cdad8011053c224074703942ce3" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="_asset_manager_8hpp_1aa322aa8f05313a6720d41301b70f2c5f" kindref="member">ModelSP</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, ModelSP &gt; AssetManager::s_modelCache</definition>
+        <argsstring></argsstring>
+        <name>s_modelCache</name>
+        <briefdescription>
+<para>cache per i modelli. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="98" column="27" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asset_manager_1ae02537ca7d3804fdede820e87f45e1b4" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="_shader_8hpp_1a28c917b60764e5aefe22cc93a1686bb5" kindref="member">ShaderSP</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, ShaderSP &gt; AssetManager::s_shaderCache</definition>
+        <argsstring></argsstring>
+        <name>s_shaderCache</name>
+        <briefdescription>
+<para>cache per gli shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="99" column="27" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asset_manager_1a8ebc4d7a381ae731fca416329a6e4415" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="_audio_8hpp_1a7244daad6e148d4928bb72a91306ddb3" kindref="member">AudioSP</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, AudioSP &gt; AssetManager::s_audioCache</definition>
+        <argsstring></argsstring>
+        <name>s_audioCache</name>
+        <briefdescription>
+<para>cache per gli audio. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="100" column="27" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_asset_manager_1a4898d28f2d977c2c794557c9482b208a" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="_shader_8hpp_1a28c917b60764e5aefe22cc93a1686bb5" kindref="member">ShaderSP</ref></type>
+        <definition>constexpr ShaderSP AssetManager::loadShader</definition>
+        <argsstring>(const fs::path &amp;vertex_filepath, const fs::path &amp;fragment_filepath, Args &amp;&amp;... args)</argsstring>
+        <name>loadShader</name>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>vertex_filepath</declname>
+        </param>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>fragment_filepath</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Carica, compila e linka uno shader in GL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>La funzione prende in input il percorso al codice sorgente di un vertex shader e un fragment shader li legge, compila ed infine linka restituendo uno shared pointer ad un oggetto <ref refid="class_shader" kindref="compound">Shader</ref>.</para>
+<para>Gli shader già caricati sono memorizzati in s_shaderCache, successive richieste allo stesso shader restituiranno lo stesso puntatore.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertex_filepath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percorso al file contenente il codice sorgente del vertex shader. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fragment_filepath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percorso al file contenente il codice sorgente del fragment shader. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>eventuali parametri extra che saranno inoltrati al costruttore dell&apos;oggetto <ref refid="class_shader" kindref="compound">Shader</ref> da creare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Shared pointer allo shader caricato. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="43" column="39" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="105" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_asset_manager_1a507a21f91e9607b495d5a42c7b27847b" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="_asset_manager_8hpp_1aa322aa8f05313a6720d41301b70f2c5f" kindref="member">ModelSP</ref></type>
+        <definition>constexpr ModelSP AssetManager::loadModel</definition>
+        <argsstring>(const fs::path &amp;filepath, Args &amp;&amp;... args)</argsstring>
+        <name>loadModel</name>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>filepath</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Carica, un modello. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>La funzione prende in input il percorso al file del modello e restituisce uno shared pointer ad un oggetto <ref refid="class_model" kindref="compound">Model</ref>. La funzione usa ASSIMP come back-end per il caricamento.</para>
+<para>I modelli già caricati sono memorizzati in s_modelCache, successive richieste allo stesso modello restituiranno lo stesso puntatore.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filepath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percorso al file del modello. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>eventuali parametri extra che saranno inoltrati al costruttore dell&apos;oggetto <ref refid="class_model" kindref="compound">Model</ref> da creare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Shared pointer al modello caricato. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="60" column="38" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="118" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_asset_manager_1a490fbff7269d5a855104ff76b6e02e17" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref></type>
+        <definition>constexpr TextureSP AssetManager::loadTexture</definition>
+        <argsstring>(const fs::path &amp;filepath, Args &amp;&amp;... args)</argsstring>
+        <name>loadTexture</name>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>filepath</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Carica, una texture. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>La funzione prende in input il percorso al file di una texture e restituisce uno shared pointer ad un oggetto <ref refid="class_texture" kindref="compound">Texture</ref>. La funzione usa stb_image come back-end per il caricamento.</para>
+<para>Le texture già caricate sono memorizzate in s_textureCache, successive richieste alla stessa texture restituiranno lo stesso puntatore.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filepath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percorso al file della texture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>eventuali parametri extra che saranno inoltrati al costruttore dell&apos;oggetto <ref refid="class_texture" kindref="compound">Texture</ref> da creare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Shared pointer alla texture caricata. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="77" column="40" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="131" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_asset_manager_1afae6b6671504a8ae71c5a8010bfb392e" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="_audio_8hpp_1a7244daad6e148d4928bb72a91306ddb3" kindref="member">AudioSP</ref></type>
+        <definition>constexpr AudioSP AssetManager::loadAudio</definition>
+        <argsstring>(const fs::path &amp;filepath, Args &amp;&amp;... args)</argsstring>
+        <name>loadAudio</name>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>filepath</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Carica, un file <ref refid="class_audio" kindref="compound">Audio</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>La funzione prende in input il percorso al file audio e restituisce uno shared pointer ad un oggetto <ref refid="class_audio" kindref="compound">Audio</ref>. La funzione usa irrKlang come back-end per il caricamento.</para>
+<para>Gli audio già caricati sono memorizzati in s_audioCache, successive richieste allo stesso audio restituiranno lo stesso puntatore.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filepath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percorso al file dell&apos;audio. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>eventuali parametri extra che saranno inoltrati al costruttore dell&apos;oggetto <ref refid="class_audio" kindref="compound">Audio</ref> da creare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Shared pointer all&apos;audio caricato. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/AssetManager.hpp" line="94" column="38" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="144" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Gestore di asset e risorse di gioco. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe mette a disposizione una serie di metodi per il caricamento di risorse e asset quali <ref refid="class_shader" kindref="compound">Shader</ref>, <ref refid="class_model" kindref="compound">Model</ref>, <ref refid="class_texture" kindref="compound">Texture</ref>, <ref refid="class_audio" kindref="compound">Audio</ref>.</para>
+<para>Il caricamento avviene sfruttando il pattern Flyweight separando la risorsa dal suo utilizzo. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>AssetManager</label>
+        <link refid="class_asset_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>s_shaderCache</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>s_audioCache</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>s_textureCache</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>s_modelCache</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>T</label>
+      </node>
+      <node id="8">
+        <label>std::shared_ptr&lt; T &gt;</label>
+        <childnode refid="9" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::unordered_map&lt; std::string, ShaderSP &gt;</label>
+        <childnode refid="3" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Shader</label>
+        <link refid="class_shader"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_fShaderSrc</edgelabel>
+          <edgelabel>m_vShaderSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>std::unordered_map&lt; std::string, TextureSP &gt;</label>
+        <childnode refid="8" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>std::unordered_map&lt; std::string, AudioSP &gt;</label>
+        <childnode refid="8" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="5">
+        <label>std::string</label>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::shared_ptr&lt; Shader &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>std::unordered_map&lt; std::string, ModelSP &gt;</label>
+        <childnode refid="8" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/core/assets/AssetManager.hpp" line="22" column="1" bodyfile="fn/core/assets/AssetManager.hpp" bodystart="23" bodyend="101"/>
+    <listofallmembers>
+      <member refid="class_asset_manager_1afae6b6671504a8ae71c5a8010bfb392e" prot="public" virt="non-virtual"><scope>AssetManager</scope><name>loadAudio</name></member>
+      <member refid="class_asset_manager_1a507a21f91e9607b495d5a42c7b27847b" prot="public" virt="non-virtual"><scope>AssetManager</scope><name>loadModel</name></member>
+      <member refid="class_asset_manager_1a4898d28f2d977c2c794557c9482b208a" prot="public" virt="non-virtual"><scope>AssetManager</scope><name>loadShader</name></member>
+      <member refid="class_asset_manager_1a490fbff7269d5a855104ff76b6e02e17" prot="public" virt="non-virtual"><scope>AssetManager</scope><name>loadTexture</name></member>
+      <member refid="class_asset_manager_1a8ebc4d7a381ae731fca416329a6e4415" prot="private" virt="non-virtual"><scope>AssetManager</scope><name>s_audioCache</name></member>
+      <member refid="class_asset_manager_1a03849cdad8011053c224074703942ce3" prot="private" virt="non-virtual"><scope>AssetManager</scope><name>s_modelCache</name></member>
+      <member refid="class_asset_manager_1ae02537ca7d3804fdede820e87f45e1b4" prot="private" virt="non-virtual"><scope>AssetManager</scope><name>s_shaderCache</name></member>
+      <member refid="class_asset_manager_1af67dbe356204a9dac38fef334de051f5" prot="private" virt="non-virtual"><scope>AssetManager</scope><name>s_textureCache</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

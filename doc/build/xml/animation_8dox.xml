@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="animation_8dox" kind="file" language="C++">
+    <compoundname>animation.dox</compoundname>
+    <innernamespace refid="namespace_magnum">Magnum</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Users/gc/OneDrive - Advanced Systems S.r.l/UNIVERSITA/GRAFICA_INTERATTIVA/workspace/FruitNinjaGL/doc/pages/animation.dox"/>
+  </compounddef>
+</doxygen>

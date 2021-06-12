@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>S::Combo class | FruitNinjaGL C++
+docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FF272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m"><img src="logo.png" alt="" />FruitNinjaGL <span class="m-thin">C++
+docs</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="namespace_s.html">S</a>::<wbr/></span>Combo <span class="m-thin">class</span>
+        </h1>
+        <p>Sistema che gestisce le <a href="class_s_1_1_combo.html" class="m-doc">Combo</a> e i Blitz.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#base-classes">Base classes</a></li>
+                <li><a href="#pub-types">Public types</a></li>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pro-methods">Protected functions</a></li>
+                <li><a href="#pro-attribs">Protected variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>La classe <a href="class_s_1_1_combo.html" class="m-doc">Combo</a> consente di gestire le combo di frutti all&#x27;interno del gioco.</p><p>I componenti coinvolti dal sistema sono <a href="struct_c_1_1_sprite.html" class="m-doc">C::<wbr />Sprite</a> e <a href="struct_c_1_1_particle.html" class="m-doc">C::<wbr />Particle</a>.</p>
+        <section id="base-classes">
+          <h2><a href="#base-classes">Base classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              class <a href="class_s_1_1_system.html" class="m-doc">System</a>
+            </dt>
+            <dd>Interfaccia base per i <a href="class_s_1_1_system.html" class="m-doc">System</a>.</dd>
+          </dl>
+        </section>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt id="ab2cb07fdc5e8a6f7d0adc46c24418498">
+              <span class="m-doc-wrap-bumper">enum class <a href="#ab2cb07fdc5e8a6f7d0adc46c24418498" class="m-doc-self">BlitzLevel</a>: int { </span><span class="m-doc-wrap"><a href="#ab2cb07fdc5e8a6f7d0adc46c24418498a334c4a4c42fdb79d7ebc3e73b517e6f8" class="m-doc">none</a> = 0,
+              <a href="#ab2cb07fdc5e8a6f7d0adc46c24418498ac69c522d7937f66ff7becd10515a95f7" class="m-doc">combo</a> = 5,
+              <a href="#ab2cb07fdc5e8a6f7d0adc46c24418498aacaa16770db76c1ffb9cee51c3cabfcf" class="m-doc">great</a> = 10,
+              <a href="#ab2cb07fdc5e8a6f7d0adc46c24418498abe121740bf988b2225a313fa1f107ca1" class="m-doc">awesome</a> = 15 }</span>
+            </dt>
+            <dd>Livelli di blitz.</dd>
+          </dl>
+        </section>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="af8f9d8dea24470d6871d4af781b8906a">
+              <span class="m-doc-wrap-bumper"><a href="#af8f9d8dea24470d6871d4af781b8906a" class="m-doc-self">Combo</a>(</span><span class="m-doc-wrap"><a href="class_state.html" class="m-doc">State</a>* state,
+              <a href="classfn_1_1_database.html" class="m-doc">fn::<wbr />Database</a>&amp; database)</span>
+            </dt>
+            <dd>Costruttore.</dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a2ad99ebcf5ca540d05073f1eae776de4" class="m-doc">update</a>(</span><span class="m-doc-wrap"><a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> delta_t) <span class="m-label m-flat m-warning">override</span></span>
+            </dt>
+            <dd>Aggiorna lo stato interno del sistema.</dd>
+            <dt id="a8d7becb2c253dc88f0b7ed2e2d6ad14c">
+              <span class="m-doc-wrap-bumper">void <a href="#a8d7becb2c253dc88f0b7ed2e2d6ad14c" class="m-doc-self">addSplit</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Notifica un nuovo split di un frutto.</dd>
+          </dl>
+        </section>
+        <section id="pro-methods">
+          <h2><a href="#pro-methods">Protected functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a3a9b7cce476c1387357e138205cd6d6e" class="m-doc">onCombo</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Funzione richiamata in caso di combo.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a5de651d3beadc6b45f96784f3fcb0f17" class="m-doc">onBlitz</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Funzione richiamata in caso di blitz.</dd>
+            <dt id="a1d86c9df98037cb4cbb43126a22f1d7f">
+              <span class="m-doc-wrap-bumper">void <a href="#a1d86c9df98037cb4cbb43126a22f1d7f" class="m-doc-self">updateParticles</a>(</span><span class="m-doc-wrap"><a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> delta_t)</span>
+            </dt>
+            <dd>Aggiorna gli elementi grafici.</dd>
+            <dt id="ad337ee87dc692ef4946b7af975075ec9">
+              <span class="m-doc-wrap-bumper">void <a href="#ad337ee87dc692ef4946b7af975075ec9" class="m-doc-self">updateArrowBlitz</a>(</span><span class="m-doc-wrap"><a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> delta_t)</span>
+            </dt>
+            <dd>Aggiorna gli elementi grafici.</dd>
+          </dl>
+        </section>
+        <section id="pro-attribs">
+          <h2><a href="#pro-attribs">Protected variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a974eb537546dfe645d2c1eee3c515d05">
+              unsigned int <a href="#a974eb537546dfe645d2c1eee3c515d05" class="m-doc-self">m_splitCount</a>
+            </dt>
+            <dd>Conta il numero di split effettuati fino a questo momento.</dd>
+            <dt id="a50a6726472ff495ce6dca8595458d6cf">
+              <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#a50a6726472ff495ce6dca8595458d6cf" class="m-doc-self">m_lastSplit</a>
+            </dt>
+            <dd>Tempo trascorso dall&#x27;ultimo split.</dd>
+            <dt id="a084ed779bde404856af30cb270aff6d9">
+              const <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#a084ed779bde404856af30cb270aff6d9" class="m-doc-self">m_splitTimeout</a>
+            </dt>
+            <dd>Tempo massimo dal <code>lastSplit</code> prima che <code>splitCount</code> si resetti.</dd>
+            <dt id="a256604fa48c36e6a02c26d24e2f7ea49">
+              unsigned int <a href="#a256604fa48c36e6a02c26d24e2f7ea49" class="m-doc-self">m_comboCount</a>
+            </dt>
+            <dd>Conta il numero di combo effettuate fino a questo momento.</dd>
+            <dt id="ad0a8442cf3e6e920340cce426e83d6ce">
+              <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#ad0a8442cf3e6e920340cce426e83d6ce" class="m-doc-self">m_lastCombo</a>
+            </dt>
+            <dd>Tempo trascorso dall&#x27;ultima combo.</dd>
+            <dt id="a3fb09d84c13d1eda75ae9f81cdf2f124">
+              const <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#a3fb09d84c13d1eda75ae9f81cdf2f124" class="m-doc-self">m_comboTimeout</a>
+            </dt>
+            <dd>Tempo massimo dal <code>lastCombo</code> prima che <code>comboCount</code> si resetti.</dd>
+            <dt id="a2df35e3f74c331f6873bceef24dff7a5">
+              const <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#a2df35e3f74c331f6873bceef24dff7a5" class="m-doc-self">m_blitzTimeout</a>
+            </dt>
+            <dd>Tempo massimo dal <code>m_lastBlitz</code> prima che <code>m_lastBlitzLevel</code> si resetti.</dd>
+            <dt id="a1c66e8f2f6057874d55507a8998923e9">
+              const <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#a1c66e8f2f6057874d55507a8998923e9" class="m-doc-self">m_blitzDelay</a>
+            </dt>
+            <dd>Tempo che deve trascorrere per il rinnovo della blitz di massimo livello.</dd>
+            <dt id="a873a68b263f095fe92b346ffba84edc7">
+              <a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> <a href="#a873a68b263f095fe92b346ffba84edc7" class="m-doc-self">m_lastBlitz</a>
+            </dt>
+            <dd>Tempo trascorso dall&#x27;ultimo blitz.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a2ad99ebcf5ca540d05073f1eae776de4"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void S::<wbr />Combo::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2ad99ebcf5ca540d05073f1eae776de4" class="m-doc-self">update</a>(</span><span class="m-doc-wrap"><a href="namespacecore.html#af38b4a9ca1ad3ce8caaff19a2bf5398a" class="m-doc">core::<wbr />seconds</a> delta_t) <span class="m-label m-warning">override</span></span></span>
+            </h3>
+            <p>Aggiorna lo stato interno del sistema.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">delta_t</td>
+                  <td>intervallo di tempo gioco trascorso.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3a9b7cce476c1387357e138205cd6d6e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void S::<wbr />Combo::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3a9b7cce476c1387357e138205cd6d6e" class="m-doc-self">onCombo</a>(</span><span class="m-doc-wrap">) <span class="m-label m-warning">protected</span></span></span>
+            </h3>
+            <p>Funzione richiamata in caso di combo.</p>
+<p>La funzione viene chiamata quando si verifica una combo, ovvero quando si tagliano almeno tre frutti entro il tempo di timeout.</p>
+          </div></section>
+          <section class="m-doc-details" id="a5de651d3beadc6b45f96784f3fcb0f17"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void S::<wbr />Combo::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5de651d3beadc6b45f96784f3fcb0f17" class="m-doc-self">onBlitz</a>(</span><span class="m-doc-wrap">) <span class="m-label m-warning">protected</span></span></span>
+            </h3>
+            <p>Funzione richiamata in caso di blitz.</p>
+<p>La funzione viene chiamata quando si verifica un blitz, ovvero quando si effettuano almeno tre combo entro il tempo di timeout.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>FruitNinjaGL C++
+docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

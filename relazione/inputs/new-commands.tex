@@ -1,0 +1,257 @@
+% make writing commands easier
+\usepackage{xparse}
+
+% colored text
+\usepackage{color}
+
+% include eps, pdf graphics
+\usepackage{graphicx}
+
+
+% properly handle spaces after defines
+\usepackage{xspace}
+
+
+
+% ============================================================================ %
+%                               NUOVI COMANDI                                  %
+% ============================================================================ %
+%\newcommand\MathFont[0]{}
+\definecolor{probcolor}{RGB}{50, 50, 50}
+
+
+% Helper di probabilità
+\def\Phelper#1|#2\relax{\ifx\relax#2\relax\def\Pchoice{\Pone}\else\def\Pchoice{\Ptwo}\fi}
+\def\Pone(#1){\left( #1 \right)}
+\def\Ptwo(#1|#2){\left( #1 \,\middle|\, #2 \right)}
+\def\pr{{\mathbf{pr}}}
+\def\Pr{{\mathbf{Pr}}}
+
+% Densità di probabilità
+\makeatletter
+\def\p{\@ifnextchar({\@p}{\@ifnextchar[{\@pn}{\pr}}}
+\def\@pn[#1](#2){\pr{{\hskip -0.02em}#1}{\hskip -0.22em}\Phelper#2|\relax\Pchoice(#2)}
+\def\@p(#1){\pr{\hskip -0.20em}\Phelper#1|\relax\Pchoice(#1)}
+\makeatother
+
+% Massa di probabilità
+\makeatletter
+\def\P{\@ifnextchar({\@P}{\@ifnextchar[{\@Pn}{\Pr}}}
+\def\@Pn[#1](#2){\Pr{{\hskip -0.02em}#1}{\hskip -0.22em}\Phelper#2|\relax\Pchoice(#2)}
+\def\@P(#1){\Pr{\hskip -0.20em}\Phelper#1|\relax\Pchoice(#1)}
+\makeatother
+
+
+
+
+% ============================================================================ %
+% Funzioni e macro matematiche finalizzate alla notazione                      %
+% ============================================================================ %
+\newcommand{\mathsc}[1]{\text{\textsc{#1}}}                                    % maiuscoletto in mathmode
+
+% __ NUMERI e ALGEBRA __
+\newcommand{\s}[1]{\mathnormal{#1}}                                            % Stile per gli scalari
+\renewcommand{\v}[1]{\boldsymbol{#1}}                                          % Stile per i vettori
+\newcommand{\m}[1]{\v{#1}}                                                     % Stile per le matrici
+
+\renewcommand{\r}[1]{\mathrm{#1}}
+\newcommand{\sr}[1]{\r{#1}}                                                    % Stile per gli scalari
+\newcommand{\vr}[1]{\boldsymbol{\r{#1}}}                                       % Stile per i vettori
+\newcommand{\mr}[1]{\v{\r{#1}}}                                                % Stile per le matrici
+
+\def\T{{\mathrm{T}}}													       % Trasposizione
+\newcommand{\me}{\mathrm{e}}                                                   % numero di nepero
+
+% __ PROBABILITA __
+\newcommand*{\ind}{\perp}
+\newcommand*{\cind}{\perp\!\!\!\perp}
+
+\newcommand{\antecedents}[1]{#1^\set{A}}									   % Insieme dei nodi parent
+\newcommand{\parents}[1]{#1^{\set{P}}}				                           % Insieme dei nodi parent diretti
+\newcommand{\descendant}[1]{#1^\set{D}}									       % Insieme dei nodi children
+\newcommand{\children}[1]{#1^{\set{C}}}			                               % Insieme dei nodi children diretti
+\newcommand{\nonDescendant}[1]{#1^\set{N}}									   % Insieme dei nodi non discendenti
+\newcommand*{\localIndipendences}{\mathbb{I}_\ell{\hskip -0.20em}(\mathcal{G})}% Indieme delle dipendenze locali di G
+
+
+% __ INSIEMI e GRAFI __
+\newcommand{\set}[1]{\mathbb{#1}}                                              % Stile insiemi
+\newcommand{\Reals}{\set{R}}                                                   % Insieme dei numeri reali
+\newcommand{\Integers}{\set{Z}}                                                % Insieme dei numeri interi
+\newcommand{\Naturals}{\set{N}}                                                % Insieme dei numeri naturali
+
+
+
+% __ OPERATORI MATEMATICI __
+\newcommand{\dist}[1]{{\operatorname{dist}\!\left(#1\right)}}                  % Operatore di distanza
+% Valore atteso
+\makeatletter
+\def\EX{\@ifnextchar\bgroup{\@EX}{\@ifnextchar[{\@@EX}{\mathbb{E}}}}
+\def\@@EX[#1]#2{\mathbb{E}_{#1}\!\left[#2\right]}
+\def\@EX#1{\mathbb{E}\!\left[{#1}\right]}
+\makeatother
+
+% Valore atteso.	usage: \expectation[y]{x}
+\DeclareDocumentCommand \expectation { o m } {%
+	\ensuremath{\mathbb{E}%
+		\IfValueTF {#1} {%
+			_{#1} \left[ #2 \right]%
+		}{%
+			\left[ #2 \right]%
+		}%
+	}\xspace%
+}
+
+\newcommand{\var}[1]{{\color{probcolor}\text{{\MathFont var}}\!\left(#1\right)}}           		% Varianza 
+\newcommand{\cov}[1]{{\color{probcolor}\mathbf{\MathFont cov}\!\left[#1\right]}}           		% Covarianza   
+\newcommand{\cor}[1]{{\color{probcolor}\mathbf{\MathFont cor}\!\left(#1\right)}}           		% Correlazione   
+\newcommand{\val}[1]{{\color{probcolor}\text{\MathFont val}\!\left(#1\right)}} % Valori di una variabile aleatoria
+\newcommand{\card}[1]{{\left|#1\right|}}                                       % Cardinalità 
+\newcommand{\tr}[1]{{\text{\color{probcolor}{\MathFont tr}}\!\left(#1\right)}}       % Traccia
+% Norma
+\makeatletter
+\def\norm{\@ifnextchar\bgroup{\@norm}{\@ifnextchar[{\@@norm}{\mathbb{E}}}}
+\def\@@norm[#1]#2{\left\Vert{#2}\right\Vert_{#1}}
+\def\@norm#1{\left\Vert{#1}\right\Vert}
+\makeatother                                       
+
+
+% __ COMPUTER SCIENCE __
+\newcommand{\bigO}[1]{\mathcal{O}(#1)}                                         %Complessità asintotica  
+
+
+% __ ML __
+\newcommand{\dataset}[1]{\set{#1}}                                             %Per indicare un dataset
+
+% __ ALTRO__
+\newcommand*{\assumptionLabel}{\textbf{A\arabic*}}                             %Label da utilizzare
+
+
+% ============================================================================ %
+% Funzioni e macro matematiche di utiliy                                       %
+% ============================================================================ %
+\newcommand{\efrac}[2]{{\textsyle\frac{#1}{#2}}}              % exponet-fraction per avere il textsyle nelle frac
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}                        % frazione compatta (invece di usare nicefrac)
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}         % Parentesi del floor
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}            % Parentesi del ceil
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+
+
+
+% ============================================================================ %
+% Macro per la velocizzazione dell'immissione                                  %
+% ============================================================================ %
+\newcommand{\ds}[0]{\displaystyle}                                             % DisplayStyle
+\newcommand{\ts}[0]{\textstyle}                                                % TextStyle
+
+\newcommand{\de}[0]{\mathrm{d}}                                                % d integrale
+
+% Apici e pedici
+\def\ij{{i,j}}
+\def\ji{{j,i}}
+
+\newcommand{\collectionof}[2]{{ {#1}_1, {#1}_2, \ldots, {#1}_{#2} }}           % collezione di oggetti
+\newcommand{\setof}[2]{{\{ \collectionof{#1}{#2} \}}}                          % insieme di oggetti
+\newcommand{\bagof}[2]{{ [\![ \collectionof{#1}{#2} ]\!] }}                    % multiinsieme di oggetti
+
+
+% Abbreviazione di testi
+\newcommand{\pmf}[0]{\textsc{p.m.f.}\phantom{ }}
+\newcommand{\pdf}[0]{\textsc{p.d.f.}\phantom{ }}
+\newcommand{\cdf}[0]{\textsc{c.d.f.}\phantom{ }}
+\newcommand{\iid}[0]{\textsc{i.i.d.}\phantom{ }}
+
+
+% __ FUNZIONI, DISTRIBUZIONI E DENSITÀ DI PROBABILITA __
+% Simbolo distribuzione gauss. di parametri #1, #2
+\def\normal(#1,#2){\mathcal{N}{\hskip -0.22em}\left(#1, #2\right)}        
+% Simbolo distribuzione gauss. di variabile #1 parametri #2, #3
+\def\normal(#1;#2,#3){\mathcal{N}{\hskip -0.22em}\left(#1;{\hskip 0.1em}#2,#3\right)}
+% PDF gaussiana \normalpdf[<dimansionality>](<mu>,<sigma>)
+\makeatletter
+\def\normalpdf{\@ifnextchar({\@normalpdfU}{\@ifnextchar[{\@normalpdfM}{\Pr}}}
+\def\@normalpdfM[#1](#2, #3){%
+{\frac {\exp\!\left(-{\frac {1}{2}}({\v{x} }-{#2})^{\T }{#3}^{-1}({\v{x} }-{#2})\right)}{\sqrt {(2\pi )^{#1}|{#3}|}}}
+}
+\def\@normalpdfU(#1, #2){%
+{\frac  {1}{#2 {\sqrt  {2\pi }}}}\;\me^{{-{\efrac  {\left(x-#1 \right)^{2}}{2#2 ^{2}}}}}
+}%
+\makeatother                                                                             
+
+
+% Abbreviazioni variabili frequentemente usate
+\newcommand*{\vx}{\v{x}}
+\newcommand*{\vy}{\v{y}}
+\newcommand*{\vz}{\v{z}}
+\newcommand*{\vrx}{\vr{x}}
+\newcommand*{\vry}{\vr{y}}
+\newcommand*{\vrz}{\vr{z}}
+
+
+% ============================================================================ %
+% Modifiche grafiche                                                           %
+% ============================================================================ %
+\let\oldemptyset\emptyset													   % Memorizzo il vecchio emptyset
+\let\emptyset\varnothing													   % Cambio il simbolo
+
+
+% New definition of square root, closes over content
+% Renames \sqrt as \oldsqrt
+\let\oldsqrt\sqrt                                                              % Memorizzo il vecchio sqrt
+% Defines the new \sqrt in terms of the old one                                % Cambio l'operatore
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+	\setbox0=\hbox{$#1\oldsqrt{#2}$}\dimen0=\ht0
+	\advance\dimen0-0.2\ht0
+	\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+	{\box0\lower0.4pt\box2}}
+
+
+
+% Per ref boxati
+\newcommand\refbox[2][]{%
+	\tikz[overlay]%
+	\node[align=center,
+	      fill=blue!20,%
+	      draw=none,
+	      fill=baseBackground!98!black,
+	      text=accentColor!95!black,
+	      inner sep=2pt, %
+	      anchor=text, %
+	      rectangle, %
+	      xshift=0.25em,
+	      minimum height=0.45cm, 
+	      rounded corners=1pt, #1] {{\hskip 0.05em}\textbf{#2}{\hskip 0.05em}};%
+	\phantom{{\hskip 0.30em}\textbf{#2}{\hskip 0.30em}}%
+}%
+
+\newcommand\rref[1]{%
+	\hyperref[#1]{%
+		\refbox{%
+			\ref*{#1}%
+		}%
+	}%
+\xspace}%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

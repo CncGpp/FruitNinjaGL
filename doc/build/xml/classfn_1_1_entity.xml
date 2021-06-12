@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="classfn_1_1_entity" kind="class" language="C++" prot="public">
+    <compoundname>fn::Entity</compoundname>
+    <derivedcompoundref refid="class_e_1_1_fruit" prot="public" virt="non-virtual">E::Fruit</derivedcompoundref>
+    <includes refid="_entity_8hpp" local="no">fn/ecs/Entity.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classfn_1_1_entity_1a8687a338f0c977a15e1e5be14e1c4ef6" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacefn_1a86093d05084c5c29a8cd1b3bfeb99a39" kindref="member">Signature</ref></type>
+        <definition>Signature fn::Entity::m_signature</definition>
+        <argsstring></argsstring>
+        <name>m_signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="43" column="11" bodyfile="fn/ecs/Entity.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfn_1_1_entity_1a1ed22f751ebd48f4088ff9a332c84a9d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacefn_1a6b50c9f0e2b5922bc2348ed71840a29d" kindref="member">Eid</ref></type>
+        <definition>Eid fn::Entity::m_eid</definition>
+        <argsstring></argsstring>
+        <name>m_eid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="44" column="5" bodyfile="fn/ecs/Entity.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfn_1_1_entity_1a98c286a0aca9c212dd19345b35c3ca9d" prot="private" static="no" mutable="no">
+        <type><ref refid="classfn_1_1_database" kindref="compound">Database</ref> *</type>
+        <definition>Database* fn::Entity::m_database</definition>
+        <argsstring></argsstring>
+        <name>m_database</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="45" column="10" bodyfile="fn/ecs/Entity.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfn_1_1_entity_1a8cea8ea1f18f48b79b4bf4994ee24e58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>fn::Entity::Entity</definition>
+        <argsstring>(const Eid eid, Database *databse, Signature signature=0)</argsstring>
+        <name>Entity</name>
+        <param>
+          <type>const <ref refid="namespacefn_1a6b50c9f0e2b5922bc2348ed71840a29d" kindref="member">Eid</ref></type>
+          <declname>eid</declname>
+        </param>
+        <param>
+          <type><ref refid="classfn_1_1_database" kindref="compound">Database</ref> *</type>
+          <declname>databse</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacefn_1a86093d05084c5c29a8cd1b3bfeb99a39" kindref="member">Signature</ref></type>
+          <declname>signature</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="30" column="1" bodyfile="fn/ecs/Entity.hpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1a16425e56baf20d382da7006d7a7e768c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool fn::Entity::has</definition>
+        <argsstring>()</argsstring>
+        <name>has</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="32" column="28" bodyfile="fn/ecs/Database.hpp" bodystart="440" bodyend="442"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1aa0f6356c61baca8303221befa284af0d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T1</type>
+          </param>
+          <param>
+            <type>typename T2</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool fn::Entity::has</definition>
+        <argsstring>()</argsstring>
+        <name>has</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="33" column="32" bodyfile="fn/ecs/Database.hpp" bodystart="444" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1aea0a1fb622b8bbe058c422ce96096b37" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="classfn_1_1_entity" kindref="compound">Entity</ref> &amp;</type>
+        <definition>constexpr Entity &amp; fn::Entity::set</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>set</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="34" column="31" bodyfile="fn/ecs/Database.hpp" bodystart="450" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1a708533cecd8049e25927ab9aa6da7b2e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="classfn_1_1_entity" kindref="compound">Entity</ref> &amp;</type>
+        <definition>constexpr Entity &amp; fn::Entity::set</definition>
+        <argsstring>(T component)</argsstring>
+        <name>set</name>
+        <param>
+          <type>T</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="35" column="29" bodyfile="fn/ecs/Database.hpp" bodystart="458" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1aa6263c5c2cdbb5ec2fa42bb79dc43c3f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="classfn_1_1_entity" kindref="compound">Entity</ref> &amp;</type>
+        <definition>constexpr Entity &amp; fn::Entity::remove</definition>
+        <argsstring>()</argsstring>
+        <name>remove</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="36" column="29" bodyfile="fn/ecs/Database.hpp" bodystart="466" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1af308132753f33f578c8b346aa012b79f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr T *</type>
+        <definition>constexpr T * fn::Entity::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="37" column="25" bodyfile="fn/ecs/Database.hpp" bodystart="474" bodyend="478"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1aedcb873e3b26ef7a11e21ce6114f4f74" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T1</type>
+          </param>
+          <param>
+            <type>typename T2</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr std::tuple&lt; T1 *, T2 *, Ts *... &gt;</type>
+        <definition>constexpr std::tuple&lt; T1 *, T2 *, Ts *... &gt; fn::Entity::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="38" column="38" bodyfile="fn/ecs/Database.hpp" bodystart="481" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1a9dd9020c1b56db4f54873018e4ef7ac7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacefn_1a6b50c9f0e2b5922bc2348ed71840a29d" kindref="member">Eid</ref></type>
+        <definition>Eid fn::Entity::eid</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>eid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="39" column="6" bodyfile="fn/ecs/Entity.hpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classfn_1_1_entity_1a4fa6abedc976719bf72ee162cdebe3c9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacefn_1a86093d05084c5c29a8cd1b3bfeb99a39" kindref="member">Signature</ref></type>
+        <definition>Signature fn::Entity::signature</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="40" column="12" bodyfile="fn/ecs/Entity.hpp" bodystart="40" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classfn_1_1_entity_1a149c5e41f9756b31aacd49880b23aa8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fn::Entity::m_update_signature</definition>
+        <argsstring>()</argsstring>
+        <name>m_update_signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/ecs/Entity.hpp" line="47" column="6" bodyfile="fn/ecs/Entity.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Wrapper per un entità. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe <ref refid="classfn_1_1_entity" kindref="compound">Entity</ref> è un semplice wrapper che consente in maniera conveniente di gestire le entità di base. Ogni <ref refid="classfn_1_1_entity" kindref="compound">fn::Entity</ref> mantiene al suo interno l&apos;eid dell&apos;entità e un puntatore al database che l&apos;ha creata tramite ciò consente di applicare le varie funzioni del database senza specificare eid e database ogni volta.</para>
+<para>Un <ref refid="classfn_1_1_entity" kindref="compound">fn::Entity</ref> è anche costruito dal database quando viene creata una nuova entity.</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classfn_1_1_entity" kindref="compound">fn::Entity</ref><sp/>e<sp/>=<sp/>database.create_entity();</highlight></codeline>
+</programlisting></para>
+<para>Sono possibili tutte le operazioni su entità effettuabili mediante il database:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classfn_1_1_entity_1a16425e56baf20d382da7006d7a7e768c" kindref="member">has</ref><sp/>=<sp/>e.<ref refid="classfn_1_1_entity_1a16425e56baf20d382da7006d7a7e768c" kindref="member">has</ref>&lt;<ref refid="struct_c_1_1_a_a_b_b" kindref="compound">C::AABB</ref>&gt;();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1.<sp/>Verifica<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">e.<ref refid="classfn_1_1_entity_1aea0a1fb622b8bbe058c422ce96096b37" kindref="member">set</ref>&lt;<ref refid="struct_c_1_1_sprite" kindref="compound">C::Sprite</ref>&gt;({...});<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>2.<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[p,<sp/>m]<sp/>=<sp/>e.<ref refid="classfn_1_1_entity_1af308132753f33f578c8b346aa012b79f" kindref="member">get</ref>&lt;<ref refid="struct_c_1_1_position" kindref="compound">C::Position</ref>,<sp/><ref refid="struct_c_1_1_movement" kindref="compound">C::Movement</ref>&gt;();<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>3.<sp/>get</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>fn::Entity</label>
+        <link refid="classfn_1_1_entity"/>
+      </node>
+      <node id="2">
+        <label>E::Fruit</label>
+        <link refid="class_e_1_1_fruit"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="3">
+        <label>fn::Database</label>
+        <link refid="classfn_1_1_database"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>eid_pool</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_components</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::unordered_map&lt; Cid, std::shared_ptr&lt; fn::IComponentArray &gt; &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::stack&lt; Eid &gt;</label>
+      </node>
+      <node id="1">
+        <label>fn::Entity</label>
+        <link refid="classfn_1_1_entity"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_signature</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_database</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>fn::IComponentArray</label>
+        <link refid="classfn_1_1_i_component_array"/>
+      </node>
+      <node id="2">
+        <label>std::bitset&lt; fn::ecs::MAX_COMPONENT_COUNT &gt;</label>
+      </node>
+      <node id="6">
+        <label>std::shared_ptr&lt; fn::IComponentArray &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/ecs/Entity.hpp" line="28" column="1" bodyfile="fn/ecs/Entity.hpp" bodystart="28" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classfn_1_1_entity_1a9dd9020c1b56db4f54873018e4ef7ac7" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>eid</name></member>
+      <member refid="classfn_1_1_entity_1a8cea8ea1f18f48b79b4bf4994ee24e58" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>Entity</name></member>
+      <member refid="classfn_1_1_entity_1af308132753f33f578c8b346aa012b79f" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>get</name></member>
+      <member refid="classfn_1_1_entity_1aedcb873e3b26ef7a11e21ce6114f4f74" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>get</name></member>
+      <member refid="classfn_1_1_entity_1a16425e56baf20d382da7006d7a7e768c" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>has</name></member>
+      <member refid="classfn_1_1_entity_1aa0f6356c61baca8303221befa284af0d" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>has</name></member>
+      <member refid="classfn_1_1_entity_1a98c286a0aca9c212dd19345b35c3ca9d" prot="private" virt="non-virtual"><scope>fn::Entity</scope><name>m_database</name></member>
+      <member refid="classfn_1_1_entity_1a1ed22f751ebd48f4088ff9a332c84a9d" prot="private" virt="non-virtual"><scope>fn::Entity</scope><name>m_eid</name></member>
+      <member refid="classfn_1_1_entity_1a8687a338f0c977a15e1e5be14e1c4ef6" prot="private" virt="non-virtual"><scope>fn::Entity</scope><name>m_signature</name></member>
+      <member refid="classfn_1_1_entity_1a149c5e41f9756b31aacd49880b23aa8c" prot="private" virt="non-virtual"><scope>fn::Entity</scope><name>m_update_signature</name></member>
+      <member refid="classfn_1_1_entity_1aa6263c5c2cdbb5ec2fa42bb79dc43c3f" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>remove</name></member>
+      <member refid="classfn_1_1_entity_1aea0a1fb622b8bbe058c422ce96096b37" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>set</name></member>
+      <member refid="classfn_1_1_entity_1a708533cecd8049e25927ab9aa6da7b2e" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>set</name></member>
+      <member refid="classfn_1_1_entity_1a4fa6abedc976719bf72ee162cdebe3c9" prot="public" virt="non-virtual"><scope>fn::Entity</scope><name>signature</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

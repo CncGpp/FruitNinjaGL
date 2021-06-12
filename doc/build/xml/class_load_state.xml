@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_load_state" kind="class" language="C++" prot="public">
+    <compoundname>LoadState</compoundname>
+    <basecompoundref refid="class_state" prot="public" virt="non-virtual">State</basecompoundref>
+    <includes refid="_load_state_8hpp" local="no">fn/engine/states/LoadState.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_load_state_1ad8ab52714f3e1cfc7dbce046b1d80c74" prot="private" static="no" mutable="no">
+        <type><ref refid="classfn_1_1_camera" kindref="compound">fn::Camera</ref></type>
+        <definition>fn::Camera LoadState::m_camera</definition>
+        <argsstring></argsstring>
+        <name>m_camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="32" column="12" bodyfile="fn/engine/states/LoadState.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_load_state_1af887c0aecc81a7339fbc9f6508ba4847" prot="private" static="no" mutable="no">
+        <type><ref refid="_sprite_8hpp_1a8e69bf3c9c9bf7bfb79c2d34468fefee" kindref="member">SpriteSP</ref></type>
+        <definition>SpriteSP LoadState::m_splash_screen</definition>
+        <argsstring></argsstring>
+        <name>m_splash_screen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="33" column="10" bodyfile="fn/engine/states/LoadState.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_load_state_1a4fc8dc45de5892ed568b90909625365e" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+        <definition>core::seconds LoadState::m_splash_lifetime</definition>
+        <argsstring></argsstring>
+        <name>m_splash_lifetime</name>
+        <initializer>{ 5.0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="34" column="15" bodyfile="fn/engine/states/LoadState.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_load_state_1a2278cbb54329b5c2a2906075ec4157df" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+        <definition>core::seconds LoadState::m_splash_elapsed</definition>
+        <argsstring></argsstring>
+        <name>m_splash_elapsed</name>
+        <initializer>{ 0.0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="35" column="15" bodyfile="fn/engine/states/LoadState.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_load_state_1a2a766401df3d3bd1872eec0168ca25a4" prot="private" static="no" mutable="no">
+        <type><ref refid="_sprite_8hpp_1a8e69bf3c9c9bf7bfb79c2d34468fefee" kindref="member">SpriteSP</ref></type>
+        <definition>SpriteSP LoadState::m_background</definition>
+        <argsstring></argsstring>
+        <name>m_background</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="37" column="10" bodyfile="fn/engine/states/LoadState.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_load_state_1a47704025b5dd96dfaea603f7ad490a72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LoadState::LoadState</definition>
+        <argsstring>()</argsstring>
+        <name>LoadState</name>
+        <briefdescription>
+<para>Costruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="16" column="1" bodyfile="fn/engine/states/LoadState.cpp" bodystart="6" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_load_state_1a3847ca7e29e6c3df27f47dba11d55f54" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void LoadState::render</definition>
+        <argsstring>() override</argsstring>
+        <name>render</name>
+        <reimplements refid="class_state_1ac8348cae48576a819c56349ef1b3a6f7">render</reimplements>
+        <briefdescription>
+<para>Renderizza lo stato attuale. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="17" column="14" bodyfile="fn/engine/states/LoadState.cpp" bodystart="36" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_load_state_1a891b5d809ffb9513af2bdd9b5970e402" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void LoadState::notifyEvent</definition>
+        <argsstring>(Event *e) override</argsstring>
+        <name>notifyEvent</name>
+        <reimplements refid="class_state_1a9d5076a005d3eff9664c4d1cacb58315">notifyEvent</reimplements>
+        <param>
+          <type><ref refid="class_event" kindref="compound">Event</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Notifica lo stato di un nuovo evento. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="18" column="14" bodyfile="fn/engine/states/LoadState.cpp" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_load_state_1a4f153eeaae515226bd7582fd69b20416" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void LoadState::update</definition>
+        <argsstring>(core::seconds delta_t) override</argsstring>
+        <name>update</name>
+        <reimplements refid="class_state_1a22594bc8f61e5d6adfd99edd0d571018">update</reimplements>
+        <param>
+          <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+          <declname>delta_t</declname>
+        </param>
+        <briefdescription>
+<para>Aggiorna lo stato interno. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="19" column="14" bodyfile="fn/engine/states/LoadState.cpp" bodystart="14" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_load_state_1a34efcece924a05b7f67cf9c7117a06c1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoadState::loadModels</definition>
+        <argsstring>()</argsstring>
+        <name>loadModels</name>
+        <briefdescription>
+<para>Carica i modelli. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="23" column="6" bodyfile="fn/engine/states/LoadState.cpp" bodystart="52" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_load_state_1a823a4f9e1aabb77e6faaeea36744e2d7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoadState::loadTextures</definition>
+        <argsstring>()</argsstring>
+        <name>loadTextures</name>
+        <briefdescription>
+<para>Carica le texture. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="25" column="6" bodyfile="fn/engine/states/LoadState.cpp" bodystart="63" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_load_state_1add6170eb8138e1f80d142d5067ed2617" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoadState::loadShaders</definition>
+        <argsstring>()</argsstring>
+        <name>loadShaders</name>
+        <briefdescription>
+<para>Carica gli shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="27" column="6" bodyfile="fn/engine/states/LoadState.cpp" bodystart="82" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_load_state_1a797eff9eb0280cb3661148ec61716af1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoadState::loadAudios</definition>
+        <argsstring>()</argsstring>
+        <name>loadAudios</name>
+        <briefdescription>
+<para>carica gli audio. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/LoadState.hpp" line="29" column="6" bodyfile="fn/engine/states/LoadState.cpp" bodystart="95" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stato di caricamento. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stato iniziale del gioco, creato all&apos;avvio dell&apos;applicazione. Ha il compito di mostrare una breve splash screen mente carica in background i principali asset di gioco. Modelli, texture, <ref refid="class_shader" kindref="compound">Shader</ref> e <ref refid="class_audio" kindref="compound">Audio</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="1">
+        <label>LoadState</label>
+        <link refid="class_load_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="7">
+        <label>std::bitset&lt; Bits &gt;</label>
+      </node>
+      <node id="3">
+        <label>fn::Camera</label>
+        <link refid="classfn_1_1_camera"/>
+      </node>
+      <node id="4">
+        <label>std::shared_ptr&lt; Sprite &gt;</label>
+        <childnode refid="5" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="1">
+        <label>LoadState</label>
+        <link refid="class_load_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_camera</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_background</edgelabel>
+          <edgelabel>m_splash_screen</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="5">
+        <label>C::Sprite</label>
+        <link refid="struct_c_1_1_sprite"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>sprite</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>fn::Component&lt; Sprite &gt;</label>
+        <link refid="classfn_1_1_component"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>cid</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>ctypename</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>std::string</label>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/engine/states/LoadState.hpp" line="12" column="1" bodyfile="fn/engine/states/LoadState.hpp" bodystart="13" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_state_1af27178ac6c539146c9fb3bc91a54d5f4" prot="public" virt="virtual"><scope>LoadState</scope><name>handleEvents</name></member>
+      <member refid="class_state_1a717e0cfb379a99e0253a4103c2a6fcb5" prot="public" virt="virtual"><scope>LoadState</scope><name>handleInputs</name></member>
+      <member refid="class_load_state_1a797eff9eb0280cb3661148ec61716af1" prot="protected" virt="non-virtual"><scope>LoadState</scope><name>loadAudios</name></member>
+      <member refid="class_load_state_1a34efcece924a05b7f67cf9c7117a06c1" prot="protected" virt="non-virtual"><scope>LoadState</scope><name>loadModels</name></member>
+      <member refid="class_load_state_1add6170eb8138e1f80d142d5067ed2617" prot="protected" virt="non-virtual"><scope>LoadState</scope><name>loadShaders</name></member>
+      <member refid="class_load_state_1a47704025b5dd96dfaea603f7ad490a72" prot="public" virt="non-virtual"><scope>LoadState</scope><name>LoadState</name></member>
+      <member refid="class_load_state_1a823a4f9e1aabb77e6faaeea36744e2d7" prot="protected" virt="non-virtual"><scope>LoadState</scope><name>loadTextures</name></member>
+      <member refid="class_load_state_1a2a766401df3d3bd1872eec0168ca25a4" prot="private" virt="non-virtual"><scope>LoadState</scope><name>m_background</name></member>
+      <member refid="class_load_state_1ad8ab52714f3e1cfc7dbce046b1d80c74" prot="private" virt="non-virtual"><scope>LoadState</scope><name>m_camera</name></member>
+      <member refid="class_load_state_1a2278cbb54329b5c2a2906075ec4157df" prot="private" virt="non-virtual"><scope>LoadState</scope><name>m_splash_elapsed</name></member>
+      <member refid="class_load_state_1a4fc8dc45de5892ed568b90909625365e" prot="private" virt="non-virtual"><scope>LoadState</scope><name>m_splash_lifetime</name></member>
+      <member refid="class_load_state_1af887c0aecc81a7339fbc9f6508ba4847" prot="private" virt="non-virtual"><scope>LoadState</scope><name>m_splash_screen</name></member>
+      <member refid="class_load_state_1a891b5d809ffb9513af2bdd9b5970e402" prot="public" virt="virtual"><scope>LoadState</scope><name>notifyEvent</name></member>
+      <member refid="class_state_1a621cba5c498dc4afeda15ff00a55e094" prot="public" virt="virtual"><scope>LoadState</scope><name>onResize</name></member>
+      <member refid="class_load_state_1a3847ca7e29e6c3df27f47dba11d55f54" prot="public" virt="virtual"><scope>LoadState</scope><name>render</name></member>
+      <member refid="class_state_1a95aa2ca390f05627acf00149efd568c7" prot="public" virt="non-virtual"><scope>LoadState</scope><name>State</name></member>
+      <member refid="class_load_state_1a4f153eeaae515226bd7582fd69b20416" prot="public" virt="virtual"><scope>LoadState</scope><name>update</name></member>
+      <member refid="class_state_1a783d52422b544bb226e13de8ecfd6ad6" prot="public" virt="virtual"><scope>LoadState</scope><name>~State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="dir_9d8332d31226bb2af070f1ed87904a62" kind="dir">
+    <compoundname>fn/core/input</compoundname>
+    <innerfile refid="_mouse_8cpp">Mouse.cpp</innerfile>
+    <innerfile refid="_mouse_8hpp">Mouse.hpp</innerfile>
+    <innerfile refid="_picker_8cpp">Picker.cpp</innerfile>
+    <innerfile refid="_picker_8hpp">Picker.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="fn/core/input/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_state" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>State</compoundname>
+    <derivedcompoundref refid="class_game_over_state" prot="public" virt="non-virtual">GameOverState</derivedcompoundref>
+    <derivedcompoundref refid="class_load_state" prot="public" virt="non-virtual">LoadState</derivedcompoundref>
+    <derivedcompoundref refid="class_play_state" prot="public" virt="non-virtual">PlayState</derivedcompoundref>
+    <includes refid="_state_8hpp" local="no">fn/engine/states/State.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_state_1a95aa2ca390f05627acf00149efd568c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>State::State</definition>
+        <argsstring>()=default</argsstring>
+        <name>State</name>
+        <briefdescription>
+<para>costruttore </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a783d52422b544bb226e13de8ecfd6ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual State::~State</definition>
+        <argsstring>()=default</argsstring>
+        <name>~State</name>
+        <briefdescription>
+<para>distruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a717e0cfb379a99e0253a4103c2a6fcb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void State::handleInputs</definition>
+        <argsstring>()</argsstring>
+        <name>handleInputs</name>
+        <reimplementedby refid="class_play_state_1ab35f0e24f114dcdeeab9910310f528d7">handleInputs</reimplementedby>
+        <briefdescription>
+<para>Gestisce gli input (mouse e tastiera) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="35" column="14" bodyfile="fn/engine/states/State.hpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1af27178ac6c539146c9fb3bc91a54d5f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void State::handleEvents</definition>
+        <argsstring>()</argsstring>
+        <name>handleEvents</name>
+        <reimplementedby refid="class_play_state_1a4468bfbbe42d9b2c446ea7f80959b83f">handleEvents</reimplementedby>
+        <briefdescription>
+<para>Gestisce gli eventi di gioco. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="37" column="14" bodyfile="fn/engine/states/State.hpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a9d5076a005d3eff9664c4d1cacb58315" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void State::notifyEvent</definition>
+        <argsstring>(Event *e)=0</argsstring>
+        <name>notifyEvent</name>
+        <reimplementedby refid="class_game_over_state_1a706ed97311e77b51c78cdca18f576263">notifyEvent</reimplementedby>
+        <reimplementedby refid="class_load_state_1a891b5d809ffb9513af2bdd9b5970e402">notifyEvent</reimplementedby>
+        <reimplementedby refid="class_play_state_1ac167090ab1cf8858dbfa47e845233089">notifyEvent</reimplementedby>
+        <param>
+          <type><ref refid="class_event" kindref="compound">Event</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Notifica lo stato di un nuovo evento. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="39" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a22594bc8f61e5d6adfd99edd0d571018" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void State::update</definition>
+        <argsstring>(core::seconds delta_t)=0</argsstring>
+        <name>update</name>
+        <reimplementedby refid="class_game_over_state_1ad01336f27e2be55a449cf7c3a5444d8b">update</reimplementedby>
+        <reimplementedby refid="class_load_state_1a4f153eeaae515226bd7582fd69b20416">update</reimplementedby>
+        <reimplementedby refid="class_play_state_1a168e4333ee6dd97cae5a84036e588707">update</reimplementedby>
+        <param>
+          <type><ref refid="namespacecore_1af38b4a9ca1ad3ce8caaff19a2bf5398a" kindref="member">core::seconds</ref></type>
+          <declname>delta_t</declname>
+        </param>
+        <briefdescription>
+<para>Aggiorna lo stato interno. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="41" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1ac8348cae48576a819c56349ef1b3a6f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void State::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <reimplementedby refid="class_game_over_state_1ad696ff18e7d4449406861fe746d34986">render</reimplementedby>
+        <reimplementedby refid="class_load_state_1a3847ca7e29e6c3df27f47dba11d55f54">render</reimplementedby>
+        <reimplementedby refid="class_play_state_1a744a712917e702bb8c7e1792d4752a81">render</reimplementedby>
+        <briefdescription>
+<para>Renderizza lo stato attuale. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="43" column="14" bodyfile="fn/engine/states/State.hpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a621cba5c498dc4afeda15ff00a55e094" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void State::onResize</definition>
+        <argsstring>()</argsstring>
+        <name>onResize</name>
+        <briefdescription>
+<para>Callback, richiamata al resize della finestra. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/engine/states/State.hpp" line="50" column="14" bodyfile="fn/engine/states/State.hpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interfaccia ad uno Stato di gioco. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe <ref refid="class_state" kindref="compound">State</ref> è un interfaccia astratta allo stato interno del gioco in un dato momento. Con il passare del tempo, e a seconda delle scelte dell&apos;utente il gioco può trovarsi im stati interni differenti. Esempi possono essere:<itemizedlist>
+<listitem><para><ref refid="class_load_state" kindref="compound">LoadState</ref>: Ovvero la fase iniziale, quando il gioco si apre. Viene mostrata la splash screen ed avviene il caricamento degli asset principali.</para>
+</listitem><listitem><para><ref refid="class_play_state" kindref="compound">PlayState</ref>: Stato di gioco effettivo, vengono lanciati i frutti ed il tempo diminuisce.</para>
+</listitem><listitem><para>PauseState (non implementato): Quando il gioco è messo in pausa.</para>
+</listitem><listitem><para><ref refid="class_game_over_state" kindref="compound">GameOverState</ref>: Stato nel quale il gioco termina. Viene mostrata la schermata di game Over.</para>
+</listitem></itemizedlist>
+</para>
+<para>Tutti gli stati condividono un interfaccia e quindi un comportamento comune:<orderedlist>
+<listitem><para>handle di input ed eventi, attraverso <ref refid="class_state_1a717e0cfb379a99e0253a4103c2a6fcb5" kindref="member">State::handleInputs</ref> e <ref refid="class_state_1af27178ac6c539146c9fb3bc91a54d5f4" kindref="member">State::handleEvents</ref></para>
+</listitem><listitem><para>Notifica di nuovi eventi, mediante <ref refid="class_state_1a9d5076a005d3eff9664c4d1cacb58315" kindref="member">State::notifyEvent</ref></para>
+</listitem><listitem><para>update e render</para>
+</listitem><listitem><para>Callback specifiche, ad esempio al resize dello schermo.</para>
+</listitem></orderedlist>
+</para>
+<para>Ogni stato concreto può scegliere come vuole di implementare queste funzioni, a secoda delle necessità. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>PlayState</label>
+        <link refid="class_play_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GameOverState</label>
+        <link refid="class_game_over_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="3">
+        <label>LoadState</label>
+        <link refid="class_load_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="fn/engine/states/State.hpp" line="26" column="1" bodyfile="fn/engine/states/State.hpp" bodystart="26" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_state_1af27178ac6c539146c9fb3bc91a54d5f4" prot="public" virt="virtual"><scope>State</scope><name>handleEvents</name></member>
+      <member refid="class_state_1a717e0cfb379a99e0253a4103c2a6fcb5" prot="public" virt="virtual"><scope>State</scope><name>handleInputs</name></member>
+      <member refid="class_state_1a9d5076a005d3eff9664c4d1cacb58315" prot="public" virt="pure-virtual"><scope>State</scope><name>notifyEvent</name></member>
+      <member refid="class_state_1a621cba5c498dc4afeda15ff00a55e094" prot="public" virt="virtual"><scope>State</scope><name>onResize</name></member>
+      <member refid="class_state_1ac8348cae48576a819c56349ef1b3a6f7" prot="public" virt="virtual"><scope>State</scope><name>render</name></member>
+      <member refid="class_state_1a95aa2ca390f05627acf00149efd568c7" prot="public" virt="non-virtual"><scope>State</scope><name>State</name></member>
+      <member refid="class_state_1a22594bc8f61e5d6adfd99edd0d571018" prot="public" virt="pure-virtual"><scope>State</scope><name>update</name></member>
+      <member refid="class_state_1a783d52422b544bb226e13de8ecfd6ad6" prot="public" virt="virtual"><scope>State</scope><name>~State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

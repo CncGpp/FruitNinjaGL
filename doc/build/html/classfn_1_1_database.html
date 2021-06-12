@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>fn::Database class | FruitNinjaGL C++
+docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FF272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m"><img src="logo.png" alt="" />FruitNinjaGL <span class="m-thin">C++
+docs</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="namespacefn.html">fn</a>::<wbr/></span>Database <span class="m-thin">class</span>
+        </h1>
+        <p>Classe che gestisce la costruzione, recupero e accesso delle entità.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Rappresenta appunto un database di tutte le possibili entità e consente di effettuare &#x27;query&#x27;</p><ul><li>recuperare una specifica entità dato il suo eid.</li><li>recuperare un sottoinsieme delle componenti di un entità dato il suo eid</li><li>restituire tutte le entità con una specifica firma o sottoinsieme di componenti.</li><li>iterare lungo i component array applicando funzioni lambda</li></ul>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="aa67b0d34c7f18834f8ad85b6b5d2433a">
+              <span class="m-doc-wrap-bumper"><a href="#aa67b0d34c7f18834f8ad85b6b5d2433a" class="m-doc-self">Database</a>(</span><span class="m-doc-wrap"><a href="classfn_1_1_database.html" class="m-doc">Database</a> const&amp;) <span class="m-label m-flat m-danger">deleted</span></span>
+            </dt>
+            <dd>La copia di un oggetto <a href="classfn_1_1_database.html" class="m-doc">Database</a> non è consentita.</dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a061bbd0a97559b11605f29a2ec0e0a8d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a061bbd0a97559b11605f29a2ec0e0a8d" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap"><a href="classfn_1_1_database.html" class="m-doc">Database</a> const&amp;) -&gt; <a href="classfn_1_1_database.html" class="m-doc">Database</a>&amp; <span class="m-label m-flat m-danger">deleted</span></span>
+            </dt>
+            <dd>L&#x27;assegnazione di un oggetto <a href="classfn_1_1_database.html" class="m-doc">Database</a> non è consentita.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#adbd5ce43cdf1b603824722f52dcc6cd9" class="m-doc">register_component</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Registra la componente nel database.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#aeb25f2dd741cceccef3c3d4d44900e46" class="m-doc">registered</a>(</span><span class="m-doc-wrap">) -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Verifica se la componente è registrata.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, class... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#aea9c0d5cd2f0b970e3f2dbb6ec76c6c6" class="m-doc">set</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid,
+              Args &amp;&amp; ... args) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Setta una componente di una entità.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a76151f219ed765b834a7b530f915f973" class="m-doc">set</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid,
+              T&amp; component) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Setta una componente di una entità.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6c8c9b69f2ecc271c9b5d14be877aef3" class="m-doc">get</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) -&gt; T* <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Recupera il puntatore a una singola componente di un entità.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T1, typename T2, typename ... Ts&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a0d4e217aa10c2a8e93c0149182673112" class="m-doc">get</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) -&gt; std::tuple&lt;T1*, T2*, Ts*...&gt; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Recupera il puntatore a molteplici componenti di un entità.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a7ea1b3a133da8ec164f5a73d6ad3ea9c" class="m-doc">has</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Verifica se un&#x27;entità ha una componente.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T1, typename T2, typename ... Ts&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#acecaaf75ceeb248a232f0903d8c59c22" class="m-doc">has</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Verifica se un&#x27;entità ha molteplici componenti.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#aaa5970445abf1946cd46dbd9bdfceaab" class="m-doc">remove</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Rimuove una componente di una entità.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a88eaf2635d615fbac60889d201de1783" class="m-doc">create_entity</a>(</span><span class="m-doc-wrap">) -&gt; <a href="classfn_1_1_entity.html" class="m-doc">Entity</a></span>
+            </dt>
+            <dd>Crea una nuova entità.</dd>
+            <dt id="aea45e404da32fa2d76a89e40ae4379da">
+              <span class="m-doc-wrap-bumper">void <a href="#aea45e404da32fa2d76a89e40ae4379da" class="m-doc-self">destroy_entity</a>(</span><span class="m-doc-wrap"><a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid)</span>
+            </dt>
+            <dd>distrugge una entità</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a5d43164309ce27a88a41c62e16d6e833" class="m-doc">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(<a href="classfn_1_1_entity.html" class="m-doc">Entity</a>&amp;e)&gt; fun)</span>
+            </dt>
+            <dd>Applica una lambda a tutte le entità con una specifica componente.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T1, typename T2, typename ... Ts&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a15bebf1c6b024aaace22cf5a513ffc0e" class="m-doc">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(<a href="classfn_1_1_entity.html" class="m-doc">Entity</a>&amp;e)&gt; fun)</span>
+            </dt>
+            <dd>Applica una lambda a tutte le entità con un insieme di componenti.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#af0ad4d7a97e5b69d10b00791c647a168" class="m-doc">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(T&amp;e)&gt; fun)</span>
+            </dt>
+            <dd>Applica una lambda a tutte le entità con un insieme di componenti.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, typename ... Ts&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#ae5b409859bc59383443e45cdc9e2cfdf" class="m-doc">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(T&amp;, Ts&amp;...)&gt; fun)</span>
+            </dt>
+            <dd>Applica una lambda a tutte le entità con un insieme di componenti.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename ... Ts&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a25028bc48da89b30d981000419b620ee" class="m-doc">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(<a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">fn::<wbr />Eid</a>, Ts&amp;...)&gt; fun)</span>
+            </dt>
+            <dd>Applica una lambda a tutte le entità con un insieme di componenti.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="adbd5ce43cdf1b603824722f52dcc6cd9"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adbd5ce43cdf1b603824722f52dcc6cd9" class="m-doc-self">register_component</a>(</span><span class="m-doc-wrap">) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Registra la componente nel database.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>dtype della componente da registrare.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Aggiunge un nuovo ComponentArray&lt;T&gt; al database.</p>
+          </div></section>
+          <section class="m-doc-details" id="aeb25f2dd741cceccef3c3d4d44900e46"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aeb25f2dd741cceccef3c3d4d44900e46" class="m-doc-self">registered</a>(</span><span class="m-doc-wrap">) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Verifica se la componente è registrata.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>componente da verificare.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td><code class="m-code"><span class="nb">true</span></code> se la componente è registrata.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aea9c0d5cd2f0b970e3f2dbb6ec76c6c6"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T, class... Args&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aea9c0d5cd2f0b970e3f2dbb6ec76c6c6" class="m-doc-self">set</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid,
+              Args &amp;&amp; ... args) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Setta una componente di una entità.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>componente da settare.</td>
+                </tr>
+                <tr>
+                  <td>Args</td>
+                  <td>parametri da inoltrare al costruttore di <code class="m-code"><span class="n">T</span></code>.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>eid</td>
+                  <td>identificativo dell&#x27;entità a cui si vuole settare la componente.</td>
+                </tr>
+                <tr>
+                  <td>args</td>
+                  <td>argomenti da inoltrare al costruttore di <code class="m-code"><span class="n">T</span></code>.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Consente di settare una componente per una specifica entità. La componente da settare è specificabile attraverso il template <code class="m-code"><span class="n">T</span></code>.</p><pre class="m-code"><span class="n">fn</span><span class="o">::</span><span class="n">Eid</span> <span class="n">e</span> <span class="o">=</span> <span class="n">database</span><span class="p">.</span><span class="n">create_entity</span><span class="p">();</span>
+<span class="n">database</span><span class="p">.</span><span class="n">set</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Movement</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">16.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5f</span><span class="p">},</span> 
+                             <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">{</span><span class="mf">2.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">});</span></pre><p>Tutti i parametri in args saranno utilizzati per costruire la componente.</p>
+          </div></section>
+          <section class="m-doc-details" id="a76151f219ed765b834a7b530f915f973"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a76151f219ed765b834a7b530f915f973" class="m-doc-self">set</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid,
+              T&amp; component) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Setta una componente di una entità.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>componente da settare.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>eid</td>
+                  <td>identificativo dell&#x27;entità a cui si vuole settare la componente.</td>
+                </tr>
+                <tr>
+                  <td>component</td>
+                  <td>componente da settare.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Consente di settare una componente per una specifica entità. La componente da settare è specificabile attraverso il template <code class="m-code"><span class="n">T</span></code>.</p><pre class="m-code"><span class="n">fn</span><span class="o">::</span><span class="n">Eid</span> <span class="n">e</span> <span class="o">=</span> <span class="n">database</span><span class="p">.</span><span class="n">create_entity</span><span class="p">();</span>
+<span class="n">database</span><span class="p">.</span><span class="n">set</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Movement</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="p">{</span>
+    <span class="p">.</span><span class="n">velocity</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">16.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5f</span><span class="p">},</span>
+    <span class="p">.</span><span class="n">spin</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">{</span><span class="mf">2.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">}</span>
+<span class="p">});</span></pre>
+          </div></section>
+          <section class="m-doc-details" id="a6c8c9b69f2ecc271c9b5d14be877aef3"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T* fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6c8c9b69f2ecc271c9b5d14be877aef3" class="m-doc-self">get</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Recupera il puntatore a una singola componente di un entità.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>componente a cui si vuole accedere.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>eid</td>
+                  <td>identificativo dell&#x27;entità a cui si vuole accedere.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>puntatore ad una componente T dell&#x27;entità eid.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Consente di ottenere il puntatore ad una componente per una entità. La componente è specificabile attraverso il template <code class="m-code"><span class="n">T</span></code>.</p><pre class="m-code"><span class="k">auto</span><span class="o">*</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">database</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Position</span><span class="o">&gt;</span><span class="p">(</span><span class="n">eid</span><span class="p">);</span>
+<span class="n">pos</span><span class="o">-&gt;</span><span class="n">position</span><span class="p">;</span>                <span class="c1">// accesso alla posizione della componente</span>
+<span class="n">pos</span><span class="o">-&gt;</span><span class="n">rotation</span><span class="p">;</span>                <span class="c1">// accesso alla rotazione della componente</span>
+<span class="n">pos</span><span class="o">-&gt;</span><span class="n">translate</span><span class="p">({</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">});</span> <span class="c1">// accesso alle funzioni della componente</span></pre>
+          </div></section>
+          <section class="m-doc-details" id="a0d4e217aa10c2a8e93c0149182673112"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T1, typename T2, typename ... Ts&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">std::tuple&lt;T1*, T2*, Ts*...&gt; fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0d4e217aa10c2a8e93c0149182673112" class="m-doc-self">get</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Recupera il puntatore a molteplici componenti di un entità.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T1</td>
+                  <td>prima componente a cui si vuole accedere.</td>
+                </tr>
+                <tr>
+                  <td>T2</td>
+                  <td>seconda componente a cui si vuole accedere.</td>
+                </tr>
+                <tr>
+                  <td>Ts</td>
+                  <td>altre componenti a cui si vuole accedere.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>eid</td>
+                  <td>identificativo dell&#x27;entità a cui si vuole accedere.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>una std::tuple contenente i puntatori alle componenti.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Consente di ottenere il puntatore a più componenti per una entità. Le componenti sono specificabili attraverso il template <code class="m-code"><span class="n">T1</span></code>, <code class="m-code"><span class="n">T2</span></code>, <code class="m-code"><span class="p">...</span><span class="n">Ts</span></code>. La funzione è un template ricorsivo definito in termini di <a href="classfn_1_1_database.html#a6c8c9b69f2ecc271c9b5d14be877aef3" class="m-doc">Database::<wbr />get&lt;T&gt;</a>.</p><pre class="m-code"><span class="c1">// Accedo alle tre componenti dividendo la tupla con un unpacking</span>
+<span class="k">auto</span> <span class="p">[</span><span class="n">pos</span><span class="p">,</span> <span class="n">mov</span><span class="p">,</span> <span class="n">ren</span><span class="p">]</span> <span class="o">=</span> <span class="n">database</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Position</span><span class="p">,</span> <span class="n">C</span><span class="o">::</span><span class="n">Movement</span><span class="p">,</span> <span class="n">C</span><span class="o">::</span><span class="n">Render</span><span class="o">&gt;</span><span class="p">(</span><span class="n">eid</span><span class="p">);</span>
+<span class="n">pos</span><span class="o">-&gt;</span><span class="n">translate</span><span class="p">({</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">});</span>
+<span class="n">pos</span><span class="o">-&gt;</span><span class="n">rotate</span><span class="p">({</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">});</span>
+<span class="n">mov</span><span class="o">-&gt;</span><span class="n">accelerate</span><span class="p">({</span><span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">});</span>
+<span class="n">ren</span><span class="o">-&gt;</span><span class="n">model</span><span class="o">-&gt;</span><span class="n">draw</span><span class="p">(...);</span></pre>
+          </div></section>
+          <section class="m-doc-details" id="a7ea1b3a133da8ec164f5a73d6ad3ea9c"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7ea1b3a133da8ec164f5a73d6ad3ea9c" class="m-doc-self">has</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Verifica se un&#x27;entità ha una componente.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">eid</td>
+                  <td>identificativo dell&#x27;entità.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td><code class="m-code"><span class="nb">true</span></code> se l&#x27;entità ha una componente <code class="m-code"><span class="n">T</span></code> valida.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Consente di verificare la presenza di una componente per una entità. La componente è specificabile attraverso il template <code class="m-code"><span class="n">T</span></code>.</p><pre class="m-code"><span class="kt">bool</span> <span class="n">has</span> <span class="o">=</span> <span class="n">database</span><span class="p">.</span><span class="n">has</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">AABB</span><span class="o">&gt;</span><span class="p">(</span><span class="n">eid</span><span class="p">);</span></pre>
+          </div></section>
+          <section class="m-doc-details" id="acecaaf75ceeb248a232f0903d8c59c22"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T1, typename T2, typename ... Ts&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acecaaf75ceeb248a232f0903d8c59c22" class="m-doc-self">has</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Verifica se un&#x27;entità ha molteplici componenti.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T1</td>
+                  <td>prima componente.</td>
+                </tr>
+                <tr>
+                  <td>T2</td>
+                  <td>seconda componente.</td>
+                </tr>
+                <tr>
+                  <td>Ts</td>
+                  <td>eventuali altre componenti.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>eid</td>
+                  <td>identificativo dell&#x27;entità.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td><code class="m-code"><span class="nb">true</span></code> se l&#x27;entità ha tutte le componenti specificate.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Consente di verificare la presenza di più componenti per una entità. Le componenti sono specificabili attraverso il template <code class="m-code"><span class="n">T1</span></code>, <code class="m-code"><span class="n">T2</span></code>, <code class="m-code"><span class="p">...</span><span class="n">Ts</span></code>. La funzione è un template ricorsivo definito in termini di <a href="classfn_1_1_database.html#a7ea1b3a133da8ec164f5a73d6ad3ea9c" class="m-doc">Database::<wbr />has&lt;T&gt;</a>.</p><pre class="m-code"><span class="kt">bool</span> <span class="n">has</span> <span class="o">=</span> <span class="n">database</span><span class="p">.</span><span class="n">has</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Position</span><span class="p">,</span> <span class="n">C</span><span class="o">::</span><span class="n">Movement</span><span class="p">,</span> <span class="n">C</span><span class="o">::</span><span class="n">Render</span><span class="o">&gt;</span><span class="p">(</span><span class="n">eid</span><span class="p">);</span></pre>
+          </div></section>
+          <section class="m-doc-details" id="aaa5970445abf1946cd46dbd9bdfceaab"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aaa5970445abf1946cd46dbd9bdfceaab" class="m-doc-self">remove</a>(</span><span class="m-doc-wrap">const <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">Eid</a> eid) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Rimuove una componente di una entità.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>componente da rimuovere.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>eid</td>
+                  <td>identificativo dell&#x27;entità a cui si vuole settare la componente.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Consente di rimuovere una componente per una entità. La componente da rimuovere è specificabile attraverso il template <code class="m-code"><span class="n">T</span></code>.</p><pre class="m-code"><span class="n">database</span><span class="p">.</span><span class="n">remove</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Sprite</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></pre>
+          </div></section>
+          <section class="m-doc-details" id="a88eaf2635d615fbac60889d201de1783"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="classfn_1_1_entity.html" class="m-doc">Entity</a> fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a88eaf2635d615fbac60889d201de1783" class="m-doc-self">create_entity</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Crea una nuova entità.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>un nuovo oggetto <a href="classfn_1_1_entity.html" class="m-doc">fn::<wbr />Entity</a> che wrappa l&#x27;enntità creata.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a5d43164309ce27a88a41c62e16d6e833"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5d43164309ce27a88a41c62e16d6e833" class="m-doc-self">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(<a href="classfn_1_1_entity.html" class="m-doc">Entity</a>&amp;e)&gt; fun)</span></span>
+            </h3>
+            <p>Applica una lambda a tutte le entità con una specifica componente.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>componente.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>fun</td>
+                  <td>funzione da applicare.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Consente applicare una funzione lambda iterando su tutte le entità che hanno una specifica componente. La funzione applicata è del tipo <code class="m-code"><span class="kt">void</span><span class="p">(</span><span class="n">Entity</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span></code> dunque consente di accedere completamente all&#x27;entità. La componente richiesta è specificabile attraverso il template <code class="m-code"><span class="n">T</span></code>.</p><pre class="m-code"><span class="n">database</span><span class="p">.</span><span class="n">for_each</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Particle</span><span class="o">&gt;</span><span class="p">([](</span><span class="n">Entity</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">){</span> 
+    <span class="c1">// fai qualcosa con `e` ...</span>
+<span class="p">});</span></pre><p>La funzione si divide in due parti, la query per individuare nel database le entità coinvolte e l&#x27;applicazione di fun a ciascuna di queste.</p>
+          </div></section>
+          <section class="m-doc-details" id="a15bebf1c6b024aaace22cf5a513ffc0e"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T1, typename T2, typename ... Ts&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a15bebf1c6b024aaace22cf5a513ffc0e" class="m-doc-self">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(<a href="classfn_1_1_entity.html" class="m-doc">Entity</a>&amp;e)&gt; fun)</span></span>
+            </h3>
+            <p>Applica una lambda a tutte le entità con un insieme di componenti.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T1</td>
+                  <td>prima componente.</td>
+                </tr>
+                <tr>
+                  <td>T2</td>
+                  <td>seconda componente.</td>
+                </tr>
+                <tr>
+                  <td>Ts</td>
+                  <td>eventuali altre componenti.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>fun</td>
+                  <td>funzione da applicare.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Consente applicare una funzione lambda iterando su tutte le entità che hanno le componenti specificate. La funzione applicata è del tipo <code class="m-code"><span class="kt">void</span><span class="p">(</span><span class="n">Entity</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span></code> dunque consente l&#x27;accesso completo all&#x27;entità. Le componenti richiesta sono specificabili attraverso i template <code class="m-code"><span class="n">T1</span></code>, <code class="m-code"><span class="n">T2</span></code>, <code class="m-code"><span class="p">...</span><span class="n">Ts</span></code>.</p><pre class="m-code"><span class="n">database</span><span class="p">.</span><span class="n">for_each</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Position</span><span class="p">,</span> <span class="n">C</span><span class="o">::</span><span class="n">Movement</span><span class="o">&gt;</span><span class="p">([](</span><span class="n">Entity</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">){</span> 
+    <span class="c1">// fai qualcosa con `e` ...</span>
+<span class="p">});</span></pre><p>La funzione si divide in due parti, la query per individuare nel database le entità coinvolte e l&#x27;applicazione di fun a ciascuna di queste.</p>
+          </div></section>
+          <section class="m-doc-details" id="af0ad4d7a97e5b69d10b00791c647a168"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af0ad4d7a97e5b69d10b00791c647a168" class="m-doc-self">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(T&amp;e)&gt; fun)</span></span>
+            </h3>
+            <p>Applica una lambda a tutte le entità con un insieme di componenti.</p>
+<pre class="m-code"><span class="n">database</span><span class="p">.</span><span class="n">for_each</span><span class="o">&lt;</span><span class="n">C</span><span class="o">::</span><span class="n">Render</span><span class="o">&gt;</span><span class="p">([](</span><span class="n">C</span><span class="o">::</span><span class="n">Render</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">){</span>
+    <span class="c1">// fai qualcosa con `r` ...</span>
+<span class="p">});</span></pre><p>Simile alle precedenti, ma la funzione lambda è del tipo <code class="m-code"><span class="kt">void</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="p">)</span></code> ovvero fornisce direttamente un reference alla componente quando si itera piuttosto che una entità.</p>
+          </div></section>
+          <section class="m-doc-details" id="ae5b409859bc59383443e45cdc9e2cfdf"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T, typename ... Ts&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae5b409859bc59383443e45cdc9e2cfdf" class="m-doc-self">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(T&amp;, Ts&amp;...)&gt; fun)</span></span>
+            </h3>
+            <p>Applica una lambda a tutte le entità con un insieme di componenti.</p>
+<p>Simile alle precedenti, ma la funzione lambda è del tipo <code class="m-code"><span class="kt">void</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Ts</span><span class="o">&amp;</span><span class="p">...)</span></code> ovvero fornisce direttamente un reference alle componenti quando si itera piuttosto che una entità.</p>
+          </div></section>
+          <section class="m-doc-details" id="a25028bc48da89b30d981000419b620ee"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ... Ts&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void fn::<wbr />Database::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a25028bc48da89b30d981000419b620ee" class="m-doc-self">for_each</a>(</span><span class="m-doc-wrap">std::function&lt;void(<a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">fn::<wbr />Eid</a>, Ts&amp;...)&gt; fun)</span></span>
+            </h3>
+            <p>Applica una lambda a tutte le entità con un insieme di componenti.</p>
+<p>Simile alle precedenti, ma la funzione lambda è del tipo <code class="m-code"><span class="kt">void</span><span class="p">(</span><span class="n">fn</span><span class="o">::</span><span class="n">Eid</span><span class="p">,</span> <span class="n">Ts</span><span class="o">&amp;</span><span class="p">...)</span></code> ovvero fornisce anche il <a href="namespacefn.html#a6b50c9f0e2b5922bc2348ed71840a29d" class="m-doc">fn::<wbr />Eid</a> insieme ai reference alle componenti quando si itera.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>FruitNinjaGL C++
+docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

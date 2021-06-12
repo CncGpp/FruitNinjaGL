@@ -1,0 +1,343 @@
+% ============================================================================ %
+%                             PACKAGE UTILIZZATI                               %
+% ============================================================================ %
+\usepackage{titlesec}					% Per la modifica dei titoli delle sezioni
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,shapes}
+\usepackage{calc}						% Per effettuare calcoli
+\import{inputs/}{defined-colors}
+\captionsetup[table]{position=bottom}
+
+% --------------------------------------------------------------------------- %
+%	Utility                 				                                  %
+% --------------------------------------------------------------------------- %
+% Per ottenere i nomi di chap, section, subsection e subsubsection attuali. 
+\let\Chaptermark\chaptermark
+\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
+\let\Sectionmark\sectionmark
+\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+\let\Subsectionmark\subsectionmark
+\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
+\let\Subsubsectionmark\subsubsectionmark
+\def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
+
+
+% --------------------------------------------------------------------------- %
+%	Personalizzazione: Fonts				                                  %
+% --------------------------------------------------------------------------- %
+\iftrue
+	%XeLaTeX packages per font
+	\usepackage{xltxtra}
+	\usepackage{fontspec} %Font package
+	
+	\setmainfont[Ligatures=TeX]{Minion Pro}
+%	\setmainfont[Ligatures=TeX,Scale=MatchUppercase,%
+%				 Path = fonts/,%
+%				 BoldFont = ACaslonPro-Bold.otf,
+%				 ItalicFont = ACaslonPro-Italic.otf,
+%				 BoldItalicFont  = ACaslonPro-BoldItalic.otf
+%				]{ACaslonPro-Regular.otf}
+	\setsansfont[Scale=MatchLowercase]{Myriad Pro}
+	\setmonofont[Scale=MatchLowercase]{Iosevka Term}
+	
+	% Per spaziare gli apostrofi.... perche Minion Pro è buggat
+	\XeTeXinterchartokenstate=1
+	\newXeTeXintercharclass \aposclass
+	\XeTeXcharclass `' \aposclass
+	\XeTeXinterchartoks \aposclass 0 = {\kern0.0pt }
+	
+	% Minion pro non funziona bene il textsuperscript lo devo fixare quà... è buggat su cess
+	% Li ho messi in grassetto perchè mi piacevano di più.
+	\setsidenotes{
+		text-mark-format=\normalfont\bfseries{\textsuperscript#1}, % Stile per il marker nel testo
+		note-mark-format=\textbf{#1}:,                             % Stile per il marker sulla nota a margine
+		note-mark-sep=\enskip, % Set the space after the marker
+	}
+
+	\newfontfamily\HeadingsFont{Myriad Pro}
+	\newfontfamily\CaptionsFont{Myriad Pro}
+	\newfontfamily{\MathFont}[Scale=MatchLowercase]{Iosevka Term Semibold}
+	
+	% Fattore di spaziatura fra le righe
+	%\setstretch{1.025}  %{Minion Pro}
+	\setstretch{1.0}     %ACaslonPro
+\else
+\newcommand*\HeadingsFont{}
+\newcommand*\CaptionsFont{}
+\newcommand*\MathFont{}
+\fi
+
+
+
+% --------------------------------------------------------------------------- %
+%	Personalizzazione dei titoli delle sezioni                                %
+% --------------------------------------------------------------------------- %
+% VARIABILI CHE REGOLANO LA SPAZIATURA
+\def\spacing{1.0cm} % Spazio fra il quadrato del numero della sezione e quello della sezione
+\def\indent{\oddsidemargin} % rientro delle subsection
+
+% PERSONALIZZAZIONE DEI TITOLI DELLE SECTION
+\newcommand{\titlebar}{
+%	Background del testo della sezione
+%	\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+%		\node [
+%		anchor=base west,
+%		%		minimum height=3.5ex,
+%		minimum width=\linewidth+0.05cm,
+%		fill=secTitleBackground,
+%		text=secTitleBackground
+%		] at (\spacing + 3.0cm-0.05cm,0) {\thesection};
+%	}
+	\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+		\node [anchor=base west,
+		minimum width=3.5ex,
+		fill=secNumberingBackground,
+		text=secNumberingForeground] at (3cm,0) {\thesection};
+	}
+}
+\titleformat{\section}{\color{secTitleForeground}\large\bfseries\HeadingsFont}{\titlebar}{\spacing + 0.1cm}{}
+
+
+% --------------------------------------------------------------------------- %
+%	Personalizzazione dei titoli delle sotto-sezioni                          %
+% --------------------------------------------------------------------------- %
+\setcounter{secnumdepth}{2} % Attivo la numerazione delle sub-sections
+\newcommand{\subtitlebar}{
+%	Background del testo della sottosezione
+%	\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+%		\node [
+%		anchor=base west,
+%		minimum height=1.5ex,
+%		minimum width=\linewidth-\indent+0.05cm,
+%		fill=subsecTitleBackground,
+%		text=subsecTitleBackground
+%		] at (\spacing + \indent + 2.95cm,0) {\thesubsection};
+%	}
+	\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+		\node [anchor=base west,
+		minimum height=1.5ex,
+		fill=subsecNumberingBackground,
+		text=subsecNumberingForeground] at (\indent + 3.0cm,0) {\thesubsection};
+	}
+}
+\titleformat{\subsection}{\color{subsecTitleForeground}\bfseries\HeadingsFont}{\subtitlebar}{\spacing +\indent + 0.1cm}{}
+
+% --------------------------------------------------------------------------- %
+%	Personalizzazione dei titoli delle sotto-sotto-sezioni                    %
+% --------------------------------------------------------------------------- %
+\titleformat{\subsubsection}{\color{subsecTitleForeground}\bfseries\HeadingsFont\relsize{-0.9}}{}{}{}
+
+
+% --------------------------------------------------------------------------- %
+%	Aggiunta delle sotto-sotto-sotto-sezioni                                  %
+% --------------------------------------------------------------------------- %
+\newcommand{\subsubsubsection}[1]{\bigskip\noindent{\color{black!70!white}\small\HeadingsFont\bfseries\itshape #1} \\}
+
+
+% --------------------------------------------------------------------------- %
+%	Correzione spaziatura  prima e dopo le sezioni                            %
+% --------------------------------------------------------------------------- %
+%\titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+\titlespacing\section{0pt}{14pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{13pt plus 4pt minus 2pt}{-2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	HEADERS AND FOOTERS
+%----------------------------------------------------------------------------------------
+
+\RequirePackage{scrlayer-scrpage}       % Customise head and foot regions
+\setlength{\headheight}{115pt}			% Enlarge the header
+
+
+% --- Creo dei nuovi comandi singoli, così è più facile metterli in questo schifo di scrheadings
+% Formato pagine sinistre, in alto. Parte allineato con il testo.
+\newcommand*{\headingUNO}{
+	\hspace{-\marginparwidth}\hspace{-\marginparsep}%
+	\normalfont 
+	\begin{tikzpicture}[node distance=0cm]
+	\draw node[rectangle,
+	fill=secNumberingBackground,
+	text=secNumberingForeground,
+	draw=none,
+	%	minimum height=0.55cm,
+	minimum width=0.70cm
+	] (A) {\small\textbf{\CaptionsFont\thechapter}};
+	\draw node[
+	right = of A,
+	rectangle,
+	fill=none,
+	text=accentColor!60!black,
+	draw=none,
+	minimum height=0.5cm,
+	minimum width=0.8cm,
+	] (B) {{\scriptsize\HeadingsFont\Chaptername}};
+	\end{tikzpicture}
+	\hfill%
+	\parbox[c][5mm][t]{0.7\linewidth}{\hfill\scriptsize\HeadingsFont\rightmark}
+}
+% Formato pagine destre, in alto a destra. Parte allineato con il testo.
+\newcommand*{\headingDUE}{
+	%\hspace{\marginparsep}\hspace{4mm}%
+	\normalfont
+	\makebox[\overflowingheadlen][r]{%
+		\parbox[c][2mm][t]{\marginparwidth}{%\hspace{-\marginparsep}
+			\scriptsize\HeadingsFont\rightmark}
+		\parbox[c]{\textwidth}{\hfill 	
+			\normalfont 
+			\begin{tikzpicture}[node distance=0cm]
+			\draw node[
+			rectangle,
+			fill=none,
+			text=accentColor!60!black,
+			draw=none,
+			minimum height=0.5cm,
+			minimum width=0.8cm,
+			] (A) {{\scriptsize\HeadingsFont\Chaptername}};
+			\draw node[right = of A,
+			rectangle,
+			fill=secNumberingBackground,
+			text=secNumberingForeground,
+			draw=none,
+			%	minimum height=0.55cm,
+			minimum width=0.70cm
+			] (B) {\small\textbf{\CaptionsFont\thechapter}};
+			\end{tikzpicture}	
+		}%
+	}
+}
+
+
+% Formato pagine sinistra, in basso a destra. Parte allineato con il testo.
+\newcommand*{\headingQUATTRO}{
+	\hspace{-\marginparwidth}\hspace{-\marginparsep}%
+	\makebox[\overflowingheadlen][l]{%
+		{\large\normalfont\textbf{\thepage}}
+		\makebox[2em][c]{\rule[-1.15cm]{1pt}{1.55cm}}
+		\hfill%
+		{\normalfont Relazione di Grafica Interattiva -- \textbf{\color{accentColor}Giuseppe Pio Cianci}}
+		\hfill
+	}%
+}%
+
+
+% Formato pagine destre, in basso a destra. Parte allineato con il testo.
+\newcommand*{\headingCINQUE}{
+	%\hspace{\marginparsep}\hspace{4mm}%
+	\makebox[\overflowingheadlen][r]{%
+		\hfill%
+		{\normalfont Relazione di Grafica Interattiva -- \textbf{\color{accentColor}Giuseppe Pio Cianci}}
+		\hfill
+		\makebox[2em][c]{\rule[-1.15cm]{1pt}{1.55cm}}
+		{\large\normalfont\textbf{\thepage}}
+		
+	}%
+}%
+
+\newcommand*{\headingSETTE}{}
+\newcommand*{\headingOTTO}{}
+
+% Headings styles
+\renewpagestyle{scrheadings}{
+	{\headingUNO} % Pagina destra, alto a sinistra (allineato con l'inizio del testo)
+	{\headingDUE} % Pagina sinistra,angolo alto a sinistra
+	{\headingDUE} %tre
+}{
+	{\headingQUATTRO} % Pagina destra, basso a sinistra (allineato con l'inizio del testo)
+	{\headingCINQUE}  % Pagina sinistra, angolo basso a sinistra
+	{\headingCINQUE} %sei
+}
+
+% Pagine con stile ``plain" come quella di un nuovo capitolo
+\renewpagestyle{plain.scrheadings}{
+	{\headingSETTE}%
+	{\headingOTTO}% Pagina sinistra - Angolo alto a sinistra
+	{%nove
+	}% Pagina sinistra - Angolo alto a sinistra dell'indice
+}{
+	{\headingQUATTRO}%
+	{\headingCINQUE}% Pagina sinistra - Angolo basso a sinistra
+	{%dodici
+	}% Pagina sinistra - Angolo basso a sinistra dell'indice
+}
+
+\renewpagestyle{pagenum.scrheadings}{
+	{tredici}%
+	{quattordici}%
+	{quindici}
+}{
+	{sedici \thepage}%
+	{diciassette}%
+	{diciotto}
+}
+
+% Set the default page style
+\pagestyle{plain.scrheadings}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% --------------------------------------------------------------------------- %
+%	Personalizzazione: Modifico semplicemente la toc depth dei margintoc      %
+% --------------------------------------------------------------------------- %
+% Command to print a table of contents in the margin
+\renewcommand{\margintoc}[1][\mtocshift]{ % The first parameter is the vertical offset; by default it is \mtocshift
+	\begingroup
+	% Set the style for section entries
+	\etocsetstyle{section}
+	{\parindent -5pt \parskip 0pt}
+	{\leftskip 0pt}
+	{\makebox[.5cm]{\etocnumber\autodot}
+		\etocname\nobreak\leaders\hbox{\hbox to 1.5ex {\hss.\hss}}\hfill\nobreak
+		\etocpage\par}
+	{}
+	% Set the style for subsection entries
+	\etocsetstyle{subsection}
+	{\parindent -5pt \parskip 0pt}
+	{\leftskip 0pt}
+	{\makebox[.5cm]{}
+		\etocname\nobreak\leaders\hbox{\hbox to 1.5ex {\hss.\hss}}\hfill\nobreak
+		\etocpage\par}
+	{}
+	% Set the global style of the toc
+	%\etocsettocstyle{}{}
+	%\etocsettocstyle{\normalfont\sffamily\normalsize}{}
+	%\etocsettocstyle{\usekomafont{section}\small}{}
+	\etocsettocstyle{\usekomafont{chapterentry}\small}{}
+	\etocsetnexttocdepth{section}
+	% Print the table of contents in the margin
+	\marginnote[#1]{\localtableofcontents}
+	\endgroup
+}
+
+
+

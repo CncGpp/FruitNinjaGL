@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespaceassets_1_1res_1_1anim" kind="namespace" language="C++">
+    <compoundname>assets::res::anim</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceassets_1_1res_1_1anim_1a6586c519125bebda7586cfa78914b041" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>static float assets::res::anim::gaussian</definition>
+        <argsstring>(const float t)</argsstring>
+        <name>gaussian</name>
+        <param>
+          <type>const float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Curva gaussiana. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indica il tempo <formula id="2">$ t\in[0,1] $</formula> da trasformare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>valore interpolato. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="79" column="21" bodyfile="fn/core/assets/assets.hpp" bodystart="79" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceassets_1_1res_1_1anim_1a82686f52fca4b671bde228d39302877e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>static float assets::res::anim::cubic_bezier</definition>
+        <argsstring>(const float t)</argsstring>
+        <name>cubic_bezier</name>
+        <param>
+          <type>const float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Curva cubica di bezier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Viene utilizzate una <ulink url="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">curva di Bézier</ulink> cubica composta da 4 punti di controllo. La curva è visualizzabile su <ulink url="https://www.desmos.com/calculator/66vnmrcgnc">desmos</ulink>. I punti sono stati scelti in modo da avere un rapito incremento a 1 e una decrescita a 0 più dolce.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indica il tempo <formula id="2">$ t\in[0,1] $</formula> da trasformare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>valore interpolato. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="96" column="21" bodyfile="fn/core/assets/assets.hpp" bodystart="96" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceassets_1_1res_1_1anim_1a514e9d71f477a8bb0105cc008d4e2aff" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>static float assets::res::anim::cosine</definition>
+        <argsstring>(const float t)</argsstring>
+        <name>cosine</name>
+        <param>
+          <type>const float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Curva coseno. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Viene utilizzate una potenza sesta della funzione coseno, opportunamente contratta per avere semi-periodo unitario. La potenza è stata opportunamente scelta per dare una forma più quadra alla curva.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indica il tempo <formula id="2">$ t\in[0,1] $</formula> da trasformare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>valore interpolato. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/assets/assets.hpp" line="114" column="21" bodyfile="fn/core/assets/assets.hpp" bodystart="114" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Funzioni di interpolazione delle animazioni. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Il namespace contiene tutta una serie di funzioni utilizzate per interpolare varie animazioni in particolare quelle di fade-in o fade-out degli sprite.</para>
+<para>Una funzione <formula id="0">$ f $</formula> affinchè possa essere utilizzata come interpolante deve: <formula id="1">\[ f:[0, 1] \mapsto [0, 1], \qquad f(0) = f(1) = 0 \]</formula> ovvero, mappare valori da 0 a 1 fra 0 e 1 ed assumere valore nulli agli estremi del dominio. </para>
+    </detaileddescription>
+    <location file="fn/core/assets/assets.hpp" line="72" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_mesh" kind="class" language="C++" prot="public">
+    <compoundname>Mesh</compoundname>
+    <includes refid="_mesh_8hpp" local="no">fn/core/gl/Mesh.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_mesh_1a6465a888c97232a39e12aad008c969c3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>std::vector&lt;Vertex&gt; Mesh::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <briefdescription>
+<para>Buffer dei vertici che descrivono una texture. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="52" column="17" bodyfile="fn/core/gl/Mesh.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mesh_1a5e55b84c6c967608bcf23ed7d68e4215" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; GLuint &gt;</type>
+        <definition>std::vector&lt;GLuint&gt; Mesh::indices</definition>
+        <argsstring></argsstring>
+        <name>indices</name>
+        <briefdescription>
+<para>Buffer degli indici che descrivono le terne di vertici da disegnare. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="53" column="17" bodyfile="fn/core/gl/Mesh.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mesh_1aaee6c709154b03a4900e274f673af89f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &gt;</type>
+        <definition>std::vector&lt;TextureSP&gt; Mesh::textures</definition>
+        <argsstring></argsstring>
+        <name>textures</name>
+        <briefdescription>
+<para>Insieme delle texture usate in questa mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="54" column="17" bodyfile="fn/core/gl/Mesh.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_mesh_1a09b989b9d4df8ae595d7e80e091a4a5b" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint Mesh::VAO</definition>
+        <argsstring></argsstring>
+        <name>VAO</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="132" column="12" bodyfile="fn/core/gl/Mesh.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mesh_1a0d28b2c6fee628a13f43cae3f858569b" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint Mesh::VBO</definition>
+        <argsstring></argsstring>
+        <name>VBO</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="132" column="17" bodyfile="fn/core/gl/Mesh.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mesh_1a894c6723c0172f4e38b2509582abfa6c" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint Mesh::EBO</definition>
+        <argsstring></argsstring>
+        <name>EBO</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="132" column="22" bodyfile="fn/core/gl/Mesh.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_mesh_1a138b8aa364526fb327e4972a3068f654" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Mesh::Mesh</definition>
+        <argsstring>(std::vector&lt; Vertex &gt; &amp;vertices, std::vector&lt; GLuint &gt; &amp;indices, std::vector&lt; TextureSP &gt; &amp;textures)</argsstring>
+        <name>Mesh</name>
+        <param>
+          <type>std::vector&lt; <ref refid="struct_vertex" kindref="compound">Vertex</ref> &gt; &amp;</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; GLuint &gt; &amp;</type>
+          <declname>indices</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &gt; &amp;</type>
+          <declname>textures</declname>
+        </param>
+        <briefdescription>
+<para>Costruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vettore di <ref refid="struct_vertex" kindref="compound">Vertex</ref> che definiscono i vertici della mesh </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vettore di indici rappresentanti l&apos;adjacency information </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>textures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vettore di <ref refid="class_texture" kindref="compound">Texture</ref> da utilizzare per la mesh </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="63" column="5" bodyfile="fn/core/gl/Mesh.cpp" bodystart="4" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1a5f6fe27ea23c72126e58280d9e6d252c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Mesh::Mesh</definition>
+        <argsstring>(std::vector&lt; Vertex &gt; &amp;vertices, std::vector&lt; GLuint &gt; &amp;indices, TextureSP texture)</argsstring>
+        <name>Mesh</name>
+        <param>
+          <type>std::vector&lt; <ref refid="struct_vertex" kindref="compound">Vertex</ref> &gt; &amp;</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; GLuint &gt; &amp;</type>
+          <declname>indices</declname>
+        </param>
+        <param>
+          <type><ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref></type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+<para>Costruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vettore di <ref refid="struct_vertex" kindref="compound">Vertex</ref> che definiscono i vertici della mesh </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vettore di indici rappresentanti l&apos;adjacency information </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_texture" kindref="compound">Texture</ref> da utilizzare per la mesh </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="72" column="5" bodyfile="fn/core/gl/Mesh.cpp" bodystart="13" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1a5efe4da1a4c0971cfb037bd70304c303" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Mesh::~Mesh</definition>
+        <argsstring>()</argsstring>
+        <name>~Mesh</name>
+        <briefdescription>
+<para>Distruttore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="75" column="5" bodyfile="fn/core/gl/Mesh.cpp" bodystart="21" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1a59c0e6d651a2db3de068b36ad4a3627a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Mesh::Mesh</definition>
+        <argsstring>(Mesh const &amp;)=delete</argsstring>
+        <name>Mesh</name>
+        <param>
+          <type><ref refid="class_mesh" kindref="compound">Mesh</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>La copia di un oggetto <ref refid="class_mesh" kindref="compound">Mesh</ref> non è permessa. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="78" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1af9198c15863bfed7ca5309f625f89d37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_mesh" kindref="compound">Mesh</ref> &amp;</type>
+        <definition>Mesh&amp; Mesh::operator=</definition>
+        <argsstring>(Mesh const &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="class_mesh" kindref="compound">Mesh</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>L&apos;assegnazione di un oggetto <ref refid="class_mesh" kindref="compound">Mesh</ref> non è permessa. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="81" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1a06c1f259ba663319115de880c08c3803" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mesh::draw</definition>
+        <argsstring>(ShaderSP &amp;shader) const</argsstring>
+        <name>draw</name>
+        <param>
+          <type><ref refid="_shader_8hpp_1a28c917b60764e5aefe22cc93a1686bb5" kindref="member">ShaderSP</ref> &amp;</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+<para>Disegna la mesh sul framebuffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Oggetto <ref refid="class_shader" kindref="compound">Shader</ref> da utilizzare per il disegno. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="88" column="10" bodyfile="fn/core/gl/Mesh.cpp" bodystart="28" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_mesh_1a45c6353c612a21aa38bebdf7753971f1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_mesh_8hpp_1a910252a4814e3e7fd73831186cbce6cb" kindref="member">MeshSP</ref></type>
+        <definition>MeshSP Mesh::rectangle</definition>
+        <argsstring>(const glm::vec3 &amp;topLeft, const glm::vec3 &amp;bottomRight, const TextureSP &amp;texture)</argsstring>
+        <name>rectangle</name>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+<para>Genera una mesh rettangolare. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Si tratta essenzialmente di una funzione di utility che consente la rapida creazione di un rettangolo con una immagine al suo interno. Utile per la visualizzazione di <ref refid="class_sprite" kindref="compound">Sprite</ref> e figure. I quattro spigoli del rettangolo sono tali da corrispondere ai 4 estremi della texture.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>topLeft</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertice top-left del rettangolo nello spazio 3d. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bottomRight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertice bottom-right del rettangolo nello spazio 3d. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_texture" kindref="compound">Texture</ref> da utilizzare sulla mesh. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Una mesh rettangolare a cui è stata applicata una texture. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="102" column="20" bodyfile="fn/core/gl/Mesh.cpp" bodystart="66" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1aaa0f8e961adbbd1207becfc21a390776" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_mesh_8hpp_1a910252a4814e3e7fd73831186cbce6cb" kindref="member">MeshSP</ref></type>
+        <definition>MeshSP Mesh::rectangle</definition>
+        <argsstring>(const glm::vec2 &amp;topLeft, const glm::vec2 &amp;bottomRight, const TextureSP &amp;texture)</argsstring>
+        <name>rectangle</name>
+        <param>
+          <type>const glm::vec2 &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const glm::vec2 &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+<para>Genera una mesh rettangolare. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Specializzazione al caso bidimensionale della funzione precedente. La coordinata z è fissata a 0. Il rettangolo è quindi creato sul piano XY.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>topLeft</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertice top-left del rettangolo nello spazio 2d. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bottomRight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertice bottom-right del rettangolo nello spazio 2d. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_texture" kindref="compound">Texture</ref> da utilizzare sulla mesh. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Una mesh rettangolare a cui è stata applicata una texture. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="115" column="20" bodyfile="fn/core/gl/Mesh.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mesh_1a46cab98808839837fe7c6aca667cac2a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_mesh_8hpp_1a910252a4814e3e7fd73831186cbce6cb" kindref="member">MeshSP</ref></type>
+        <definition>MeshSP Mesh::rectangle</definition>
+        <argsstring>(const TextureSP &amp;texture)</argsstring>
+        <name>rectangle</name>
+        <param>
+          <type>const <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+<para>Genera una mesh rettangolare. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Specializzazione della funzione precedente. Il rettangolo costruito avrà:<itemizedlist>
+<listitem><para>top-left = { -1.0f, -1.0f, 0.0f }</para>
+</listitem><listitem><para>bottom-right ={ 1.0f, 1.0f, 0.0f } La funzione è utile per avere un rettangolo <computeroutput>unitario</computeroutput> a cui applicare successivamente trasformazioni.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_texture" kindref="compound">Texture</ref> da utilizzare sulla mesh. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Una mesh rettangolare a cui è stata applicata una texture. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="128" column="20" bodyfile="fn/core/gl/Mesh.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_mesh_1a533c5c397be364a724019f06f27d3d26" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mesh::initMesh</definition>
+        <argsstring>()</argsstring>
+        <name>initMesh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Mesh.hpp" line="135" column="10" bodyfile="fn/core/gl/Mesh.cpp" bodystart="106" bodyend="141"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Astrazione di una <ref refid="class_mesh" kindref="compound">Mesh</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>La classe rappresenta un reticolo poligonale che definisce un oggetto nello spazio, la rappresentazione avviene mediante vertici, indici e texture.</para>
+<para>Nei vertici sono contenuti i dati dell&apos;oggetto mentre negli indici contengono l&apos;adjacency information cioè come i vertici sono connessi per formare gli spigoli e le facce della mesh. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="6">
+        <label>std::vector&lt; Vertex &gt;</label>
+        <childnode refid="7" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::shared_ptr&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Mesh</label>
+        <link refid="class_mesh"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>textures</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>indices</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>vertices</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Vertex</label>
+        <link refid="struct_vertex"/>
+      </node>
+      <node id="5">
+        <label>std::vector&lt; GLuint &gt;</label>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; TextureSP &gt;</label>
+        <childnode refid="3" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/core/gl/Mesh.hpp" line="48" column="1" bodyfile="fn/core/gl/Mesh.hpp" bodystart="49" bodyend="136"/>
+    <listofallmembers>
+      <member refid="class_mesh_1a06c1f259ba663319115de880c08c3803" prot="public" virt="non-virtual"><scope>Mesh</scope><name>draw</name></member>
+      <member refid="class_mesh_1a894c6723c0172f4e38b2509582abfa6c" prot="private" virt="non-virtual"><scope>Mesh</scope><name>EBO</name></member>
+      <member refid="class_mesh_1a5e55b84c6c967608bcf23ed7d68e4215" prot="public" virt="non-virtual"><scope>Mesh</scope><name>indices</name></member>
+      <member refid="class_mesh_1a533c5c397be364a724019f06f27d3d26" prot="private" virt="non-virtual"><scope>Mesh</scope><name>initMesh</name></member>
+      <member refid="class_mesh_1a138b8aa364526fb327e4972a3068f654" prot="public" virt="non-virtual"><scope>Mesh</scope><name>Mesh</name></member>
+      <member refid="class_mesh_1a5f6fe27ea23c72126e58280d9e6d252c" prot="public" virt="non-virtual"><scope>Mesh</scope><name>Mesh</name></member>
+      <member refid="class_mesh_1a59c0e6d651a2db3de068b36ad4a3627a" prot="public" virt="non-virtual"><scope>Mesh</scope><name>Mesh</name></member>
+      <member refid="class_mesh_1af9198c15863bfed7ca5309f625f89d37" prot="public" virt="non-virtual"><scope>Mesh</scope><name>operator=</name></member>
+      <member refid="class_mesh_1a45c6353c612a21aa38bebdf7753971f1" prot="public" virt="non-virtual"><scope>Mesh</scope><name>rectangle</name></member>
+      <member refid="class_mesh_1aaa0f8e961adbbd1207becfc21a390776" prot="public" virt="non-virtual"><scope>Mesh</scope><name>rectangle</name></member>
+      <member refid="class_mesh_1a46cab98808839837fe7c6aca667cac2a" prot="public" virt="non-virtual"><scope>Mesh</scope><name>rectangle</name></member>
+      <member refid="class_mesh_1aaee6c709154b03a4900e274f673af89f" prot="public" virt="non-virtual"><scope>Mesh</scope><name>textures</name></member>
+      <member refid="class_mesh_1a09b989b9d4df8ae595d7e80e091a4a5b" prot="private" virt="non-virtual"><scope>Mesh</scope><name>VAO</name></member>
+      <member refid="class_mesh_1a0d28b2c6fee628a13f43cae3f858569b" prot="private" virt="non-virtual"><scope>Mesh</scope><name>VBO</name></member>
+      <member refid="class_mesh_1a6465a888c97232a39e12aad008c969c3" prot="public" virt="non-virtual"><scope>Mesh</scope><name>vertices</name></member>
+      <member refid="class_mesh_1a5efe4da1a4c0971cfb037bd70304c303" prot="public" virt="non-virtual"><scope>Mesh</scope><name>~Mesh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

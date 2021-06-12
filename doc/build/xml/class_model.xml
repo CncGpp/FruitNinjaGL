@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="class_model" kind="class" language="C++" prot="public">
+    <compoundname>Model</compoundname>
+    <includes refid="_model_8hpp" local="no">fn/core/gl/Model.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_model_1a1f24c304f36af86a7013d38e08bf7b53" prot="private" static="no" mutable="no">
+        <type>fs::path</type>
+        <definition>fs::path Model::m_dir</definition>
+        <argsstring></argsstring>
+        <name>m_dir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="63" column="10" bodyfile="fn/core/gl/Model.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1a995a92b2b7b6eb726a09b8e3b95da346" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="_mesh_8hpp_1a910252a4814e3e7fd73831186cbce6cb" kindref="member">MeshSP</ref> &gt;</type>
+        <definition>std::vector&lt;MeshSP&gt; Model::m_meshes</definition>
+        <argsstring></argsstring>
+        <name>m_meshes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="64" column="13" bodyfile="fn/core/gl/Model.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1aed25a512919563ff5b9ce829626c5c33" prot="private" static="no" mutable="no">
+        <type>glm::mat2x3</type>
+        <definition>glm::mat2x3 Model::m_AABB</definition>
+        <argsstring></argsstring>
+        <name>m_AABB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="65" column="13" bodyfile="fn/core/gl/Model.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_model_1a8b66f8781c445d7870e95d71cb7a632b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Model::Model</definition>
+        <argsstring>(const fs::path &amp;modelpath)</argsstring>
+        <name>Model</name>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>modelpath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Costruttore.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>modelpath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filepath al modello da caricare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="44" column="1" bodyfile="fn/core/gl/Model.hpp" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1abc56823a03eacda0f6f1216d7fd190ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Model::Model</definition>
+        <argsstring>(Model const &amp;)=delete</argsstring>
+        <name>Model</name>
+        <param>
+          <type><ref refid="class_model" kindref="compound">Model</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>La copia di un <ref refid="class_model" kindref="compound">Model</ref> non è permessa. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1ab007eafdd8bbb2a0b3d1423f154a8ddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_model" kindref="compound">Model</ref> &amp;</type>
+        <definition>Model&amp; Model::operator=</definition>
+        <argsstring>(Model const &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="class_model" kindref="compound">Model</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>L&apos;assegnamento di un <ref refid="class_model" kindref="compound">Model</ref> non è permesso. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="51" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1ab663b444c43ce35c02e5a11175c10310" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::draw</definition>
+        <argsstring>(ShaderSP &amp;shader)</argsstring>
+        <name>draw</name>
+        <param>
+          <type><ref refid="_shader_8hpp_1a28c917b60764e5aefe22cc93a1686bb5" kindref="member">ShaderSP</ref> &amp;</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+<para>Disegna il modello nella finestra. Il disegno avviene disegnando una per una le singole <programlisting><codeline><highlight class="normal">Mesh</highlight></codeline>
+</programlisting> <ref refid="class_mesh" kindref="compound">Mesh</ref> che compongono il modello. Il disegno avviene secondo uno shader passato in input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_shader" kindref="compound">Shader</ref> da utilizzare per il disegno del modello.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="58" column="6" bodyfile="fn/core/gl/Model.cpp" bodystart="17" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a74efc223cb05a0286511ef7d878b65cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>glm::mat2x3</type>
+        <definition>glm::mat2x3 Model::AABB</definition>
+        <argsstring>() const</argsstring>
+        <name>AABB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="60" column="13" bodyfile="fn/core/gl/Model.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_model_1aca37de759077cbd82533d1173f8ba329" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::loadModel</definition>
+        <argsstring>(const fs::path &amp;modelpath)</argsstring>
+        <name>loadModel</name>
+        <param>
+          <type>const fs::path &amp;</type>
+          <declname>modelpath</declname>
+        </param>
+        <briefdescription>
+<para>Carica il modello da file utilizzando la libreria ASSIMP. Le mesh e le texture risultanti sono salvate localmente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>modelpath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>path al modello da caricare</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="72" column="6" bodyfile="fn/core/gl/Model.cpp" bodystart="24" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a38c423386cce5099365b942c05f3440b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::processNode</definition>
+        <argsstring>(const aiScene *scene, const aiNode *node)</argsstring>
+        <name>processNode</name>
+        <param>
+          <type>const aiScene *</type>
+          <declname>scene</declname>
+        </param>
+        <param>
+          <type>const aiNode *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Processa i nodi di una <programlisting><codeline><highlight class="normal">aiScene</highlight></codeline>
+</programlisting> in maniera ricorsiva. Per ogni nodo vengono processate le su mesh e si procede ricorsivamente sui suoi figli (se ci sono) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scene</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scena di ASSIMP che rappresenta l&apos;intero modello</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nodo di partenza della ricerca</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="79" column="6" bodyfile="fn/core/gl/Model.cpp" bodystart="46" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a4560b9c46cd864ae26cf4d841c502ae5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_mesh_8hpp_1a910252a4814e3e7fd73831186cbce6cb" kindref="member">MeshSP</ref></type>
+        <definition>MeshSP Model::processMesh</definition>
+        <argsstring>(const aiScene *scene, const aiMesh *mesh)</argsstring>
+        <name>processMesh</name>
+        <param>
+          <type>const aiScene *</type>
+          <declname>scene</declname>
+        </param>
+        <param>
+          <type>const aiMesh *</type>
+          <declname>mesh</declname>
+        </param>
+        <briefdescription>
+<para>Funzione base per processare le <ref refid="class_mesh" kindref="compound">Mesh</ref> contenute all&apos;interno dei nodi. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scene</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mesh</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Ritorna un <programlisting><codeline><highlight class="normal">Mesh</highlight></codeline>
+</programlisting> costruita con i dati caricati.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="87" column="9" bodyfile="fn/core/gl/Model.cpp" bodystart="61" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a3cc8323e32e068afeb08d58dbef41aef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::calculateAABB</definition>
+        <argsstring>()</argsstring>
+        <name>calculateAABB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="89" column="6" bodyfile="fn/core/gl/Model.cpp" bodystart="118" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1aec81bf87848e05aca1cd6419b9201575" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="_texture_8hpp_1a53d0dd7737c7866b93074c3cb81b88e1" kindref="member">TextureSP</ref> &gt;</type>
+        <definition>std::vector&lt; TextureSP &gt; Model::loadMaterialTextures</definition>
+        <argsstring>(const aiMaterial *mat, const aiTextureType type, const std::string &amp;typeName)</argsstring>
+        <name>loadMaterialTextures</name>
+        <param>
+          <type>const aiMaterial *</type>
+          <declname>mat</declname>
+        </param>
+        <param>
+          <type>const aiTextureType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>typeName</declname>
+        </param>
+        <briefdescription>
+<para>Controlla tutte le material texture di un determinato <computeroutput>type</computeroutput> e le carica se non sono ancora state caricate. utilizza <programlisting><codeline><highlight class="normal">textures_cache</highlight></codeline>
+</programlisting> come memoria cache. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Puntatore all&apos;oggetto <programlisting><codeline><highlight class="normal">aiMaterial</highlight></codeline>
+</programlisting> contenente informazioni sui materiali.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ASSIMP type (enum) della texture da caricare.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nome di base della tipologia della texture del materiale.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un vettore di <programlisting><codeline><highlight class="normal">Texture</highlight></codeline>
+</programlisting> contenente le texture lette.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="fn/core/gl/Model.hpp" line="102" column="14" bodyfile="fn/core/gl/Model.cpp" bodystart="136" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>La classe <ref refid="class_model" kindref="compound">Model</ref> consente di caricare da file, memorizzare e gestire un modello 3D. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Il caricamento avviene appoggiandosi alla libreria <ulink url="http://assimp.org/">asslib</ulink>.</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::shared_ptr&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; MeshSP &gt;</label>
+        <childnode refid="3" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Model</label>
+        <link refid="class_model"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_meshes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="fn/core/gl/Model.hpp" line="35" column="1" bodyfile="fn/core/gl/Model.hpp" bodystart="36" bodyend="103"/>
+    <listofallmembers>
+      <member refid="class_model_1a74efc223cb05a0286511ef7d878b65cc" prot="public" virt="non-virtual"><scope>Model</scope><name>AABB</name></member>
+      <member refid="class_model_1a3cc8323e32e068afeb08d58dbef41aef" prot="private" virt="non-virtual"><scope>Model</scope><name>calculateAABB</name></member>
+      <member refid="class_model_1ab663b444c43ce35c02e5a11175c10310" prot="public" virt="non-virtual"><scope>Model</scope><name>draw</name></member>
+      <member refid="class_model_1aec81bf87848e05aca1cd6419b9201575" prot="private" virt="non-virtual"><scope>Model</scope><name>loadMaterialTextures</name></member>
+      <member refid="class_model_1aca37de759077cbd82533d1173f8ba329" prot="private" virt="non-virtual"><scope>Model</scope><name>loadModel</name></member>
+      <member refid="class_model_1aed25a512919563ff5b9ce829626c5c33" prot="private" virt="non-virtual"><scope>Model</scope><name>m_AABB</name></member>
+      <member refid="class_model_1a1f24c304f36af86a7013d38e08bf7b53" prot="private" virt="non-virtual"><scope>Model</scope><name>m_dir</name></member>
+      <member refid="class_model_1a995a92b2b7b6eb726a09b8e3b95da346" prot="private" virt="non-virtual"><scope>Model</scope><name>m_meshes</name></member>
+      <member refid="class_model_1a8b66f8781c445d7870e95d71cb7a632b" prot="public" virt="non-virtual"><scope>Model</scope><name>Model</name></member>
+      <member refid="class_model_1abc56823a03eacda0f6f1216d7fd190ad" prot="public" virt="non-virtual"><scope>Model</scope><name>Model</name></member>
+      <member refid="class_model_1ab007eafdd8bbb2a0b3d1423f154a8ddb" prot="public" virt="non-virtual"><scope>Model</scope><name>operator=</name></member>
+      <member refid="class_model_1a4560b9c46cd864ae26cf4d841c502ae5" prot="private" virt="non-virtual"><scope>Model</scope><name>processMesh</name></member>
+      <member refid="class_model_1a38c423386cce5099365b942c05f3440b" prot="private" virt="non-virtual"><scope>Model</scope><name>processNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

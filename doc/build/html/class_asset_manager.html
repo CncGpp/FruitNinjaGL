@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AssetManager class | FruitNinjaGL C++
+docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FF272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m"><img src="logo.png" alt="" />FruitNinjaGL <span class="m-thin">C++
+docs</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          AssetManager <span class="m-thin">class</span>
+        </h1>
+        <p>Gestore di asset e risorse di gioco.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-static-methods">Public static functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>La classe mette a disposizione una serie di metodi per il caricamento di risorse e asset quali <a href="class_shader.html" class="m-doc">Shader</a>, <a href="class_model.html" class="m-doc">Model</a>, <a href="class_texture.html" class="m-doc">Texture</a>, <a href="class_audio.html" class="m-doc">Audio</a>.</p><p>Il caricamento avviene sfruttando il pattern Flyweight separando la risorsa dal suo utilizzo.</p>
+        <section id="pub-static-methods">
+          <h2><a href="#pub-static-methods">Public static functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename ... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a4898d28f2d977c2c794557c9482b208a" class="m-doc">loadShader</a>(</span><span class="m-doc-wrap">const fs::path&amp; vertex_filepath,
+              const fs::path&amp; fragment_filepath,
+              Args &amp;&amp; ... args) -&gt; <a href="_shader_8hpp.html#a28c917b60764e5aefe22cc93a1686bb5" class="m-doc">ShaderSP</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Carica, compila e linka uno shader in GL.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename ... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a507a21f91e9607b495d5a42c7b27847b" class="m-doc">loadModel</a>(</span><span class="m-doc-wrap">const fs::path&amp; filepath,
+              Args &amp;&amp; ... args) -&gt; <a href="_asset_manager_8hpp.html#aa322aa8f05313a6720d41301b70f2c5f" class="m-doc">ModelSP</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Carica, un modello.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename ... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a490fbff7269d5a855104ff76b6e02e17" class="m-doc">loadTexture</a>(</span><span class="m-doc-wrap">const fs::path&amp; filepath,
+              Args &amp;&amp; ... args) -&gt; <a href="_texture_8hpp.html#a53d0dd7737c7866b93074c3cb81b88e1" class="m-doc">TextureSP</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Carica, una texture.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename ... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">static auto <a href="#afae6b6671504a8ae71c5a8010bfb392e" class="m-doc">loadAudio</a>(</span><span class="m-doc-wrap">const fs::path&amp; filepath,
+              Args &amp;&amp; ... args) -&gt; <a href="_audio_8hpp.html#a7244daad6e148d4928bb72a91306ddb3" class="m-doc">AudioSP</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Carica, un file <a href="class_audio.html" class="m-doc">Audio</a>.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a4898d28f2d977c2c794557c9482b208a"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ... Args&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static <a href="_shader_8hpp.html#a28c917b60764e5aefe22cc93a1686bb5" class="m-doc">ShaderSP</a> AssetManager::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4898d28f2d977c2c794557c9482b208a" class="m-doc-self">loadShader</a>(</span><span class="m-doc-wrap">const fs::path&amp; vertex_filepath,
+              const fs::path&amp; fragment_filepath,
+              Args &amp;&amp; ... args) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Carica, compila e linka uno shader in GL.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vertex_filepath</td>
+                  <td>percorso al file contenente il codice sorgente del vertex shader.</td>
+                </tr>
+                <tr>
+                  <td>fragment_filepath</td>
+                  <td>percorso al file contenente il codice sorgente del fragment shader.</td>
+                </tr>
+                <tr>
+                  <td>args</td>
+                  <td>eventuali parametri extra che saranno inoltrati al costruttore dell&#x27;oggetto <a href="class_shader.html" class="m-doc">Shader</a> da creare.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Shared pointer allo shader caricato.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>La funzione prende in input il percorso al codice sorgente di un vertex shader e un fragment shader li legge, compila ed infine linka restituendo uno shared pointer ad un oggetto <a href="class_shader.html" class="m-doc">Shader</a>.</p><p>Gli shader già caricati sono memorizzati in s_shaderCache, successive richieste allo stesso shader restituiranno lo stesso puntatore.</p>
+          </div></section>
+          <section class="m-doc-details" id="a507a21f91e9607b495d5a42c7b27847b"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ... Args&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static <a href="_asset_manager_8hpp.html#aa322aa8f05313a6720d41301b70f2c5f" class="m-doc">ModelSP</a> AssetManager::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a507a21f91e9607b495d5a42c7b27847b" class="m-doc-self">loadModel</a>(</span><span class="m-doc-wrap">const fs::path&amp; filepath,
+              Args &amp;&amp; ... args) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Carica, un modello.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">filepath</td>
+                  <td>percorso al file del modello.</td>
+                </tr>
+                <tr>
+                  <td>args</td>
+                  <td>eventuali parametri extra che saranno inoltrati al costruttore dell&#x27;oggetto <a href="class_model.html" class="m-doc">Model</a> da creare.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Shared pointer al modello caricato.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>La funzione prende in input il percorso al file del modello e restituisce uno shared pointer ad un oggetto <a href="class_model.html" class="m-doc">Model</a>. La funzione usa ASSIMP come back-end per il caricamento.</p><p>I modelli già caricati sono memorizzati in s_modelCache, successive richieste allo stesso modello restituiranno lo stesso puntatore.</p>
+          </div></section>
+          <section class="m-doc-details" id="a490fbff7269d5a855104ff76b6e02e17"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ... Args&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static <a href="_texture_8hpp.html#a53d0dd7737c7866b93074c3cb81b88e1" class="m-doc">TextureSP</a> AssetManager::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a490fbff7269d5a855104ff76b6e02e17" class="m-doc-self">loadTexture</a>(</span><span class="m-doc-wrap">const fs::path&amp; filepath,
+              Args &amp;&amp; ... args) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Carica, una texture.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">filepath</td>
+                  <td>percorso al file della texture.</td>
+                </tr>
+                <tr>
+                  <td>args</td>
+                  <td>eventuali parametri extra che saranno inoltrati al costruttore dell&#x27;oggetto <a href="class_texture.html" class="m-doc">Texture</a> da creare.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Shared pointer alla texture caricata.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>La funzione prende in input il percorso al file di una texture e restituisce uno shared pointer ad un oggetto <a href="class_texture.html" class="m-doc">Texture</a>. La funzione usa stb_image come back-end per il caricamento.</p><p>Le texture già caricate sono memorizzate in s_textureCache, successive richieste alla stessa texture restituiranno lo stesso puntatore.</p>
+          </div></section>
+          <section class="m-doc-details" id="afae6b6671504a8ae71c5a8010bfb392e"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ... Args&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static <a href="_audio_8hpp.html#a7244daad6e148d4928bb72a91306ddb3" class="m-doc">AudioSP</a> AssetManager::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afae6b6671504a8ae71c5a8010bfb392e" class="m-doc-self">loadAudio</a>(</span><span class="m-doc-wrap">const fs::path&amp; filepath,
+              Args &amp;&amp; ... args) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Carica, un file <a href="class_audio.html" class="m-doc">Audio</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">filepath</td>
+                  <td>percorso al file dell&#x27;audio.</td>
+                </tr>
+                <tr>
+                  <td>args</td>
+                  <td>eventuali parametri extra che saranno inoltrati al costruttore dell&#x27;oggetto <a href="class_audio.html" class="m-doc">Audio</a> da creare.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Shared pointer all&#x27;audio caricato.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>La funzione prende in input il percorso al file audio e restituisce uno shared pointer ad un oggetto <a href="class_audio.html" class="m-doc">Audio</a>. La funzione usa irrKlang come back-end per il caricamento.</p><p>Gli audio già caricati sono memorizzati in s_audioCache, successive richieste allo stesso audio restituiranno lo stesso puntatore.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>FruitNinjaGL C++
+docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

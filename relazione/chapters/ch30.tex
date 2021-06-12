@@ -1,0 +1,747 @@
+\setchapterpreamble[u]{\margintoc}
+\chapter{Implementazione GPU}
+
+\begin{chap-intro}
+	In questo capitolo si descriverà l'implementazione effettuata del radix-sort in ambiente CUDA analizzando il funzionamento dei vari kernel utilizzati. Per avere un confronto con la CPU verrà poi illustrata una implementazione dello stesso algoritmo in ambiente OpenMP. Successivamente verranno mostrati i risultati di test, prove e Benchmark fra le soluzioni proposte e quelli presenti nella libreria \texttt{CUB} \cite{CUB}.
+\end{chap-intro}
+
+
+\section{Implementazione GPU}
+In questa sezione verrà da prima decritto il funzionamento dell' applicazione proposta mostrandone l'interfaccia ed un esempio di utilizzo, successivamente i vari kernel utilizzati verranno descritti più nel dettaglio.
+
+\subsection{Compilazione ed esecuzione}
+Il progetto è stato strutturato in più cartelle, le principali sono:
+\begin{itemize}
+\item La cartella \texttt{/include} contiene gli header delle funzioni nel formati \texttt{.h} (per i C++) o \texttt{.cuh} (per i CUDA kernel).
+\item La cartella \texttt{/src} contiene i sorgenti che essi siano \texttt{.cpp} o \texttt{.cu}.
+\item La cartella \texttt{/app} contiene l'entry point all'applicazione dove si effettua un benchmark del radix-sort implementato.
+\end{itemize}
+
+Per la compilazione è sufficiente posizionarsi nella root principale ed utilizzare il comando:
+
+\begin{lstlisting}[style=console, caption={Comando per compilare il progetto. L'eseguibile prodotto è chiamato \texttt{app} e posizionato nella sotto-cartella \texttt{/bin}.}, label={compile-command}]
+> nvcc -std=c++11 -O3 -Xptxas -O3 -Xcompiler -O3 -Iinclude 
+       app/main.cpp src/radix_sort.cu src/scan.cu -o bin/app 
+\end{lstlisting}
+
+L'eseguibile prodotto è chiamato \texttt{app} e posizionato nella sotto-cartella \texttt{/bin}. Per eseguirlo è sufficiente utilizare il comando \texttt{./bin/app}. L'output prodotto sarà:
+
+\begin{lstlisting}[style=console, caption={Esecuzione ed output orodotto dell'applicativo. L'array generato ha valori uniformemente distribuiti fra {$[0, 2^{32}-1]$} ed i tempi (misurati in microsecondi) includono il trasferimento di memoria fra host e device.}, label={compile-command}]
+> ./bin/app
+
+  ::::::::::::::::::::::::::::::::::::::::::::
+  ::::      Benchmark radix-sort GPU      ::::
+  ::::::::::::::::::::::::::::::::::::::::::::
+   Ordinamento di unsigned int a 32b        
+    - Unif. distribuiti in [0, 2<<32-1]     
+    - Array di dimensioni crescenti 
+ 
+   ARRAY SIZE         TEMPO (us)     CPU==GPU  
+       1024 (2**10)         2831      uguali 
+       2048 (2**11)         4206      uguali 
+       4096 (2**12)         7168      uguali  
+       8192 (2**13)        13211      uguali  
+      16384 (2**14)        25282      uguali 
+      32768 (2**15)        27708      uguali 
+      65536 (2**16)        36380      uguali 
+     131072 (2**17)        37964      uguali  
+     262144 (2**18)        38389      uguali 
+     524288 (2**19)        39060      uguali 
+    1048576 (2**20)        41242      uguali 
+    2097152 (2**21)        44165      uguali 
+    4194304 (2**22)        50840      uguali 
+    8388608 (2**23)        99571      uguali 
+   16777216 (2**24)       161666      uguali 
+   33554432 (2**25)       320561      uguali 
+   67108864 (2**26)       605680      uguali 
+  134217728 (2**27)      1217086      uguali 
+  268435456 (2**28)      2408928      uguali 
+\end{lstlisting}
+
+\subsection{API ed esempio}
+L'implementazione è definita dell'header cuda \texttt{radix\_sort.h}.
+\begin{cpp}
+void RadixSortGPU::sort(unsigned int* first, unsigned int* last);
+\end{cpp}
+L'interfaccia è simile a \texttt{std::sort} della standard template library:
+\begin{itemize}
+\item La funzione si trova nel namespace \texttt{RadixSortGPU};
+\item Richiede du parametri \texttt{first} e \texttt{last} rappresentano gli estremi del range di elementi dell'\textit{array host} ordinare;
+\item Lavora in-place sovrascrivendo l'input.
+\end{itemize} 
+
+\subsubsection{Esempio di utilizzo}
+Di seguito un esempio di utilizzo del radix sort per l'ordinamento di un piccolo array da 14 elementi.
+\begin{cpp}[caption={%
+		Esempio di funzionamento dell'implementazione del radix-sort per ordinare un array utilizzando la GPU.
+		L'array in input \texttt{array\_GPU} si trova sull'host ha dimensione 14 ed è stato copiato in \texttt{array\_CPU} per la verifica di correttezza su CPU.
+		\\
+		L'interfaccia ed il funzionamento di \texttt{RadixSortGPU::sort(*)} è simile a \texttt{std::sort(*)} della STD del C++.
+	},%
+ label={example-code}, captionpos=t]
+#include <iostream>
+#include "radix_sort.cuh"
+
+typedef unsigned int uint;
+int main(){
+	uint array_GPU[] = {5, 7, 4, 2, 8, 6, 1, 9, 0, 3, 2, 3, 1, 3}; 
+	constexpr int N = sizeof(array_GPU)/sizeof(uint);
+	uint array_CPU[N];
+	std::copy(array_GPU, array_GPU + N, array_CPU);
+	
+	std::cout << "Array originale:  ";
+	for (auto a : array_GPU) std::cout << a << " ";
+	
+	// Array ordinato su GPU
+	RadixSortGPU::sort(array_GPU, array_GPU + N);    
+	std::cout << "\nordinato con GPU: ";
+	for (auto a : array_GPU) std::cout << a << " ";
+	
+	// Array ordinato su CPU
+	std::sort(array_CPU, array_CPU + N);             
+	std::cout << "\nordinato con CPU: ";
+	for (auto a : array_CPU) std::cout << a << " ";
+	std::cout << '\n';
+	
+	return 0;
+}
+\end{cpp}
+
+\bigskip
+\textbf{Output}
+\begin{lstlisting}[style=console, caption={Output dell'esempio. Come è possibile vedere l'output dell'algoritmo su CPU coincide con quello prodotto sulla GPU.}, label={execution}]
+> ./example
+  Array originale:  5 7 4 2 8 6 1 9 0 3 2 3 1 3
+  ordinato con GPU: 0 1 1 2 2 3 3 3 4 5 6 7 8 9
+  ordinato con CPU: 0 1 1 2 2 3 3 3 4 5 6 7 8 9
+\end{lstlisting}
+
+
+\subsection{Dettagli implememtativi}
+L'implementazione effettuata segue il paper \cite{Satish2009} tuttavia a seguito di alcuni test si è preferito modificare alcuni parametri, in particolare:
+\marginnote[*+1]{
+	Utilizzando $b=256$ l'ordinamento è effettuato un byte alla volta, per un intero senza segno su una macchina classica sono dunque necessari 4 counting-sort.
+}
+\begin{itemize}
+	\item Dimensione della base $b$: È stata utilizzata una base $b=256$ invece di $b=16$. In questo modo gli istogrammi sono più grandi (è richiesta molta più shared memory) ma si dimezza il numero di iterazioni del counting sort ed il trasferimento con la memoria globale e gli accessiad essa.
+	\item Dimensione del tile: È stato utilizzato un tile di dimensioni $16.384$ (dato l'istogramma più grande). In questo modo il numero di blocchi si riduce ed ogni thread gestisce $64$ elementi.
+\end{itemize}
+
+
+\subsubsection{RadixSortGPU::sort}
+La procedura \cppinline{RadixSortGPU::sort(*)} mostrata nel listing \rref{sort-code} è la funzione principale dell'implementazione. Qui non si effettuano ancora chiamate dirette ai kernel CUDA.
+\begin{enumerate}
+\item Calcolo del numero di blocchi \texttt{P};
+\item Allocazione della memoria e trasferimento dell'array sul device;
+\item Ordinamento attraverso 4 chiamante di \texttt{partial\_sort}\sidenote{Ovvero viene effettuato un counting sort per ognununa delle 4 radici.}. %
+%Dopo ogni ordinamento parziale la copia fra buffer e array è evitata scambiando i puntatori sul device.
+\item Trasferimento dell'array ordinato sull'host e deallocazione della memoria usata.
+\end{enumerate}
+
+\begin{cpp}[caption={%
+		Estratto del codice della procedura principale ordinamento.
+	},%
+	label={sort-code}, captionpos=t]
+void RadixSortGPU::sort(uint* first, uint* last){
+	const size_t N = std::distance(first, last);
+	const size_t P = (N + TILE_SIZE - 1) / TILE_SIZE;
+	
+	// Alloco la memoria necessaria all'ordinamento
+	uint* d_array = nullptr;
+	cuda::malloc(d_array, N*sizeof(uint));
+	uint* d_tmp = nullptr;
+	cuda::malloc(d_tmp, N*sizeof(uint));
+	uint* d_hist = nullptr;
+	cuda::malloc(d_hist, P*BUCKETS_COUNT*sizeof(uint));
+	
+	// Trasferisco l'array sul device
+	cuda::memcpy(d_array, first, N*sizeof(uint), 
+	             cuda::memcpyKind::HostToDevice);
+	
+	// Effettuo l'ordinamento...
+	partial_sort<0>(d_array, d_tmp, N, d_hist); 
+	std::swap(d_array, d_tmp);
+	partial_sort<1>(d_array, d_tmp, N, d_hist); 
+	std::swap(d_array, d_tmp);
+	partial_sort<2>(d_array, d_tmp, N, d_hist); 
+	std::swap(d_array, d_tmp);
+	partial_sort<3>(d_array, d_tmp, N, d_hist); 
+	std::swap(d_array, d_tmp);
+
+	// Trasferisco l'array ordinato all'host
+	cuda::memcpy(first, d_array, N*sizeof(uint), 
+	             cuda::memcpyKind::DeviceToHost);
+	
+	// Libero la memoria allocata
+	cuda::free(d_array);
+	cuda::free(d_tmp);
+	cuda::free(d_hist);
+}
+\end{cpp}
+
+\subsubsection{RadixSortGPU::partial\_sort<>}
+La procedura \cppinline{RadixSortGPU::partial_sort<>(*)} mostrata nel listing \rref{partial-code} implementa il counting-sort eseguendo sequenzialmente le 3 macro-fasi richiamando gli appositi kernel. L'ordinamento avviene rispetto all'indice della radice \texttt{RADIX} fornito nel template.
+
+\begin{cpp}[caption={%
+		Estratto del codice della procedura partial di ordinamento.
+	},%
+	label={partial-code}, captionpos=t]
+template<uint RADIX>
+void RadixSortGPU::partial_sort(uint* d_array, uint* d_tmp, 
+                                size_t N, uint* d_hist){
+	const size_t P = (N + TILE_SIZE - 1) / TILE_SIZE; 
+	
+	// Ogni blocco calcola il suo istogramma di TILE_SIZE elementi
+	RadixSortGPU::tile_histograms<RADIX>(d_array, N, d_hist);
+	
+	// Effettuo la scan dell'istogramma
+	RadixSortGPU::prefix_scan(d_hist, P*BUCKETS_COUNT);
+	
+	// Distribuisco gli elementi 
+	RadixSortGPU::rank_n_permute<RADIX>(d_array, d_tmp, N, d_hist);
+}
+\end{cpp}
+
+
+\subsubsection{Estrazione della radice}
+Tramite la funzione \cppinline{RadixSortGPU::digit<>(*)} mostrata nel listing \rref{digit-code} viene estratta la \texttt{RADIX}-esima radice da un intero. L'operazione di estrazione avviene attraverso semplici operazioni bitwise.
+\begin{cpp}[caption={%
+		Estratto del codice della procedura partial di ordinamento.
+		\texttt{RADIX\_SIZE} è $b$. 
+	},%
+	label={digit-code}, captionpos=t]
+template <uint RADIX>
+__device__ inline constexpr uint digit(const uint value){
+	return (value >> RADIX*RADIX_SIZE) & ((1 << RADIX_SIZE) - 1);
+}
+\end{cpp}
+
+
+\subsection{Dettagli implememtativi Kernel}
+In questa sezione verranno illustrati i kernel tramite i quali sono implementate le tre macro-fasi del counting sort. In particolare, la prima fase di \texttt{histogram} e l'ultima di \texttt{rank-and-permute} utilizzano due tipologie di kernel, a seconda se l'ordinamento è stabile o meno.
+
+Mantenere la proprietà di stabilità rende i kernel più lenti\sidenote{A causa dei pattern di accesso alla memoria. Infatti ogni thread del blocco deve \textit{accedere ordinatamente} agli indici dell'array da ordinare.} ma non è necessario farlo per la prima radice che si sta ordinando. La prima iterazione può quindi essere effettuata con kernel non-stabili mentre le restanti devono essere effettuate con kernel stabili.
+
+
+\subsubsection{Kernel - {histogram} (non-stabile)}
+Il kernel \cppinline{histogram_kernel_unstable<>(*)} mostrato nel listing \rref{histogram-kernel-unstable-code} utilizza \texttt{blockDim.x} thread per calcolare l'istogramma parziale rispetto la radice \texttt{RADIX} di ciascun blocco e lo memorizza nella giusta locazione della global memory; l'{}istogramma è calcolato in maniera non-stabile.
+
+\medskip
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Parametri}}\\
+I parametri del kernel sono:
+
+\begin{table}[!htp]
+\begin{tabular}{rcp{6.5cm}}
+\cppinline{uint RADIX} &-& indice della radice da estrarre (LSD); \\
+\cppinline{uint *d_in} &-& puntatore al device array di input per il quale si vuole calcolare l'istogramma; \\
+\cppinline{size_t N}  &-& numero di elementi in input; \\
+\cppinline{uint *d_hist} &-& puntatore al device array di output\sidenote{Corrisponde alla matrice $\m{H}$ linearizzata.} dove memorizzare gli istogrammi parziali.
+\end{tabular}
+\end{table}
+
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Descrizione}}\\
+Il kernel deve essere invocato con \texttt{blockDim.x = 256} in quanto ogni thread è responsabile di un bin dell'istogramma. %
+\marginnote{%
+Per semplificare la fase di scan, \texttt{d\_hist} è memorizzato in maniera \textit{column-major} in questo modo la scansione può essere applicato direttamente sulla sua linearizzazione.
+}%
+Dopo l'inizializzazione, ogni thread calcola la posizione e gli offset su \texttt{d\_in} estrae la radice e aumenta in maniera atomica il relativo bin; successivamente ogni thread salva il valore del suo bin in \texttt{d\_hist}.
+
+\begin{cpp}[caption={%
+		Estratto del codice della procedura partial di ordinamento.
+		Il numero di buckets \texttt{BUCKETS\_COUNT} equivale alla base $b$ di numerazione. 
+	},%
+	label={histogram-kernel-unstable-code}, captionpos=t]
+template <uint RADIX> __global__ 
+void histogram_kernel_unstable(uint *d_in, size_t N, uint *d_hist){   
+	__shared__ uint temp[RadixSortGPU::BUCKETS_COUNT];
+	
+	temp[threadIdx.x] = 0;
+	__syncthreads();
+	
+	int i = threadIdx.x + blockIdx.x*blockDim.x;
+	const int offset = blockDim.x * gridDim.x;
+	while (i < N){
+		atomicAdd(&temp[digit<RADIX>(d_in[i])], 1);
+		i += offset;
+	}
+	__syncthreads();
+	
+	d_hist[blockIdx.x + threadIdx.x*gridDim.x] = temp[threadIdx.x];
+}
+\end{cpp}
+Ogni blocco processa porzioni \textit{non contigue} di 256 elementi alla volta fin tanto che l'array non termina. L'istogramma parziale del blocco sarà in ogni caso costruito su \texttt{TILE\_SIZE} elementi ma essendoci dei \enquote{salti} fra le porzioni si perde la stabilità durante il successivo calcolo degli offset. 
+
+\subsubsection{Kernel - {histogram} (stabile)}
+Il kernel \cppinline{histogram_kernel<>(*)} mostrato nel listing \rref{histogram-kernel-code} mantenendo l'ordine di assegnazione\sidenote{Dunque il $k$-esimo blocco con id:$k$ riceverà gli elementi fra [$k$\texttt{TILE\_SIZE}, $(k+1)$\texttt{TILE\_SIZE}[ } delle porzioni di tile ai thread è stabile.
+
+\medskip
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Parametri}}\\
+I parametri del kernel sono:
+
+\begin{compactcenter}
+	\begin{tabular}{rcp{6.5cm}}
+		\cppinline{uint RADIX} &-& indice della radice da estrarre (LSD); \\
+		\cppinline{uint *d_in} &-& puntatore al device array di input per il quale si vuole calcolare l'istogramma; \\
+		\cppinline{size_t N}  &-& numero di elementi in input; \\
+		\cppinline{uint *d_hist} &-& puntatore al device array di output dove memorizzare gli istogrammi parziali.
+	\end{tabular}
+\end{compactcenter}
+
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Descrizione}}\\
+Il funzionamento generale di questo kernel è simile al precedente, anche in questo caso deve essere invocato con \texttt{blockDim.x = 256} in quanto ogni thread è responsabile di un bin dell'istogramma. La differenza sta nel calcolo degli indici e degli offset, ogni blocco riceve ordinatamente i tile di \texttt{TILE\_SIZE} ed i thread al loro interno ne calcoleranno gli istogrammi.
+
+\begin{cpp}[caption={%
+		Estratto del codice della procedura partial di ordinamento.
+		Il numero di buckets \texttt{BUCKETS\_COUNT} equivale alla base $b$ di numerazione. 
+	},%
+	label={histogram-kernel-code}, captionpos=t]
+template <uint RADIX> __global__ 
+void histogram_kernel(uint *d_in, size_t N, uint *d_hist){   
+	__shared__ uint temp[RadixSortGPU::BUCKETS_COUNT];
+	
+	temp[threadIdx.x] = 0;
+	__syncthreads();
+	
+	const int EPB = N / gridDim.x;
+	
+	const int i = threadIdx.x + blockIdx.x*EPB;
+	const int offset = blockDim.x;
+	int j = 0;
+	
+	while (j < EPB && i + j < N){
+		atomicAdd(&temp[digit<RADIX>(d_in[i+j])], 1);
+		j += offset;
+	}
+	__syncthreads();
+	
+	d_hist[blockIdx.x + threadIdx.x*gridDim.x] = temp[threadIdx.x];
+}
+\end{cpp}
+
+\subsubsection{Invocazione dei kernel histogram}
+Nel seguente listing è in fine mostrato come sono invocati i kernel. Il numero di thread per blocco equivale al numero di buckets \texttt{BUCKETS\_COUNT}=$b$ nell'istogramma, mentre il numero di blocchi è calcolato dinamicamente a partire dal numero di elementi e dal \texttt{TILE\_SIZE}.
+Se la radice che si sta ordinando è la prima allora viene richiamata la versione non stabile, altrimenti quella stabile.
+\begin{figure*}[!hpt]
+\begin{cpp}
+template <uint RADIX>
+void RadixSortGPU::histogram(uint *d_in, size_t N, uint* d_hist){
+	const size_t P = (N + TILE_SIZE - 1) / TILE_SIZE;
+	if(RADIX == 0)
+		histogram_kernel_unstable<RADIX><<<P, BUCKETS_COUNT>>>(d_in, N, d_hist);
+	else
+		histogram_kernel<RADIX><<<P, BUCKETS_COUNT>>>(d_in, N, d_hist);
+}
+\end{cpp}
+\end{figure*}
+
+
+\subsubsection{Kernel - {scan}}
+L'exclusive prefix sum (scan) è un \enquote{building block} per molti algoritmi paralleli tra cui l'ordinamento e la costruzione di strutture di dati. Si tratta dunque di una primitiva che non necessita di re-implementazioni, nel paper in esame infatti per tale operazione si ricorre alla libreria CUDPP\sidenote{CUDA Data Parallel Primitives Library. \url{http://cudpp.github.io/}
+\\
+Il radix-sort proposto nel paper sarà poi successivamente aggiunto a tale collezione di primitive.
+}. 
+
+Il principale problema della libreria CUDPP è che ha delle limitazioni dulla dimensione massima degli array di input, in particolare nel caso di scan la dimensione massima supportata è $67.107.840$ elementi ($\approx 2^{26}$). Per ordinare array di dimensioni maggiori, nel lavoro svolto, si è preferito utilizzare\sidenote{Alla quale sono state solamente effettuate alcune modifiche all'interfaccia delle funzioni richiamate.} l'implementazione di \textsc{matt dean} \cite{mattdean1} disponibile su github a sua volta basata sul paper \cite{harris2007parallel} di NVIDIA, autore \textsc{mark harris} pubblicato nella collezione di GPU Gems 3 da NVIDIA. 
+
+
+
+
+\subsubsection{Kernel - {rank-and-permute} (non stabile)}
+Il kernel \cppinline{rank_n_permute_kernel_unstable<>(*)} mostrato nel listing \rref{histogram-kernel-code} implementa la terza macro-fase del counting-sort in maniera non stabile. La struttura è simile al kernel dell'istogramma, ogni blocco gestisce un istogramma parziale, lo carica in memoria e iterando sul vettore originale lo sfrutta per calcolare gli offset e le posizioni finali.
+
+\medskip
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Parametri}}\\
+I parametri del kernel sono:
+
+\begin{compactcenter}
+	\begin{tabular}{rcp{6.5cm}}
+		\cppinline{uint RADIX} &-& indice della radice da estrarre (LSD); \\
+		\cppinline{uint *d_in} &-& puntatore al device array di input; \\
+		\cppinline{uint *d_out} &-& puntatore al device array di output; \\
+		\cppinline{size_t N}  &-& numero di elementi in input e output; \\
+		\cppinline{uint *d_hist} &-& puntatore al device array dove leggere gli istogrammi parziali.
+	\end{tabular}
+\end{compactcenter}
+
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Descrizione}}\\
+Anche in questo caso deve essere invocato con \texttt{blockDim.x = 256} in quanto ogni thread è responsabile di un bin dell'istogramma. Ogni thread del blocco scorre la sua porzione di array estrae la radice dai suoi valori e la usa per calcolare la posizione finale di quell'elemento, una volta calcolata tale posizione il bin relativo a quella radice può essere incrementato \textit{atomicamente}.
+
+\begin{cpp}[caption={%
+		Estratto del codice della procedura partial di ordinamento.
+		\texttt{RADIX\_SIZE} è $b$. 
+	},%
+	label={rank-and-permute-unstable-code}, captionpos=t]
+template<uint RADIX> __global__ 
+void rank_n_permute_kernel_unstable(uint* d_in, uint* d_out, 
+                                    size_t N, uint* d_hist){
+	__shared__ uint temp[RadixSortGPU::BUCKETS_COUNT];
+	
+	temp[threadIdx.x] = d_hist[blockIdx.x + threadIdx.x*gridDim.x];
+	__syncthreads();
+	
+	int i = threadIdx.x + blockIdx.x * blockDim.x;
+	const int offset = blockDim.x * gridDim.x;
+	while (i < N){
+		uint new_index = atomicAdd(&temp[digit<RADIX>(d_in[i])], 1);
+		d_out[new_index] = d_in[i];
+		i += offset;
+	}
+}
+\end{cpp}
+
+\subsubsection{Kernel - {rank-and-permute} (stabile)}
+Il kernel \cppinline{rank_n_permute_kernel<>(*)} mostrato nel listing \rref{histogram-kernel-code} implementa stabilmente la terza macro-fase del counting-sort. La struttura è simile al kernel dell'istogramma, con la differenza che ogni blocco è in grado di gestire più di un istogramma parziale.
+
+\medskip
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Parametri}}\\
+I parametri del kernel sono:
+
+\begin{compactcenter}
+	\begin{tabular}{rcp{6.5cm}}
+		\cppinline{uint RADIX} &-& indice della radice da estrarre (LSD); \\
+		\cppinline{uint *d_in} &-& puntatore al device array di input; \\
+		\cppinline{uint *d_out} &-& puntatore al device array di output; \\
+		\cppinline{size_t N}  &-& numero di elementi in input e output; \\
+		\cppinline{uint *d_hist} &-& puntatore al device array dove leggere gli istogrammi parziali.
+	\end{tabular}
+\end{compactcenter}
+
+\noindent
+\textbf{\color{black!65!white}\small\HeadingsFont{Descrizione}}\\
+Gli istogrammi sono caricati in nella shared memory e gestiti ognuno da un thread responsabile di tutti i suoi 256 bin. Ogni thread del blocco scorre la sua porzione di array estrae la radice dai suoi valori e la usa per calcolare la posizione finale di quell'elemento, una volta calcolata tale posizione il bin relativo a quella radice può essere incrementato senza bisogno di operazioni atomiche.
+
+\begin{cpp}[caption={%
+		Estratto del codice della procedura partial di ordinamento.
+		\texttt{RADIX\_SIZE} è $b$. 
+	},%
+	label={rank-and-permute-code}, captionpos=t]
+template<uint RADIX> __global__ 
+void rank_n_permute_kernel(uint* d_in, uint* d_out, size_t N, 
+                           uint* d_hist){
+	extern __shared__ uint temp[];
+	for(int i = 0; i < BUCKETS_COUNT; i++){
+		auto ix = blockIdx.x*blockDim.x + threadIdx.x +
+		          i * gridDim.x * blockDim.x
+		temp[threadIdx.x*BUCKETS_COUNT + i] = d_hist[ix];
+	}
+	
+	const int EPB = N / gridDim.x;
+	const int EPT = (EPB + blockDim.x - 1) / blockDim.x;
+	
+	const int i = threadIdx.x*EPT + blockIdx.x*EPB;
+	for(int j = 0; j < EPT && i+j < N; j++){
+		const int pos =  digit<RADIX>(d_in[i+j]) + 
+		                 threadIdx.x*BUCKETS_COUNT;
+		d_out[temp[pos]++] = d_in[i+j];
+	}
+}
+\end{cpp}
+
+
+\section{Implementazione CPU}
+\marginnote{
+	L'implementazione CPU è in realtà molto più \enquote{funzionale} rispetto a quella GPU perchè nasce da esigenze specifiche di implementazione all'interno del DBMS SADAS. Ad esempio è possibile ordinare interi, float e stringhe, si può specificare tramite template il numero di radici e la loro dimensione (perchè spesso i valori da ordinare sono su 1/2/3 Byte) oppure è possibile specificare come estrarre le radici quando si ordina (per i float e stringhe).
+}
+Per avere un confronto sul guadagno di performance del radix-sort su GPU è stata implementata, seguendo le stesse idee della sezione \rref{ssec:194401} una variante parallela di radix-sort per CPU utilizzando OpenMP.
+
+\subsection{API ed esempio}
+Anche in questo caso l'interfaccia del sort è simile a \texttt{std::sort} della standard template library:
+
+\begin{cpp}
+template <unsigned int RADIX_SIZE = 8, unsigned int KEYSIZE = 0>
+class RadixSort{
+	...
+	template <class RandomAccessIterator, class RadixAccess>
+	static void sort(RandomAccessIterator first, 
+	                 RandomAccessIterator last, 
+	                 RadixAccess access, 
+	                 Algorithm algorithm = Algorithm::LSD);	
+	...
+}
+\end{cpp}
+Grazie ai template la funzione è generica in grado di ordinare qualsiasi struttura dati che rispetti i requisiti di RandomAccessIterator della STD.
+
+\subsubsection{Esempio di utilizzo}
+Di seguito un esempio di utilizzo del radix sort per l'ordinamento di un piccolo array da 14 elementi.
+\begin{cpp}[caption={%
+		Esempio di funzionamento dell'implementazione del radix-sort per ordinare un array utilizzando la CPU.
+		L'array in input \texttt{array\_RDX} ha dimensione 14 ed è stato copiato in \texttt{array\_STD} per la verifica di correttezza.
+		\\
+		Interfaccia e funzionamento di \texttt{RadixSort<>::sort(*)} sono simili a \texttt{std::sort(*)} della STD del C++.
+		\\\\
+		Nelle parentesi angolari della classe (\texttt{RadixSort<>}) è possibile specificare la dimensione in bit della radice ed
+		il numero di radici da utilizzare per l'ordinamento. In questo esempio, la chiamata  
+		\texttt{RadixSort<4,1>::sort(*)} avrebbe consentito di risparmiare 3 iterazioni inutili e usare meno bins.
+	},%
+	label={example-2-code}, captionpos=t]
+#include <iostream>
+#include "RadixSort.h"
+
+typedef unsigned int uint;
+int main(){
+	uint array_RDX[] = {5, 7, 4, 2, 8, 6, 1, 9, 0, 3, 2, 3, 1, 3}; 
+	constexpr int N = sizeof(array_RDX)/sizeof(uint);
+	uint array_STD[N];
+	std::copy(array_RDX, array_RDX + N, array_STD);
+	
+	std::cout << "Array originale:  ";
+	for (auto a : array_RDX) std::cout << a << " ";
+	
+	// Array ordinato con RadixSort<>::sort(*)
+	RadixSort<>::sort(array_RDX, array_RDX + N);    
+	std::cout << "\nordinato con RDX: ";
+	for (auto a : array_RDX) std::cout << a << " ";
+	
+	// Array ordinato con std::sort(*)
+	std::sort(array_STD, array_STD + N);             
+	std::cout << "\nordinato con STD: ";
+	for (auto a : array_STD) std::cout << a << " ";
+	std::cout << '\n';
+	
+	return 0;
+}
+\end{cpp}
+
+\bigskip
+\textbf{Output}
+\begin{lstlisting}[style=console, caption={Output dell'esempio. Come è possibile vedere gli output coincidono.}, label={execution-2}]
+> ./example
+Array originale:  5 7 4 2 8 6 1 9 0 3 2 3 1 3
+ordinato con RDX: 0 1 1 2 2 3 3 3 4 5 6 7 8 9
+ordinato con STD: 0 1 1 2 2 3 3 3 4 5 6 7 8 9
+\end{lstlisting}
+
+
+
+
+
+
+\subsection{Dettagli implementativi}
+In questa sezione è semplicemnete listato il codice relativo all' implementazione parallela del radix-sort LSD su CPU tramite la libreria OpenMP. 
+
+In particolare verranno prima mostrate le funzioni relative alle tre macro-fasi del counting-sort e successivamente la procedura principale \texttt{LSD\_radix\_sort}.
+
+
+\subsubsection{Histogram}
+\begin{cpp}
+template <unsigned int BUCKETS, typename dtype, class RadixAccess>
+static void compute_hist(const dtype* array, const size_t N, 
+                         unsigned int* hist,
+                         const RadixAccess& access, 
+                         const unsigned int idx){
+	#pragma omp parallel for schedule(static)
+	for(unsigned int i = 0; i < N; i++){
+		const unsigned int dgt = access(array[i], idx);
+		++hist[dgt + omp_get_thread_num() * BUCKETS]; 
+	}
+}
+\end{cpp}
+
+\medskip
+\subsubsection{Scan}
+\begin{cpp}
+template <int BUCKETS>
+static void prefix_sum(unsigned int* hist){
+	unsigned int sum = 0;
+	for(int i = 0; i < BUCKETS; i++)
+	for(int j = 0; j < omp_get_max_threads(); j++){
+		const unsigned int tmp = hist[i + j * BUCKETS];
+		hist[i + j * BUCKETS] = sum;
+		sum += tmp;
+	}   
+}
+\end{cpp}
+
+\medskip
+\subsubsection{Rank-and-Permute}
+\begin{cpp}
+template <unsigned int BUCKETS, typename dtype, class RadixAccess>
+static void integer_sort(dtype* array, dtype* tmp, const size_t N, 
+                         unsigned int* hist, 
+                         const RadixAccess& access, 
+                         const unsigned int idx){
+	#pragma omp parallel for schedule(static)
+	for(unsigned int i = 0; i < N; i++){
+		const unsigned int pos = access(array[i], idx) + omp_get_thread_num() * BUCKETS;
+		tmp[hist[pos]] = array[i];
+		++hist[pos];
+	}
+}	
+\end{cpp}
+
+\medskip
+\noindent
+\textbf{\small\HeadingsFont{Algoritmo completo}}\vspace{-0.5cm}
+\begin{figure*}[!hpt]
+\begin{cpp}
+template <class RandomAccessIterator, class RadixAccess, 
+typename dtype = typename std::iterator_traits<RandomAccessIterator>::value_type>
+static void LSD_radix_sort(const RandomAccessIterator first, 
+const RandomAccessIterator last, const RadixAccess& access){
+	// Numero di iterazioni necessarie, una per radice                       
+	constexpr int runs = KEYSIZE > 0 ? KEYSIZE : (sizeof(dtype)*8 + RADIX_SIZE - 1)/RADIX_SIZE;
+	// Numero di bucket per radice 
+	constexpr const unsigned int BUCKETS = (1 << RADIX_SIZE);  
+	// Numero totale di bucket (per la parallelizzazione)        
+	const unsigned int hBins = omp_get_max_threads() * BUCKETS;        
+	//Trasformo gli iteratori in un array C-Style
+	auto* array = &(*first);
+\end{cpp}
+\end{figure*}
+\begin{figure*}[!hpt]
+\begin{cpp}	
+	const size_t N = std::distance(first, last);
+	
+	//Pre-alloco la memoria ausiliaria per il calcolo dell'istogramma e vettore di appoggio
+	unsigned int hist[hBins];           // Ogni thread calcolerà il suo istogramma parziale.
+	auto* tmp = new dtype[N];           // Array di appoggio per l'integer-sort.
+	
+	// Avvio algoritmo di ordinamento
+	int iter = 0;
+	for(int i = 0; i < runs; i++){
+		memset(hist, 0, sizeof(unsigned int)*hBins);
+		
+		// Fase 1: Calcolo dell'istogramma dell'i-esima radice.
+		compute_hist<BUCKETS>(array, N, (unsigned int*)hist, access, i);
+		if(is_skippable<BUCKETS>(N, (unsigned int*)hist)) continue;
+		
+		// Fase 2: Calcolo la prefix-sum dell'istogramma.
+		prefix_sum<BUCKETS>((unsigned int*)hist);
+		
+		// Fase 3: Ordinamento rispetto l'i-esima radice.
+		integer_sort<BUCKETS>(array, tmp, N, (unsigned int*)hist, access, i);
+		std::swap(array, tmp);
+		++iter;
+	}
+	// Se ho fatto un numero dispari di iterazioni sono sfortunato...
+	if(iter%2 == 1){
+		std::swap(array, tmp);
+		std::copy(tmp, tmp + N, array);
+	}
+	
+	delete[] tmp;
+}
+\end{cpp}
+\end{figure*}
+
+
+
+\section{Analisi dei tempi}
+In questa sezione verranno finalmente analizzati i tempi di esecuzione del radix-sort implementato al variare della dimensione dell'input.
+
+I test sono stati effettuati sulla macchina \textit{redjeans} dell'università:
+\begin{center}
+	\centering \ttm
+	\begin{tabular}{lcl}
+		CPU & - & Intel(R) Core(TM) i7 860  @ 2.80GHz \\
+		&& cache: L1 32K, L2 256K, L3 8192K \\
+		&& 4 core / 4 thread (HTT off) \\
+		Memory & - & 8GB \\
+		GPU & - & NVIDIA Quadro K5000 \\
+		&& 4GB GDDR5, 1536 CUDA core \\
+		&& driver: 396.37 \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Metodologie di test}
+\begin{itemize}
+\item La sequenza da ordinare è un vettore di interi unsigned a 32b a valori uniformemente distribuiti fra $[0, 2^{32}-1]$.
+\item La dimensione della sequenza generata parte da $2^{10}$ raddoppiando ogni volta fino ad un massimo di $2^{28}$ elementi, per un totale di 19 esecuzioni.
+\item Ogni test è stato ripetuto 3 volte prendendo i tempi medi.
+\end{itemize}
+
+Per avere poi una qualche misura di paragone e riferimento, sono stati testati diversi algoritmi di ordinamento:
+\begin{enumerate}
+\item \texttt{std::sort}: L'algoritmo di ordinamento incluso\sidenote{In particolare l'implementazione di libstdc++.} nella standard template library. I tempi sono stato misurati sia per l'algoritmo eseguito in seriale che in parallelo abilitando la \textit{parallel mode} con il flag \texttt{-D\_GLIBCXX\_PARALLEL} durante la compilazione.
+\item \texttt{RadixSortCPU::sort}: L'implementazione del radix-sort su CPU utilizzando OpenMP.  I tempi sono stato misurati eseguendo sia l'algoritmo in maniera seriale che parallela.
+\item \textit{\textbf{\texttt{RadixSortGPU::sort}}}: L'implementazione del radix-sort su GPU utilizzando CUDA.
+\item \texttt{cub::DeviceRadixSort}: L'implementazione allo \enquote{stato dell'arte} del radix-sort su GPU della libreria cub.
+\end{enumerate}
+
+I tempi di esecuzione dei vari algoritmi sono mostrati nella tabella \rref{tab:table-time} nella quale ogni cella è stata colorata in funzione del tempo di esecuzione rispetto al numero di elementi. Dunque per ogni riga i tempi più bassi tendono al verde, quelli medi al giallo ed i più alti al rosso.
+
+\begin{table}[!htp]
+	\centering
+	\includegraphics[width=\linewidth]{images/ch30/table}
+	\caption{Tempi di esecuzione medi in millisecondi dei vari algoritmi di ordinamento al crescere della dimensionalità dell'input. La tabella è rappresentata come una heatmap evidenziando per ogni riga tempi migliori, peggiori e medi.
+	\\[0.2cm]
+	\begin{tabular}{p{0.01cm}p{4.15cm}@{}}
+		- & Quando la sequenza è \enquote{piccola} \texttt{std::sort} seriale è l'algoritmo più veloce;\\
+		- & Quando la sequenza è \enquote{media} \texttt{std::sort} parallelo è successivamente \texttt{RadixSortCPU::sort} sono gli algortmi più veloci;\\
+		- & Quando la sequenza è \enquote{grande} \texttt{RadixSortGPU::sort} è l'algoritmo più veloce;
+	\end{tabular}
+	}
+	\label{tab:table-time}
+\end{table}
+
+I colori della tabella permettono velocemente di confrontare i tempi e determinare gli algoritmi migliori a seconda del numero di elementi da ordinare.
+
+
+
+A partire dagli stessi dati precedentemente mostrati in tabella sono stati costruiti quattro tipologie di grafici:
+\begin{enumerate}
+	\item Tempo di ordinamento (in millisecondi) al variare della dimensione, scala logaritmica;
+	\item Numero di chiavi (in milioni) ordinate per secondo;
+	\item Speedup rispetto a \texttt{RadixSortCPU::sort} sequenziale;
+	\item Speedup rispetto a \texttt{RadixSortCPU::sort} parallelo.
+\end{enumerate}
+
+\begin{figure*}[!htp]
+\centering
+\includegraphics[width=\linewidth]{images/ch30/elapsed-time}
+\caption{Tempo di ordinamento (in millisecondi) al variare della dimensione, scala logaritmica.}
+\label{fig:elapsed-time}
+\end{figure*}
+
+\begin{figure*}[!htp]
+	\centering
+	\includegraphics[width=\linewidth]{images/ch30/kps}
+	\caption{Numero di chiavi (in milioni) ordinate per secondo. Il grafico mostra come gli algoritmi paralleli ed in particolare quelli su
+	         GPU diventano più efficienti ordinando un numero superiore di chiavi. Per gli algoritmi sequenziali invece il numero sembra non dipendere dalla dimensione dell'input.}
+	\label{fig:kps}
+\end{figure*}
+
+\begin{figure*}[!htp]
+	\centering
+	\includegraphics[width=\linewidth]{images/ch30/speedup-radix-seq}
+	\caption{Speedup rispetto a \texttt{RadixSortCPU::sort} sequenziale.}
+	\label{fig:speedup-radix-seq}
+\end{figure*}
+
+\begin{figure*}[!htp]
+	\centering
+	\includegraphics[width=\linewidth]{images/ch30/speedup-radix-par}
+	\caption{Speedup rispetto a \texttt{RadixSortCPU::sort} parallelo.}
+	\label{fig:speedup-radix-par}
+\end{figure*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
